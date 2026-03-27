@@ -138,6 +138,105 @@ Bazi ogeler oyun boyunca geri donmeli:
 
 Yeni icerik yazarken mevcut running gag'lere referans verin.
 
+## Komedi Teknikleri
+
+Oyundaki her kart metni en fazla 2 cumle. Bu kisitlamada komediyi isletmek icin asagidaki teknikleri kullanin.
+
+### Ucler Kurali (Rule of Three)
+
+Iki normal sey sirayla, ucuncusu beklenmedik. Iki eleman pattern kurar, ucuncusu kirar. Uc, bir pattern olusturmak icin gereken en kucuk sayidir.
+
+```
+Sipahi maas istiyor, yeniceri et istiyor, ulema hurmet istiyor.
+Ben de izin istiyorum ama sormuyorsunuz.
+```
+
+Ilk uc ciddi ve mantikli — devlet adamlari devlet isi istiyor. Dorduncu kisiye gelince sadrazamin kisisel istegi patlak veriyor. Pattern kuruldu, kirildi.
+
+```
+Kizin babasi 7 kale sahibi, kendisi 4 dil biliyor
+ve gureste seni yener.
+```
+
+Ilk ikisi klasik begenme kriterleri (zengin, kulturlu), ucuncusu fiziksel ustunluk — beklenmedik.
+
+### Yem ve Degistir (Bait and Switch)
+
+Cumleyi bir yone gotur, sonra aniden baska yere cevir. Okuyucu "simdi ciddi bir sey diyecek" derken absurt bir sey gelir. Onemli olan setup'in her iki anlami da tasimasi — okuyucu sadece birini duyar, diger anlam punchline'da ortaya cikar.
+
+```
+Deniz kizi yakaladik! Saclari sirma, sesi bulbul...
+Lakin yakindan bakinca bildigin sakalli bir fok baligina
+peruk takmislar gibi.
+```
+
+Beklenti: guzel deniz kizi hikayesi. Switch: sakalli fok. Bait ("saclari sirma, sesi bulbul") gercekten guzel bir varligi tarif ediyor, switch ani ve sert.
+
+```
+Yeniceriler kazan kaldirdi! "Ulufe isteriz, kelle isteriz!"
+...Bu sefer brokoli yemeyiz diyorlar.
+```
+
+Beklenti: ciddi askeri isyan. Switch: brokoli protestosu.
+
+### Duz Yuzle Soyleme (Deadpan)
+
+Sacma seyi tamamen ciddi bir dille raporla. Karakter gulmuyor, espri yaptiginin farkinda degil. Durum ciddi sunuluyor ama icerik sacma. Bu format icin en etkili tekniktir cunku kart metni zaten "rapor" tonundadir.
+
+```
+Sadrazam aslinda uc cocuktan olusan bir kule.
+Sultanim, bu iftiradir!
+```
+
+Sacma iddia + ciddi tepki. Sadrazam gercekten kizgin, ihbar mektubunu ciddiye aliyor.
+
+```
+Guvercin de kacmis.
+```
+
+Darbe bastirilmis, kardes yaralanmis ama son not olarak guvercin guncellenmesi veriliyor — tamamen duz bir tonla.
+
+### Kucumseme (Understatement)
+
+Buyuk bir olayi cok siradan soyle. Ciddiyet ile siraganlik arasindaki ucurum komik.
+
+```
+Darbe bastirildi sultanim! Ama kardesiniz kacis sirasinda
+kafes kapisina carpmis, burnu kirilmis.
+```
+
+Darbe = devleti sarsacak olay. Sonuc = burnu kirilmis. Olcek farki guldurur.
+
+### Dusuk Sonuc (Anticlimax)
+
+Buyuk gerilim kur, sonra cok kucuk veya alakasiz bir seyle bitir.
+
+```
+Venedik'e hangi notayi gonderelim?
+```
+Secenekler: "Do" / "Re"
+
+Diplomatik kriz beklerken muzik notalari. Gerilim tavan, sonuc sifir.
+
+### Geri Donus (Callback)
+
+Daha once gecen bir ogeyi beklenmedik bir kartta tekrar getir. Oyuncu "bunu daha once gordum" der ve tanima ani komik olur. Running gag'lerden farki: callback tek seferlik surpriz, running gag surekli tekrar.
+
+Oyundaki mevcut callback'ler:
+- Papagan her yerde ortaya cikar (ticaret → ifsa → haseki kavgasi → kardes zinciri → seyhulislam munazarasi)
+- "Miyav" secenegi farkli kartlarda
+- Guvercin kardes zinciri boyunca yeni roller ustlenir (mesajci → komutan → satranc rakibi)
+
+### Osmancik'a Ozel: Tarihsel Absurtluk
+
+Gercek Osmanli tarihinden gelen absurt detaylar en iyi malzemedir cunku "bunu uydurmadik" hissi verir:
+- Kedilere gosterilen saygi (gercek) → kedi vezir (absurt ama temeli var)
+- Hezarfen Ahmet Celebi (gercek) → tum orduya kanat takmak (absurt ama temeli var)
+- Lale devri sefahati (gercek) → Bogaz'i pembeye boyamak (absurt ama ruhu dogru)
+- Kafes usulu (gercek ve zaten absurt) → guvercinle satranc (bir adim otesi)
+
+Tamamen uydurma fantezi (gokten koyun yagmasi, dev bir el denizden cikmasi) daha az etkilidir cunku gerceklik capasi yoktur.
+
 ## Secim Tasarimi
 
 ### Her Secim Farkli Sayaclari Etkilemeli
