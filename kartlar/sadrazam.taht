@@ -1,15 +1,39 @@
 # Sadrazam kartları
 
+Sabah Arzı (card:sadrazam_arz)
+	bearer: character:sadrazam
+	weight: 0.6
+	lockturn: 12
+	> Sultanım, sabah arzına geldim. Dün gece sarayda bir şey olmadı, bugün de olmayacak inşallah. Ama yine de mühür sizde, ferman sizde, biz emrinizdeyiz.
+	* Emrimiz odur ki rahat olasın: counter:hazine 3, counter:reaya 3
+	* Bir şey olmazsa ne işe yararsın: counter:hazine 5, counter:ordu 5, counter:reaya -3
+
+Sadrazam Şikayet (card:sadrazam_sikayet)
+	bearer: character:sadrazam (variant:korkmus)
+	weight: 0.5
+	lockturn: 15
+	> Sultanım, kapıkulu ağaları geldi, herkesin bir derdi var. Sipahi maaş istiyor, yeniçeri et istiyor, ulema hürmet istiyor. Ben de izin istiyorum ama sormuyorsunuz.
+	* Hepsine bir şey verin: counter:hazine -10, counter:ordu 5, counter:din 5
+	* Sen izne çıkma: counter:reaya 5
+
+Rüşvet İhbarı (card:rusvet_ihbar)
+	bearer: character:sadrazam (variant:kurnaz)
+	weight: 0.4
+	lockturn: 20
+	> Sultanım, defterdarın üstünde 3 kürk, 2 atımlık altın ve bir de Hint papağanı bulunmuş. "Hediye" diyor. Hediyenin sınırı ne idi sultanım?
+	* Defterdarlıktan azledin: counter:hazine 12, counter:din 3
+	* Hediye hediyedir, karışmayın: counter:hazine -5, counter:reaya -5
+
 Vergi Teklifi (card:vergi)
 	bearer: character:sadrazam
 	weight: 1.0
 	weight: 2.0 when counter:hazine < 20
-	require: counter:hazine < 30
+	require: counter:hazine < 40
 	lockturn: 10
 	> Devlet-i Aliyye'nin hazinesi tamtakır sultanım. Öyle ki, fareler bile hicret etti. Mevcudat-ı nakdiyeyi artırmak için yeni bir vergi ihdas edelim mi?
-	* Müsadereye başlayın: counter:hazine 15, counter:reaya -10
-	* Maaşlardan kesilsin: counter:hazine 8, counter:ordu -5
-	* Kemerleri sıkalım: counter:hazine -5
+	* Müsadereye başlayın: counter:hazine 20, counter:reaya -8
+	* Maaşlardan kesilsin: counter:hazine 12, counter:ordu -5
+	* Sıkıntı yok, kemer sıkarız: counter:hazine -3
 
 # Sikke Tashihi Arkı
 Sikke Tashihi (card:sikke_tashih)
@@ -18,16 +42,16 @@ Sikke Tashihi (card:sikke_tashih)
 	require: counter:hazine < 20, !flag:enflasyon
 	lockturn: 40
 	> Sultanım, hazine tamtakır. Darphaneye emir verelim, akçelerin içindeki altın oranını bir miktar azaltıp bakır katıversek? Kimse anlamaz...
-	* Ayarı düşürün (Bakır kat): counter:hazine 40, counter:reaya -10, +flag:enflasyon, card:_enflasyon_isyan@15
-	* Zinhar, haramdır: counter:din 10, counter:hazine -5
+	* Kat bakırı, kimse anlamaz: counter:hazine 25, counter:reaya -10, +flag:enflasyon, card:_enflasyon_isyan@15
+	* Zinhar, haramdır: counter:din 5, counter:hazine -5
 
 # Enflasyon Sonucu (15 tur sonra)
 Enflasyon İsyanı (card:_enflasyon_isyan, ring)
 	bearer: character:yeniceriagasi (variant:ofkeli)
 	require: flag:enflasyon
 	> Bu akçeler neden kırmızıya çalıyor sultanım? Asker çarşıda bir okka ekmek alamıyor, esnaf parayı yüzümüze fırlatıyor!
-	* Sadrazamın kellesini ver: counter:hazine 15, counter:ordu 10, counter:reaya 10, -flag:enflasyon
-	* Bastırın şu isyanı: counter:ordu -20, counter:reaya -15
+	* Sadrazamın kellesini verin: counter:hazine 5, counter:ordu 5, counter:reaya 5, -flag:enflasyon
+	* İsyanı bastırın, laf dinlemem: counter:ordu -20, counter:reaya -8
 
 Ticaret Anlaşması (card:ticaret)
 	bearer: character:sadrazam (variant:memnun)
@@ -35,8 +59,8 @@ Ticaret Anlaşması (card:ticaret)
 	require: !flag:savas
 	lockturn: 15
 	> Venedik elçisi kapıda bekler. Yanında envaiçeşit hediye ve bir de konuşan kuş getirmiş. Ticaret imtiyazı talep ederler.
-	* Kuşu alalım, gerisi nafile: counter:hazine 25, counter:din -10, +flag:papagan
-	* İstemez, lüzum yok: counter:din 5, counter:hazine -5
+	* Kuşu kabul edelim, gerisi nafile: counter:hazine 20, counter:din -8, +flag:papagan
+	* Lüzum yok, geri çevirsin: counter:din 5, counter:hazine -5
 
 İsyan Haberi (card:isyan_haber)
 	bearer: character:sadrazam (variant:korkmus)
@@ -44,11 +68,196 @@ Ticaret Anlaşması (card:ticaret)
 	require: counter:reaya < 25
 	lockturn: 20
 	> Sultanım, Anadolu'da çiftçiler tırmık ve kazma ile saraya yürüyormuş! Önden bir adam geldi, elinde dilekçe var, üstünde sadece "olmaz olsun" yazıyor.
-	* Tırmıkla mı geliyorlar cidden: counter:ordu -10, +flag:isyan, card:_isyan_sonuc@3
-	* Dilekçeyi kabul et: counter:reaya 10, counter:hazine -5
+	* Tırmıkla mı gelinir be: counter:ordu -10, +flag:isyan, card:_isyan_sonuc@3
+	* Dilekçeyi arz etsinler: counter:reaya 5, counter:hazine -5
 
 İsyan Sonucu (card:_isyan_sonuc, ring)
 	bearer: character:yeniceriagasi
 	require: flag:isyan
 	> İsyan bastırıldı sultanım. Çiftçiler tırmıklarını bırakıp eve döndü. Biri kazmasını unutmuş, onu da biz aldık.
-	* Kazma lazım olur: -flag:isyan, counter:reaya -10, counter:ordu -5
+	* Kazmayı hazineye kaldırın: -flag:isyan, counter:reaya -10, counter:ordu -5
+
+# Yeni Sadrazam Kartları
+Bıyık Vergisi (card:sadrazam_biyik_vergisi)
+	bearer: character:sadrazam (variant:kurnaz)
+	weight: 0.5
+	require: counter:hazine < 30
+	lockturn: 15
+	> Sultanım, hazineyi doldurmak için bıyık uzunluğuna göre vergi alalım diyorum. Padişah bıyığı hariç tabii!
+	* Kanunlaştırılsın: counter:hazine 15, counter:reaya -8
+	* Bıyığa dokunma, isyan çıkar: counter:reaya 5, counter:hazine -3
+
+Sahte Altın Madeni (card:sadrazam_altin_madeni)
+	bearer: character:sadrazam (variant:memnun)
+	weight: 0.3
+	lockturn: 25
+	> Sultanım, Anadolu'da bir mağarada parlayan taşlar bulunmuş! Köylüler altın sanıyor, eşekler ise yemeye çalışıyor.
+	* Maden ocağı açın: counter:hazine 10, counter:reaya -5
+	* Eşekler haklıdır muhtemelen: counter:reaya 5
+
+Venedik Keçisi (card:sadrazam_venedik_kecisi)
+	bearer: character:sadrazam
+	weight: 0.4
+	lockturn: 20
+	> Venedik elçisi tazminat olarak altın yerine 500 adet "asil" keçi göndermiş. Saray bahçesinde Haseki Sultan'ın lalelerini yiyorlar.
+	* Keçileri askere dağıtın: counter:ordu 8, counter:hazine 5
+	* Haseki duymasın, keçileri satın: counter:hazine 10, counter:reaya -3
+
+Soğan Buhranı (card:sadrazam_sogan_buhrani)
+	bearer: character:sadrazam (variant:ofkeli)
+	weight: 0.6
+	require: flag:kitlik
+	lockturn: 12
+	> Sultanım, halk soğan bulamıyor! Soğan fiyatı gümüşü geçti. Halk "soğansız kebap olmaz" diye bağırıyor.
+	* Stokçuları cezalandırın: counter:reaya 5, counter:hazine 5
+	* Herkese bedava maydanoz: counter:reaya -8, counter:hazine -5
+
+Sadrazam Şiiri (card:sadrazam_siir)
+	bearer: character:sadrazam (variant:memnun)
+	weight: 0.2
+	lockturn: 30
+	> Sultanım, bir kaside yazdım: "Ey tahtın sahibi, ey ulu hünkar / Hazinede para yok, her yer zifiri zift-i kâr..." Nasıl?
+	* Vezir olacağına şair olsaydın: counter:reaya 5, counter:hazine -5
+	* Sus ve işine bak: counter:ordu 5, counter:reaya -5
+
+Mühür Kayboldu (card:sadrazam_muhur_kayip)
+	bearer: character:sadrazam (variant:korkmus)
+	weight: 0.1
+	lockturn: 50
+	> Sultanım, mühür-ü hümayun kayboldu! En son saray kedisiyle oynarken görmüştüm. Kediyi bulamıyoruz.
+	* Bütün sarayı arayın: counter:hazine -10, counter:ordu -5
+	* Yeni mühür kazdırın: counter:hazine -10, counter:din 5
+
+Elçilik Krizi (card:sadrazam_elci_krizi)
+	bearer: character:sadrazam (variant:ofkeli)
+	weight: 0.4
+	require: !flag:savas
+	lockturn: 20
+	> Fransız elçisi huzura terlikle girmeye çalıştı! "Ayaklarım şiş" diyor. Bu bir diplomatik saldırıdır sultanım!
+	* Terliklerini hazineye müsadere edin: counter:hazine 5, counter:din 5
+	* Elçiyi kovun gitsin: counter:ordu 8, counter:hazine -10
+
+Sadrazamın Yerine Kukla (card:sadrazam_kukla)
+	bearer: character:sadrazam (variant:kurnaz)
+	weight: 0.2
+	require: flag:ai
+	lockturn: 40
+	> Sultanım, çok yoruldum. Yerime kurnazca yapılmış bir tahta kukla koysak? Ben arkadan seslendiririm, kimse anlamaz.
+	* Kabul, dinlen biraz: counter:hazine 10, counter:ordu -10
+	* Kuklayı sadrazam yapalım seni azledelim: counter:ordu 5, counter:hazine 5
+
+Gizli Defter (card:sadrazam_gizli_defter)
+	bearer: character:sadrazam (variant:kurnaz)
+	weight: 0.3
+	lockturn: 25
+	> Defterdarın gizli bir defterini bulduk. İçinde sadece yemek tarifleri ve karşısında birer isim yazıyor. "Pilav: Sadrazam" gibi.
+	* Zehirlenme korkusu sarmış: counter:ordu 5, counter:hazine -5
+	* Belki de sadece acıkmıştır: counter:reaya 3
+
+Kırık Köprü (card:sadrazam_kopru)
+	bearer: character:sadrazam
+	weight: 0.5
+	lockturn: 15
+	> Haliç üzerine bir köprü yaptıralım diyorum. Ama malzemeden çalıp bir kısmını hazineye aktarsak?
+	* Köprüyü sağlam yapın: counter:hazine -10, counter:reaya 8
+	* Yarım köprü de köprüdür: counter:hazine 10, counter:reaya -12
+
+Hazine Faresi (card:sadrazam_hazine_faresi)
+	bearer: character:sadrazam (variant:korkmus)
+	weight: 0.4
+	require: counter:hazine > 70
+	lockturn: 20
+	> Sultanım, hazinede altınları yiyen dev bir fare türemiş. Altınların bir kısmını "yedi" diye kayıtlardan düşelim mi?
+	* Fareyi yakalayın, altına dokunmayın: counter:hazine 5, counter:ordu 3
+	* Fareye feda olsun: counter:hazine -10, counter:reaya 5
+
+Altın Tozu (card:sadrazam_altin_tozu)
+	bearer: character:sadrazam (variant:kurnaz)
+	weight: 0.3
+	lockturn: 25
+	> Askerlere maaş verirken altınların kenarlarından azıcık tıraşlasak? Çıkan tozlardan size yeni bir taht yaparız.
+	* Taht güzel olurdu: counter:hazine 12, counter:ordu -15
+	* Askerin ekmeğiyle oynama: counter:ordu 10, counter:hazine -5
+
+İsimsiz İhbar (card:sadrazam_ihbar)
+	bearer: character:sadrazam
+	weight: 0.4
+	lockturn: 15
+	> Bir ihbar mektubu geldi: "Sadrazam aslında üç çocuktan oluşan bir kule." Sultanım, bu iftiradır!
+	* Çocukları sayın: counter:reaya 5
+	* Mektubu yiyin: counter:hazine -3
+
+Devasa Kavuk (card:sadrazam_kavuk)
+	bearer: character:sadrazam (variant:memnun)
+	weight: 0.2
+	lockturn: 30
+	> Sultanım, yeni bir kavuk diktirdim. Kapılardan sığmıyorum ama heybetimden kuşlar bile selam duruyor.
+	* Kapıları genişletin: counter:hazine -10, counter:reaya 5
+	* Kavuğu küçültün: counter:hazine 5
+
+Görünmez Ordu (card:sadrazam_gorunmez_ordu)
+	bearer: character:sadrazam (variant:kurnaz)
+	weight: 0.2
+	require: counter:hazine < 20
+	lockturn: 40
+	> Sultanım, bir büyücü geldi. "Görünmez bir ordu" kurabilirmiş. Maaş da istemiyorlar, sadece dua.
+	* Hemen kurulsun: counter:din 5, counter:ordu -15
+	* Görünmeyene güven olmaz: counter:ordu 5, counter:hazine -5
+
+Miras Kavgası (card:sadrazam_miras)
+	bearer: character:sadrazam
+	weight: 0.4
+	lockturn: 20
+	> Ölen bir paşanın mirası devlete kaldı. Ama vasiyetinde "altınları denize atın" yazıyor. Ne yapalım?
+	* Denize atar gibi yapıp hazineye koyun: counter:hazine 20, counter:din -10
+	* Vasiyet kutsaldır, atın: counter:din 8, counter:hazine -10
+
+Saray Masrafı (card:sadrazam_saray_masraf)
+	bearer: character:sadrazam (variant:ofkeli)
+	weight: 0.5
+	lockturn: 12
+	> Haremdeki cariyeler her gün ipek kumaş istiyor! Terzi masrafı donanmayı geçti.
+	* Kumaşları kısıtlayın: counter:hazine 15, counter:reaya -5
+	* Varsın giysinler: counter:hazine -10, counter:reaya 5
+
+Yolsuzluk Heyeti (card:sadrazam_heyet)
+	bearer: character:sadrazam (variant:kurnaz)
+	weight: 0.3
+	lockturn: 25
+	> Yolsuzlukları araştırmak için bir heyet kurduk. Heyetin başkanı rüşvet alırken yakalandı. Araştırmayı kim araştırsın?
+	* Yeni heyet kurun: counter:hazine -10, counter:reaya 5
+	* Hepsini azledin: counter:ordu 10, counter:hazine 10
+
+Donanma Odunu (card:sadrazam_donanma_odun)
+	bearer: character:sadrazam
+	weight: 0.4
+	require: flag:savas
+	lockturn: 15
+	> Donanma için gemi lazım ama kereste bitti. Sarayın bahçesindeki asırlık ağaçları keselim mi?
+	* Kesin, gemi daha mühim: counter:ordu 8, counter:reaya -8
+	* Ağaçlara dokunmayın: counter:reaya 5, counter:ordu -10
+
+Kiralık Vezir (card:sadrazam_kiralik)
+	bearer: character:sadrazam (variant:kurnaz)
+	weight: 0.2
+	lockturn: 40
+	> İran Şahı bir vezirini bize kiralamak istiyor. Maaşı onlardan, aklı bizden.
+	* Kiralayalım: counter:hazine 10, counter:din -8
+	* Bizde akıl çok, kalsın: counter:din 3, counter:hazine -5
+
+Felsefe Kitabı (card:sadrazam_felsefe)
+	bearer: character:sadrazam (variant:kurnaz)
+	weight: 0.4
+	lockturn: 20
+	> Sultanım, Frengistan'dan tercüme edilmiş bir felsefe kitabı geldi. İçinde "akıl her şeyin üstündedir" yazıyormuş. Şeyhülislâm duyarsa tufan kopar.
+	* Dağıtın, halk okusun: counter:din -8, counter:reaya 5
+	* Yakın o kitabı: counter:din 5, counter:reaya -5
+
+Matbaa Teklifi (card:sadrazam_matbaa)
+	bearer: character:sadrazam (variant:memnun)
+	weight: 0.3
+	lockturn: 30
+	> Sultanım, bir Macar mühendis "matbaa" denen bir alet getirmiş. Bir günde bin sayfa basıyormuş. Ulema "bu şeytanın işidir" diyor.
+	* Matbaayı kurun: counter:din -10, counter:reaya 8, counter:hazine -8
+	* Şeytanın işini istemem: counter:din 5, counter:reaya -3
+

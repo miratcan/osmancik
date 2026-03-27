@@ -7,44 +7,215 @@ Yapay Zeka (card:ai_isimizi_elimizden_alacak)
 	require: !flag:ai
 	> Sultanım, yapay zeka işimizi elimizden alacak!
 	* Alsın: +flag:ai
-	* Geri verecek mi?:
+	* İade eder mi acep:
 
 Soytarı Şakası (card:soytari_saka)
 	bearer: character:soytari
 	weight: 0.4
 	lockturn: 8
 	> Sultanım, dün gece rüyamda devletiniz battı. Ama endişelenmeyin, rüyamda batmayan tek şey sadrazamın egosu.
-	* Güldüm ama korkuyorum: counter:reaya 5
-	* Rüyanda da kes sesini: counter:reaya -5
+	* Güldük amma havf ettik: counter:reaya 5
+	* Rüyanda da kes sesini be: counter:reaya -5
 
 Soytarı Dedikodusu (card:soytari_dedikodu)
 	bearer: character:soytari (variant:kurnaz)
 	weight: 0.3
 	lockturn: 15
 	> Sultanım, sadrazam gizlice saray kedisiyle konuşuyormuş. Kedi cevap vermiş mi bilmiyorum ama sadrazam "haklısın" demiş.
-	* Kediyi sorgula: counter:hazine -10, counter:ordu 5
-	* Kedi haklıdır: counter:hazine 5
+	* Kediyi huzura getirin: counter:hazine -10, counter:ordu 5
+	* Kedi haklıdır muhtemelen: counter:hazine 5
 
 Soytarı Felsefe (card:soytari_felsefe)
 	bearer: character:soytari (variant:kurnaz)
 	weight: 0.3
 	lockturn: 12
 	> Sultanım, düşündüm de, taht aslında süslü bir sandalye. Ve siz süslü bir sandalyede oturan bir adam. Derin, değil mi?
-	* Derinden derin: counter:reaya 5, counter:din -5
-	* Sandalyeyi kafana atarım: counter:ordu 5, counter:reaya -5
+	* Derinden derindir hakikaten: counter:reaya 5, counter:din -5
+	* Sandalyeyi kafana geçiririm: counter:ordu 5, counter:reaya -5
 
 Soytarı Taklit (card:soytari_taklit)
 	bearer: character:soytari (variant:memnun)
 	weight: 0.3
 	lockturn: 20
 	> Sultanım, bakın şeyhülislâmı taklit ediyorum: "HARAM! HARAM! Bu da haram! Gülmek haram! Gülmemek de haram!"
-	* Çok benziyor: counter:din -10, counter:reaya 10
-	* Şeyhülislâm duymasın: counter:din 5
+	* Aynısı vallahi: counter:din -8, counter:reaya 5
+	* Şeyhülislâm duymasın sakın: counter:din 3
 
-Doğum Günü (card:dogum_gunu)
+Doğum Günü Delikanlı (card:dogum_gunu_genc)
 	bearer: character:soytari
-	weight: 0.6
-	lockturn: 10
+	weight: 0.8
+	require: counter:yas < 30
+	lockturn: 8
+	> Sultanım, bir yıl daha devrildi! Henüz bıyık terliyor, sakal terlemiyor, ama tahtınız sağlam! Kutlu olsun hünkarım!
+	* Pastayı getirin: counter:yas 3?6, counter:hazine -5, counter:reaya 3
+	* Gençlik sermayedir: counter:yas 3?6, counter:kudret 5
+
+Doğum Günü Olgunluk (card:dogum_gunu_olgun)
+	bearer: character:soytari
+	weight: 0.8
+	require: counter:yas >= 30, counter:yas < 50
+	lockturn: 8
 	> Sultanım, bir yıl daha devrildi! Sakallarınıza düşen her ak tel, devletinizin bir kalesi gibidir... ya da sadece yaşlanıyorsunuz. Kutlu olsun!
-	* Pastayı kesin: counter:yas 1?4, counter:hazine -5, counter:reaya 5
-	* Zaman su gibi: counter:yas 1?3, counter:kudret -5, counter:din 5
+	* Pastayı getirin: counter:yas 3?6, counter:hazine -5, counter:reaya 3
+	* Zaman su gibi akar: counter:yas 3?6, counter:kudret -5, counter:din 3
+
+Doğum Günü İhtiyarlık (card:dogum_gunu_ihtiyar)
+	bearer: character:soytari
+	weight: 0.8
+	require: counter:yas >= 50, counter:yas < 70
+	lockturn: 8
+	> Sultanım, bir yıl daha devrildi! Dizleriniz gıcırdıyor, gözleriniz kısılıyor, ama hâlâ tahtınızdasınız! Sadrazam bile bu kadar dayanamadı. Kutlu olsun!
+	* Hekim çağırın: counter:yas 3?6, counter:hazine -8, counter:reaya 3
+	* Ölüm hak, vakit var daha: counter:yas 3?6, counter:din 3
+
+Doğum Günü Muammer (card:dogum_gunu_muammer)
+	bearer: character:soytari
+	weight: 0.8
+	require: counter:yas >= 70
+	lockturn: 8
+	> Sultanım, bir yıl daha devrildi! Artık sizi yaşınızla değil, mucize ile anıyorlar. Soytarınız olarak söylüyorum: siz ölmezseniz ben işsiz kalırım, bir sonraki padişah beni sever mi bilmem. Kutlu olsun efsane!
+	* Daha çok yaşarız inşallah: counter:yas 3?6, counter:din 3, counter:reaya 5
+	* Ölüm var diyen yalancıdır: counter:yas 3?6, counter:kudret -5, counter:din 3
+
+# Yeni Soytarı Kartları
+Görünmez Taht (card:soytari_gorunmez_taht)
+	bearer: character:soytari (variant:kurnaz)
+	weight: 0.3
+	lockturn: 25
+	> Sultanım, aslında tahtta oturmuyorsunuz. Taht sizin altınızda oturuyor. Siz mi onu taşıyorsunuz, o mu sizi?
+	* Derin bir soru: counter:reaya 5, counter:din -5
+	* Kalkarsam taht düşer: counter:kudret 5
+
+Soytarı Maaşı (card:soytari_maas)
+	bearer: character:soytari (variant:memnun)
+	weight: 0.4
+	lockturn: 20
+	> Sultanım, maaşımı altın yerine simit olarak verin. Altın yenmiyor, simit ise hem susamlı hem çıtır.
+	* Simit verin: counter:hazine 5, counter:reaya 5
+	* Altına devam: counter:hazine -5
+
+Vezir Kedi (card:soytari_vezir_kedi)
+	bearer: character:soytari (variant:kurnaz)
+	weight: 0.3
+	require: counter:hazine < 30
+	lockturn: 15
+	> Sultanım, sadrazamı kediyle değiştirelim. Kedi mühre basınca sadece "miyav" diyor, rüşvet istemiyor, sadece süt.
+	* Kediyi vezir yapın: counter:hazine 15, counter:ordu -10
+	* Sadrazam daha iyi "miyav" der: counter:reaya 5
+
+Güneş Gözlüğü (card:soytari_gozluk)
+	bearer: character:soytari (variant:memnun)
+	weight: 0.2
+	require: flag:katarakt
+	lockturn: 30
+	> Sultanım, madem gözleriniz iyi görmüyor, her şeyi pembe gösteren bir gözlük takın. Devlet çiçek gibi görünür!
+	* Pembe gözlük takın: counter:reaya 5, counter:kudret -10
+	* Gerçekler acıdır: counter:din 3
+
+Soytarı'nın Ordusu (card:soytari_ordu)
+	bearer: character:soytari (variant:kurnaz)
+	weight: 0.2
+	lockturn: 40
+	> Sultanım, benim de bir ordum var! Bin tane karınca. Hepsi emrimde, sarayın mutfağına saldırıyorlar.
+	* Karıncaları besleyin: counter:reaya 5, counter:hazine -5
+	* Karıncaları ezin: counter:ordu 5, counter:reaya -5
+
+Dünya Yuvarlak mı (card:soytari_yuvarlak)
+	bearer: character:soytari (variant:kurnaz)
+	weight: 0.3
+	lockturn: 25
+	> Sultanım, dünya yuvarlak diyorlar. Eğer öyleyse neden hepimiz aşağı düşmüyoruz? Bence dünya bir tepsi, biz de içindeki pilavız.
+	* Pilav olmak güzeldir: counter:reaya 5, counter:din -5
+	* Yuvarlak olsa duramazdık: counter:din 3
+
+Soytarı'nın Şiiri (card:soytari_siir)
+	bearer: character:soytari (variant:memnun)
+	weight: 0.4
+	lockturn: 20
+	> "Sultan tahtta oturur, / Sadrazam para götürür, / Soytarı şaka yapar, / Yeniçeri kazan kaldırır..." Nasıl?
+	* Doğru söze ne denir: counter:reaya 5, counter:ordu -5
+	* Şiiri bırak işine bak: counter:kudret 5
+
+Aşkın Tarifi (card:soytari_ask)
+	bearer: character:soytari (variant:kurnaz)
+	weight: 0.3
+	require: flag:asiksin
+	lockturn: 25
+	> Sultanım, aşk nedir bilir misiniz? Karnınızda kelebekler uçması değil, cebinizde akçelerin uçup gitmesidir.
+	* Haklısın, cüzdan boşaldı: counter:hazine -10, counter:reaya 5
+	* Aşk paha biçilemez: counter:reaya 5
+
+Kutsal Simit (card:soytari_simit)
+	bearer: character:soytari (variant:memnun)
+	weight: 0.3
+	require: flag:simit_gunu
+	lockturn: 20
+	> Sultanım, o simit tutulması aslında bir mesaj. "Aç kalma, simit ye" diyor kainat.
+	* Herkese simit: counter:hazine -8, counter:reaya 5
+	* Ben doydum: counter:reaya -5
+
+Sarayın Kokusu (card:soytari_koku)
+	bearer: character:soytari (variant:kurnaz)
+	weight: 0.3
+	lockturn: 30
+	> Sultanım, saray bugün çok garip kokuyor. Ya birileri gizlice sucuk pişiriyor ya da sadrazamın yalanları kokuştu.
+	* Sucuk pişireni bulun: counter:hazine -5, counter:reaya 5
+	* Yalanları temizleyin: counter:ordu 5, counter:hazine 5
+
+Görünmez Kıyafet (card:soytari_kiyafet)
+	bearer: character:soytari (variant:kurnaz)
+	weight: 0.2
+	lockturn: 40
+	> Sultanım, size "görünmez bir kaftan" diktirdim. Sadece zekiler görebilir. Nasıl, yakışmış mı?
+	* Harika görünüyor: counter:reaya 5, counter:kudret -15
+	* Üryan mıyız be adam: counter:kudret 10, counter:reaya -10
+
+Soytarı'nın Vasiyeti (card:soytari_vasiyet)
+	bearer: character:soytari (variant:korkmus)
+	weight: 0.1
+	lockturn: 60
+	> Sultanım, ölürsem beni sarayın mutfağına gömün. Kokularla avunur, ruhum şad olur.
+	* Mutfağa gömelim: counter:reaya 5
+	* Sen daha çok yaşarsın: counter:yas 3?6
+
+Papağanla Yarış (card:soytari_yaris)
+	bearer: character:soytari (variant:memnun)
+	weight: 0.3
+	require: flag:papagan
+	lockturn: 25
+	> Sultanım, o papağanla bir taklit yarışı yaptık. Ben onu taklit ettim, o beni. Sonuçta ikimiz de kuş gibi ötmeye başladık.
+	* Kuş gibi ötün bakalım: counter:reaya 5, counter:din -5
+	* Saçmalamayın: counter:kudret 5
+
+Zaman Makinesi (card:soytari_zaman)
+	bearer: character:soytari (variant:kurnaz)
+	weight: 0.2
+	lockturn: 45
+	> Sultanım, bir "zaman makinesi" buldum. Adı: Uyku. Gözlerini kapatıyorsun, pat! Sabah olmuş. Mucize değil mi?
+	* Biraz daha uyuyalım: counter:reaya 5, counter:ordu -10
+	* Uyanık kalmak lazım: counter:kudret 5
+
+Soytarı'nın Tacı (card:soytari_tac)
+	bearer: character:soytari (variant:memnun)
+	weight: 0.2
+	lockturn: 35
+	> Sultanım, ben de bir taç taksam? Altından değil, kağıttan. Üstüne de "Gülümse" yazsam?
+	* Tak bakalım yakışacak mı: counter:reaya 6, counter:kudret -5
+	* Tacın bende kalsın: counter:kudret 5
+
+Soytarı Vaaz (card:soytari_vaaz)
+	bearer: character:soytari (variant:kurnaz)
+	weight: 0.4
+	lockturn: 15
+	> Sultanım, cami yerine tiyatro yapsak? Halk hem güler hem düşünür. İbadetten sonra da gelirler zaten.
+	* Tiyatro açılsın: counter:din -8, counter:reaya 5
+	* Tiyatro ne demek: counter:din 3
+
+Soytarı Müneccim (card:soytari_muneccim)
+	bearer: character:soytari (variant:kurnaz)
+	weight: 0.3
+	lockturn: 20
+	> Sultanım, müneccimbaşı ile bahse girdim. "Yarın yağmur yağacak" dedi, ben "yağmayacak" dedim. Yağdı ama yatay yağdı. Kim kazandı?
+	* Sen kazandın, müneccimi kov: counter:din -5, counter:hazine 5
+	* Müneccim haklı: counter:din 3, counter:hazine -3
+

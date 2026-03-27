@@ -6,14 +6,14 @@ Deprem (card:deprem)
 	require: !flag:deprem
 	lockturn: 40
 	> Sultanım, deprem oldu! Sancak beyinin konağı yıkıldı, ama minare sapasağlam duruyor. Şeyhülislâm bunu mucize ilan etti.
-	* Mucize ya da değil, yardım gönder: counter:hazine -15, counter:reaya 10, +flag:deprem, card:_deprem_sonu@5
-	* Mucizeyse yardıma gerek yok: counter:din 5, counter:reaya -15, +flag:deprem, card:_deprem_sonu@5
+	* Mucize de olsa imdat gönderin: counter:hazine -10, counter:reaya 5, +flag:deprem, card:_deprem_sonu@5
+	* Mucizeyse imdada hacet yoktur: counter:din 3, counter:reaya -8, +flag:deprem, card:_deprem_sonu@5
 
 Deprem Sonu (card:_deprem_sonu, ring)
 	bearer: character:sancakbeyi
 	require: flag:deprem
 	> Deprem bölgesi toparlanıyor sultanım. Sancak beyi yeni konağını minarenin yanına yaptırdı, güvenli olsun diye.
-	* Mantıklı: -flag:deprem
+	* Akla yatkındır: -flag:deprem
 
 Kıtlık (card:kitlik)
 	bearer: character:sancakbeyi (variant:korkmus)
@@ -21,11 +21,53 @@ Kıtlık (card:kitlik)
 	require: !flag:kitlik, !flag:bolluk
 	lockturn: 30
 	> Sultanım, kıtlık! Halk o kadar aç ki birisi saray duvarındaki süs kabağını yemeye çalışmış. Kabaklar da tahtadanmış.
-	* Gerçek kabak dağıtın: counter:hazine -12, counter:reaya 8, +flag:kitlik, card:_kitlik_sonu@8
-	* Dışarıdan kabak ithal et: counter:hazine -18, counter:reaya 5, +flag:kitlik, card:_kitlik_sonu@5
+	* Hakiki kabak tevzi edin: counter:hazine -8, counter:reaya 5, +flag:kitlik, card:_kitlik_sonu@8
+	* Haricden kabak celb edin: counter:hazine -8, counter:reaya 5, +flag:kitlik, card:_kitlik_sonu@5
 
 Kıtlık Sonu (card:_kitlik_sonu, ring)
 	bearer: character:sancakbeyi (variant:memnun)
 	require: flag:kitlik
 	> Hasat mevsimi geldi sultanım! Bu sefer kabaklar gerçek.
-	* Tahta kabağı da yerine koyun: -flag:kitlik, counter:reaya 5
+	* Tahta kabağı da yerine iade edin: -flag:kitlik, counter:reaya 5
+
+# Yeni Afet Kartları
+Eriyen Mermer (card:afet_sicak)
+	bearer: character:anlatici
+	weight: 0.2
+	lockturn: 40
+	> Sultanım, öyle bir sıcak bastırdı ki, sarayın mermerleri dondurma gibi erimeye başladı! Heykellerin burnu düştü.
+	* Sarayı sulayın: counter:hazine -10, counter:reaya 5
+	* Gölgeye kaçın: counter:reaya -10, counter:kudret -5
+
+Büyük Sel (card:afet_sel)
+	bearer: character:sancakbeyi (variant:korkmus)
+	weight: 0.2
+	lockturn: 35
+	> Hünkarım, yağmurlar dinmek bilmedi. Bahçedeki laleler su altında kaldı, balıklar lalelerin arasında yüzüyor.
+	* Kanallar açın: counter:hazine -10, counter:reaya 5
+	* Balıklara afiyet olsun: counter:reaya -10
+
+Koyun Yağmuru (card:afet_koyun)
+	bearer: character:aksakallidede
+	weight: 0.1
+	lockturn: 50
+	> Sultanım, gökten koyun yağmaya başladı! Halk "kurban bayramı erken geldi" diye seviniyor ama damlar çöküyor.
+	* Koyunları toplayın: counter:hazine 15, counter:reaya 5
+	* Damları tamir edin: counter:hazine -10, counter:reaya 5
+
+Donan Boğaz (card:afet_don)
+	bearer: character:kaptaniderya (variant:korkmus)
+	weight: 0.15
+	lockturn: 45
+	> Hünkarım, derya buz tuttu! İnsanlar Üsküdar'a yürüyerek geçiyor, gemiler buzun içinde heykel gibi kaldı.
+	* Boğaz'da pazar kurun: counter:reaya 5, counter:hazine 10
+	* Buzları kırın: counter:ordu 10, counter:hazine -10
+
+Dev Çekirge (card:afet_cekirge)
+	bearer: character:sancakbeyi (variant:ofkeli)
+	weight: 0.2
+	lockturn: 30
+	> Sultanım, dev çekirgeler tarlaları bitirdi, şimdi yeniçerilerin kavuklarını yemeye başladılar! Kavuklar da yündenmiş...
+	* Çekirgeleri ilaçlayın: counter:hazine -8, counter:ordu 5
+	* Kavukları saklayın: counter:ordu -10, counter:reaya 5
+

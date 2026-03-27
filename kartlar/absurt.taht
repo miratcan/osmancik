@@ -5,24 +5,24 @@ Simit Tutulması (card:astronomi_simit)
 	weight: 0.3
 	lockturn: 40
 	> Sultanım, müneccimbaşı yıldızlara bakmış. Yarın güneş doğmayacakmış, yerine susamlı dev bir simit doğacakmış.
-	* Krem peynir hazırlayın: counter:hazine -10, counter:reaya 15, +flag:simit_gunu
-	* Halkı camilere çağırın: counter:din 15, counter:reaya -5
+	* Krem peynir tedarik edin: counter:hazine -8, counter:reaya 5, +flag:simit_gunu
+	* Halkı camilere sevk edin: counter:din 8, counter:reaya -5
 
 Kurmalı Sadrazam (card:robot_sadrazam)
 	bearer: character:sadrazam (variant:kurnaz)
 	weight: 0.2
-	require: counter:hazine > 60, !flag:metal_sadrazam
+	require: counter:hazine > 50, !flag:metal_sadrazam
 	lockturn: 50
 	> Sultanım, Avrupa'dan kurmalı bir metal adam getirdik. Hiç rüşvet yemiyor, uyumuyor, sadece günde iki litre zeytinyağı ile çalışıyor.
-	* Mevcut sadrazamı kovun: counter:hazine 20, counter:ordu -15, +flag:metal_sadrazam
-	* Çok gürültü çıkarıyor: counter:hazine -5
+	* Mevcut sadrazamı azledin: counter:hazine 20, counter:ordu -15, +flag:metal_sadrazam
+	* Gürültüsü tahammül edilmez: counter:hazine -5
 
 Kutsal Kedi (card:kutsal_kedi)
 	bearer: character:anlatici
 	weight: 0.4
 	lockturn: 30
 	> Saray kedisi yanlışlıkla mühre basmış. Şeyhülislam bunu "ilahi bir emir" olarak yorumlayıp kediyi vezir ilan etti.
-	* Kediyi besle: counter:reaya 10, counter:din 5, counter:hazine -10
+	* Kediyi besleyin, vezir vezirliktir: counter:reaya 5, counter:din 3, counter:hazine -8
 	* Miyav: counter:ordu 5, counter:reaya -10
 
 # Papağan Arkı
@@ -32,8 +32,8 @@ Papağan Konuştu (card:papagan_ifsa)
 	require: flag:papagan
 	lockturn: 15
 	> Sultanım, o Venedik'ten gelen papağan gece yarısı konuşmaya başladı: "Sadrazam rüşvet alıyor, sadrazam rüşvet alıyor!"
-	* Sadrazamı zindana at: counter:hazine 15, counter:reaya 10, counter:ordu -10
-	* Papağanı sustur: counter:hazine -5, counter:din 5
+	* Sadrazamı zindana tıkın: counter:hazine 15, counter:reaya 5, counter:ordu -10
+	* Papağanı susturun: counter:hazine -5, counter:din 3
 
 # Simit Günü Devamı
 Simit Günü Etkisi (card:simit_etkisi)
@@ -42,8 +42,8 @@ Simit Günü Etkisi (card:simit_etkisi)
 	require: flag:simit_gunu
 	lockturn: 5
 	> Simit Tutulması'ndan sonra halk her sabah saray önünde bedava simit ve peynir kuyruğuna giriyor.
-	* Dağıtmaya devam: counter:hazine -15, counter:reaya 10
-	* Simit bitti deyin: counter:reaya -15, counter:din 5, -flag:simit_gunu
+	* Tevzi devam etsin: counter:hazine -10, counter:reaya 5
+	* Simit tükendi deyin: counter:reaya -8, counter:din 3, -flag:simit_gunu
 
 Yeniçeri Grevi (card:yeniceri_grev)
 	bearer: character:yeniceriagasi (variant:ofkeli)
@@ -51,8 +51,8 @@ Yeniçeri Grevi (card:yeniceri_grev)
 	require: counter:ordu < 40
 	lockturn: 20
 	> Yeniçeriler yine kazan kaldırdı. Bu sefer brokoli yemeyiz diyorlar. Brokoliyi "yeşil şeytan parmağı" sanıyorlarmış.
-	* Üstüne yoğurt dökün: counter:hazine -10, counter:ordu 10
-	* Brokoliyi yasaklayın: counter:din 10, counter:reaya -5
+	* Üstüne yoğurt döksünler: counter:hazine -10, counter:ordu 10
+	* Brokoliyi ferman ile yasaklayın: counter:din 3, counter:reaya -5
 
 Uçan Yeniçeriler (card:ucan_yeniceri)
 	bearer: character:yeniceriagasi
@@ -60,8 +60,8 @@ Uçan Yeniçeriler (card:ucan_yeniceri)
 	require: counter:ordu > 50, counter:hazine > 40, !flag:hava_kuvvetleri
 	lockturn: 60
 	> Hezarfen Ahmet Çelebi, tüm orduya kanat takabileceğini söylüyor. "Viyana'ya havadan ineriz sultanım" diyor.
-	* Hepsine kanat yapın: counter:hazine -30, counter:ordu 25, +flag:hava_kuvvetleri
-	* Uçmak kuşlara mahsustur: counter:din 10, counter:ordu -5
+	* Cümlesine kanat imal edin: counter:hazine -10, counter:ordu 25, +flag:hava_kuvvetleri
+	* Uçmak kuşlara mahsustur: counter:din 3, counter:ordu -5
 
 Haseki vs Papağan (card:haseki_papagan)
 	bearer: character:hasekisultan (variant:ofkeli)
@@ -69,14 +69,180 @@ Haseki vs Papağan (card:haseki_papagan)
 	require: flag:asiksin
 	lockturn: 25
 	> Sultanım, o Venedik'ten gelen papağan bana "çirkin" dedi! Ya o kuş gider ya ben!
-	* Papağanı azat et: counter:reaya 5, counter:hazine -5
+	* Papağanı azat edin: counter:reaya 5, counter:hazine -5
 	* Papağan doğruları söyler: counter:reaya -10, counter:ordu 5
 
 Katarakt Başlangıcı (card:katarakt_olay)
 	bearer: character:aksakallidede
 	weight: 2.0
-	require: counter:yas > 40, !flag:katarakt
+	require: counter:yas > 35, !flag:katarakt
 	lockturn: once
 	> Sultanım, gözleriniz artık iyi seçmiyor. Sadrazamı bazen papağanla karıştırıyorsunuz.
-	* Gözlük getirtin: counter:hazine -15, counter:reaya 5, +flag:katarakt
-	* Karanlık daha huzurlu: counter:din 10, counter:ordu -10
+	* Gözlük imal ettirin: counter:hazine -10, counter:reaya 5, +flag:katarakt
+	* Zulmet huzur verir: counter:din 3, counter:ordu -10
+
+# Yeni Absürt Olaylar
+Mücevherli Fare (card:absurt_fare)
+	bearer: character:anlatici
+	weight: 0.3
+	lockturn: 30
+	> Saray mutfağında yakalanan bir farenin midesinden paha biçilemez bir zümrüt çıktı. Fareyi kutsal ilan edip saray bahçesinde emekli ettiler.
+	* Fareye iyi bakın: counter:reaya 5, counter:hazine -5
+	* Zümrüdü alın, fareyi kediye verin: counter:hazine 15, counter:reaya -10
+
+Konuşan Kapı (card:absurt_kapi)
+	bearer: character:anlatici
+	weight: 0.2
+	lockturn: 40
+	> Sarayın ana kapısı gıcırdarken "vergi... vergi..." diye ses çıkarıyor. Halk kapının önünde toplanıp "kapı bile halimizi anladı" diye ağlıyor.
+	* Kapıyı yağlayın: counter:hazine -5, counter:reaya -10
+	* Kapıyı altınla kaplayın: counter:hazine -10, counter:reaya 5
+
+Simit Yağmuru (card:absurt_simit_yagmur)
+	bearer: character:aksakallidede (variant:memnun)
+	weight: 0.2
+	require: flag:simit_gunu
+	lockturn: 30
+	> Sultanım, gökyüzünden susam yağmaya başladı. Halk tarlaları bırakıp damlara çıktı, ağzını açıp bekliyor.
+	* Bereketli olsun: counter:reaya 5, counter:din 3
+	* Tarlaya geri dönün: counter:reaya -8, counter:hazine 5
+
+Dev Tavuk (card:absurt_tavuk)
+	bearer: character:anlatici
+	weight: 0.2
+	lockturn: 50
+	> Anadolu'da bir tavuk devasa bir yumurta yumurtladı. İçinden minyatür bir kale çıktı! Stratejik önemi tartışılıyor.
+	* Kaleye asker yerleştirin: counter:ordu 10, counter:hazine -8
+	* Yumurtayı kırın: counter:din 3, counter:reaya -5
+
+Görünmez Sadrazam (card:absurt_gorunmez_sadrazam)
+	bearer: character:sadrazam (variant:kurnaz)
+	weight: 0.1
+	require: flag:ai
+	lockturn: 60
+	> Sultanım, bir iksir içtim ve tamamen görünmez oldum. Artık rüşvetçileri suçüstü yakalayabilirim! Ama elbiselerim hâlâ görünüyor.
+	* Elbiselerini de çıkar: counter:reaya 5, counter:din -20
+	* Görünür ol evladım: counter:kudret 5
+
+Kutsal Karınca (card:absurt_karinca)
+	bearer: character:seyhulislam (variant:memnun)
+	weight: 0.3
+	lockturn: 25
+	> Hünkarım, bir karınca Kuran-ı Kerim'in üstünde "elif" harfi şeklinde durmuş. Şeyhülislâm bunu "büyük bir müjde" olarak yorumladı.
+	* Karıncaya saray yapın: counter:hazine -10, counter:din 8
+	* Karıncadır, geçer: counter:din -10, counter:reaya 5
+
+Denizden Gelen Dev (card:absurt_dev)
+	bearer: character:kaptaniderya (variant:korkmus)
+	weight: 0.1
+	lockturn: 70
+	> Sultanım, Boğaz'dan dev bir el çıktı ve sadece bir akçe isteyip geri daldı. Denizin de nakit sıkıntısı var herhalde.
+	* Akçeyi denize atın: counter:hazine -1, counter:din 3
+	* Vermeyin, alışmasın: counter:din -5
+
+Ters Akan Nehir (card:absurt_nehir)
+	bearer: character:aksakallidede
+	weight: 0.2
+	lockturn: 40
+	> Sakarya nehri ters akmaya başladı! Balıklar karaya çıkıp "yukarıda ne var?" diye soruyor.
+	* Balıklara rehberlik edin: counter:reaya 5, counter:hazine -5
+	* Nehri düzeltin: counter:hazine -10, counter:din 3
+
+Yürüyen Ağaçlar (card:absurt_agac)
+	bearer: character:anlatici
+	weight: 0.2
+	lockturn: 50
+	> Belgrad Ormanı'ndaki ağaçlar yer değiştirmiş. Hepsi saraya doğru bir adım yaklaşmış. Gölge istiyorlarmış.
+	* Ağaçları sulayın: counter:reaya 5, counter:hazine -5
+	* Baltaları getirin: counter:ordu 10, counter:reaya -8
+
+Konuşan Para (card:absurt_para)
+	bearer: character:sadrazam (variant:korkmus)
+	weight: 0.2
+	require: counter:hazine < 10
+	lockturn: 30
+	> Sultanım, hazinedeki son altın akçe dile gelmiş. "Yalnızım hünkarım, yanıma arkadaş isterim" diye ağlıyor.
+	* Arkadaş gönderin (vergi): counter:hazine 15, counter:reaya -12
+	* Yalnızlık Allah'a mahsustur: counter:din 3, counter:hazine -3
+
+Bulutlardaki Şehir (card:absurt_bulut)
+	bearer: character:aksakallidede (variant:kurnaz)
+	weight: 0.1
+	lockturn: 60
+	> Sultanım, gökyüzünde beyaz bir şehir belirdi. Halk "cennet ayaklarımıza geldi" diye işi gücü bıraktı, göğe bakıyor.
+	* Halkı camilere toplayın: counter:din 8, counter:hazine -10
+	* Merdiven kurun: counter:hazine -10, counter:reaya 5
+
+Altın Yumurtlayan Kaz (card:absurt_kaz)
+	bearer: character:haremagasi (variant:memnun)
+	weight: 0.2
+	lockturn: 35
+	> Harem'de altın yumurtlayan bir kaz bulundu! Lakin kaz sadece sadrazama küfredince yumurtluyor.
+	* Sadrazama küfrettirin: counter:hazine 20, counter:reaya 5, counter:kudret -15
+	* Kazı kesin: counter:din 3, counter:hazine -5
+
+Uçan Halı Trafiği (card:absurt_hali_trafik)
+	bearer: character:yeniceriagasi (variant:ofkeli)
+	weight: 0.2
+	require: flag:hava_kuvvetleri
+	lockturn: 30
+	> Sultanım, havada uçan halılar çarpışmaya başladı! Padişahın kafasına sürekli terlik ve nargile düşüyor.
+	* Hava trafik kuralı koyun: counter:hazine -10, counter:ordu 5
+	* İndirin hepsini aşağı: counter:ordu 10, counter:reaya -8
+
+Sarayın Yer değiştirmesi (card:absurt_saray_yer)
+	bearer: character:aksakallidede (variant:kurnaz)
+	weight: 0.05
+	lockturn: 80
+	> Sultanım, saray bu sabah Üsküdar'a taşınmış! Beşiktaş'ta sadece boş bir arsa kalmış. Manzara daha güzel ama ulaşım zor.
+	* Üsküdar'da kalalım: counter:reaya 5, counter:hazine -10
+	* Geri taşıyın: counter:hazine -8, counter:ordu 10
+
+Nankör Kedi (card:absurt_nankor_kedi)
+	bearer: character:soytari (variant:memnun)
+	weight: 0.3
+	lockturn: 25
+	> Sultanım, o vezir yaptığımız kedi istifa etmiş! "Maaş az, ciğer kalitesiz" diyor. Bir de sendika kurmuş.
+	* Ciğeri artırın: counter:hazine -8, counter:reaya 5
+	* İstifasını kabul edin: counter:reaya -5
+
+Büyük Sis (card:absurt_gunes_cal)
+	bearer: character:anlatici
+	weight: 0.1
+	lockturn: 70
+	> Sultanım, müneccimbaşı "güneş çalındı" diye bağırıyor. Meğer dev bir sis bulutu şehre çökmüş, kimse burnunun ucunu göremiyor. Halk "devletun nuru söndü" diye yas tutuyor.
+	* Devi... yani sisi kovalayın: counter:ordu 10, counter:hazine -10
+	* Sis berekettir: counter:din 3, counter:reaya -8
+
+Çikolata Çeşmesi (card:absurt_cikolata)
+	bearer: character:aksakallidede (variant:memnun)
+	weight: 0.2
+	lockturn: 40
+	> Sultanım, saraydaki çeşmelerden su yerine çikolata akmaya başladı. Halk bardaklarla saraya koşuyor.
+	* İçsinler, afiyet olsun: counter:reaya 5, counter:hazine -10
+	* Çeşmeleri kapatın: counter:reaya -10, counter:din 3
+
+Konuşan Heykel (card:absurt_heykel)
+	bearer: character:anlatici
+	weight: 0.2
+	lockturn: 50
+	> Bahçedeki mermer heykel dile gelmiş: "Beni neden buraya koydunuz, güneşten yandım!" diye bağırıyor.
+	* Heykele şemsiye tutun: counter:hazine -5, counter:reaya 5
+	* Kırın heykeli: counter:din 3, counter:reaya -10
+
+Zıplayan Kale (card:absurt_kale)
+	bearer: character:yeniceriagasi (variant:korkmus)
+	weight: 0.1
+	lockturn: 60
+	> Sultanım, Viyana kalesi korkudan zıplamaya başlamış! Top atıyoruz, gülle altından geçiyor.
+	* Kaleyi alttan vurun: counter:ordu 10, counter:hazine -10
+	* Zıplamaktan yorulmasını bekleyin: counter:hazine -5
+
+Rüya Satıcısı (card:absurt_ruya_satici)
+	bearer: character:aksakallidede
+	weight: 0.3
+	lockturn: 30
+	> Çarşıda bir adam rüya satıyor. "Güzel rüya 10 akçe, kabus 1 akçe" diyor. Sadrazam bütün kabusları almış.
+	* Kabusları yakalayın: counter:din 3, counter:hazine -5
+	* Adamı kovun: counter:reaya -5
+

@@ -6,18 +6,37 @@ Haseki Anne Ziyareti (card:haseki_anne)
 	require: flag:asiksin
 	lockturn: 12
 	> Sultanım, annemi ziyaret edeceğim. Yanıma 40 deve, 12 araba hediye ve 200 yeniçeri muhafız lazım.
-	* Tabii canım: counter:hazine -15, counter:ordu -5, counter:reaya 5
-	* Biraz abartmadın mı: counter:reaya -5, counter:din -5
+	* Tedarik edilsin cümlesini: counter:hazine -10, counter:ordu -5, counter:reaya 3
+	* Bu israf değil midir: counter:reaya -5, counter:din -5
 
 Haseki Kedi İstedi (card:haseki_kedi)
 	bearer: character:hasekisultan (variant:memnun)
 	weight: 0.5
 	require: flag:asiksin
 	lockturn: 20
-	> Sultanım, Mısır'dan bir kedi gördüm, çok tatlıydı. Bir tane değil, 47 tane istiyorum.
-	* 47 kedi gelsin: counter:hazine -10, counter:reaya 10
-	* Bir tane yeter: counter:hazine -5
-	* Kedi falan yok: counter:reaya -10
+	> Sultanım, Mısır'dan bir kedi gördüm, çok tatlıydı. Bir tane değil, 49 tane istiyorum.
+	* Getirin 49 kediyi: counter:hazine -10, counter:reaya 5
+	* Bir tanesi kifayet eder: counter:hazine -5
+	* Kedi lüzum yok: counter:reaya -10, card:_kedi_pazarlik@5
+
+# Kedi Pazarlık Zinciri
+Haseki Kedi Pazarlığı (card:_kedi_pazarlik, ring)
+	bearer: character:hasekisultan (variant:ofkeli)
+	> Sultanım! 49 çok mu?! Tamam, 12 kedi. 12! Anneannemin köyünde 12 tavuk vardı, kedi tavuktan aşağı mı?! Tavuğa evet kediye hayır mı?! Bu nasıl bir adalet?!
+	* Peki 12 olsun: counter:hazine -8, counter:reaya 5
+	* Olmaz dedik olmaz: card:_kedi_son_teklif@5
+
+Haseki Son Kedi Teklifi (card:_kedi_son_teklif, ring)
+	bearer: character:hasekisultan (variant:korkmus)
+	> Haseki Sultan yere oturdu, gözleri dolu. "Bir kedi... Bir tane... Küçücük, minicik, pıtırcık bir kedi. Süt tabağını bile ben alırım. Kumdan da helasını ben temizlerim. Adını Sultanım koyacaktım... senin adını..."
+	* Pekala, bir kedi mubahtır: counter:hazine -3, counter:reaya 5
+	* Kedi mevzuunu bir daha açma: card:_kedi_delilik
+
+Haseki Kedi Çıldırması (card:_kedi_delilik, ring)
+	bearer: character:hasekisultan (variant:ofkeli)
+	> Haseki Sultan harem penceresine çıktı, saçlarını yoluyor, avluya doğru bağırarak şarkı söylüyor: "Biiir kedim bile yoook, anlıyor musuuun! Ne pençe var ne kuyruk ne miyaaav! Ben bu sarayda neyiiiim, kedisiz bir sultaaaan!" Yeniçeriler ağlıyor. Soytarı eşlik ediyor.
+	* Harem kapılarını mühürleyin: counter:reaya -8, counter:din -5
+	* Tüm Mısır'ın kedilerini celb edin: counter:hazine -10, counter:reaya 5, counter:din 3
 
 Haseki Kıskanç (card:haseki_kiskanclik)
 	bearer: character:hasekisultan (variant:ofkeli)
@@ -25,8 +44,8 @@ Haseki Kıskanç (card:haseki_kiskanclik)
 	require: flag:asiksin, counter:haremziyaret > 15
 	lockturn: 15
 	> Haremi ziyaret ettiğini duydum! Kim o karı?! Sarayı yakarım!
-	* Sadece seni seviyorum: counter:din -5, counter:reaya 5
-	* Padişahım ben, istediğimi yaparım: counter:reaya -10, counter:ordu 5
+	* Yalnız seni severim: counter:din -5, counter:reaya 5
+	* Padişahız, muradımızca hareket ederiz: counter:reaya -10, counter:ordu 5
 
 Haseki Saray İnşası (card:haseki_saray)
 	bearer: character:hasekisultan (variant:kurnaz)
@@ -34,9 +53,9 @@ Haseki Saray İnşası (card:haseki_saray)
 	require: flag:asiksin, counter:hazine > 40
 	lockturn: 30
 	> Sultanım, bana özel bir saray yaptır. İçinde kuğulu havuz, altın hamam ve zürafaya bakan balkon olsun.
-	* Zürafaya bakan balkon mu: counter:hazine -20, counter:reaya -5, counter:din -5
-	* Kuğulu havuz yeter: counter:hazine -12
-	* Hayır: counter:reaya -15
+	* Zürafaya bakan balkon ne demek ya: counter:hazine -10, counter:reaya -5, counter:din -5
+	* Kuğulu havuz kifayet eder: counter:hazine -8
+	* Zinhar, israf etmeyiz: counter:reaya -8
 
 Haseki Şehzade Haberi (card:haseki_sehzade)
 	bearer: character:hasekisultan (variant:memnun)
@@ -44,8 +63,8 @@ Haseki Şehzade Haberi (card:haseki_sehzade)
 	require: flag:asiksin, !flag:evlilik
 	lockturn: dispose
 	> Sultanım, müjde! Şehzadeniz dünyaya geldi! Adını ne koyalım?
-	* Mehmet olsun: counter:sehzade 1, counter:reaya 15, counter:din 10, +flag:evlilik
-	* Süleyman olsun: counter:sehzade 1, counter:reaya 15, counter:din 10, +flag:evlilik
+	* Adı Mehmet olsun, ceddimiz gibi: counter:sehzade 1, counter:reaya 5, counter:din 3, +flag:evlilik
+	* Süleyman koysunlar, uğurludur: counter:sehzade 1, counter:reaya 5, counter:din 3, +flag:evlilik
 
 Haseki Valideye Komplo (card:haseki_komplo)
 	bearer: character:hasekisultan (variant:kurnaz)
@@ -53,6 +72,132 @@ Haseki Valideye Komplo (card:haseki_komplo)
 	require: flag:asiksin, flag:evlilik
 	lockturn: 25
 	> Sultanım, valide sultan beni zehirletmeye çalışıyor. Ya o ya ben!
-	* Valideyi sürgüne gönder: counter:din -15, counter:reaya -5
-	* Saçmalama: counter:hazine -10
-	* Araştırayım: counter:hazine -5, counter:ordu -5
+	* Valideyi sürgüne yollayın: counter:din -15, counter:reaya -5
+	* Saçmalarsın, sus: counter:hazine -10
+	* Tahkikat açılsın: counter:hazine -5, counter:ordu -5
+
+# Yeni Haseki Sultan Kartları
+Elmas Taç (card:haseki_elmas_tac)
+	bearer: character:hasekisultan (variant:memnun)
+	weight: 0.3
+	require: counter:hazine > 50
+	lockturn: 25
+	> Sultanım, öyle bir taç istiyorum ki, ağırlığı bir gülle kadar olsun ama sadece elmastan yapılsın. Boynum ağrırsa sadrazam tutsun.
+	* Yaptırın, parlasın: counter:hazine -10, counter:reaya -5
+	* Boynun kopar hatun: counter:reaya -10
+
+Boğaz'ı Boyama (card:haseki_bogaz_boya)
+	bearer: character:hasekisultan (variant:kurnaz)
+	weight: 0.2
+	lockturn: 40
+	> Sultanım, Boğaz'ın suyu çok mavi. Benim en sevdiğim renk ise pembe. İçine birkaç bin okka gül suyu ve boya dökseler?
+	* Pembe derya ne güzel olur: counter:hazine -8, counter:reaya 5, counter:din -10
+	* Deniz boyanır mı be: counter:din 3, counter:reaya -5
+
+Çatı Pikniği (card:haseki_cati_piknik)
+	bearer: character:hasekisultan
+	weight: 0.4
+	lockturn: 20
+	> Sultanım, sarayın çatısında piknik yapalım diyorum. Ama yeniçeriler aşağıda beklesin, bize baksınlar, "ne güzel seviyorlar" desinler.
+	* Çıkalım, hava alırız: counter:reaya 5, counter:ordu -8
+	* Çatıdan düşeriz, olmaz: counter:ordu 5
+
+Uçan Halı (card:haseki_ucan_hali)
+	bearer: character:hasekisultan (variant:memnun)
+	weight: 0.2
+	lockturn: 45
+	> Sultanım, bir tüccar geldi, "uçan halı" satıyormuş. Fiyatı sadece 1000 altın akçe. Bizi Viyana'ya kadar uçururmuş.
+	* Halıyı alın: counter:hazine -10, counter:reaya 5
+	* Tüccarı zindana atın: counter:hazine 10, counter:din 3
+
+Gece Nefiri (card:haseki_nefir)
+	bearer: character:hasekisultan (variant:memnun)
+	weight: 0.3
+	lockturn: 25
+	> Sultanım, nefir (boru) çalmayı öğrenmeye başladım. Her gece yarısı kuleye çıkıp prova yapacağım. Sesim Şam'dan duyulur!
+	* Çal hatun, ruhum doysun: counter:reaya -12, counter:din -5
+	* Kulaklarımız paslandı: counter:reaya 5
+
+Sarayın Yeni Adı (card:haseki_saray_ad)
+	bearer: character:hasekisultan (variant:kurnaz)
+	weight: 0.2
+	lockturn: 50
+	> Sultanım, sarayın adı çok resmi. "Haseki'nin Sıcak Yuvası" yapsak? Kapısına da bir kalp çizdirsek?
+	* Kabul, öyle olsun: counter:reaya 5, counter:din -15, counter:kudret -10
+	* Burası devlet makamı: counter:din 3, counter:kudret 5
+
+İpek Zırhlar (card:haseki_ipek_zirh)
+	bearer: character:hasekisultan (variant:memnun)
+	weight: 0.2
+	lockturn: 35
+	> Sultanım, muhafızların zırhları çok kaba ve soğuk. Hepsine ipekten, çiçekli zırhlar diktirsek? Hem yumuşak olur hem de düşman gözünü alamaz.
+	* Çiçekli ordu kulağa hoş gelir: counter:hazine -10, counter:ordu -10, counter:reaya 5
+	* Demir yiğidin aksesuarıdır: counter:ordu 5, counter:reaya -5
+
+
+Gizli Tünel (card:haseki_gizli_tunel)
+	bearer: character:hasekisultan (variant:kurnaz)
+	weight: 0.3
+	lockturn: 25
+	> Odandan benim odama gizli bir tünel kazdırdım sultanım. İçinden geçerken altın tozları dökülüyor.
+	* Tünelden gelirim: counter:hazine -10, counter:reaya 5
+	* Tüneli kapatın: counter:hazine 5, counter:din 3
+
+Harem Defilesi (card:haseki_defile)
+	bearer: character:hasekisultan (variant:memnun)
+	weight: 0.3
+	lockturn: 30
+	> Cariyeler arasında bir "güzellik defilesi" düzenleyelim. Kazanan ben olacağım tabii, ama diğerleri de heves etsin.
+	* Düzenlensin: counter:hazine -10, counter:reaya 5
+	* Boş işler bunlar: counter:reaya -5
+
+Pofuduk Ayı (card:haseki_ayi)
+	bearer: character:hasekisultan (variant:memnun)
+	weight: 0.2
+	lockturn: 40
+	> Sultanım, Rusya'dan bir "beyaz ayı" hediye gelmiş. Adını Pofuduk koydum. Benim yatağımda uyusun diyorum.
+	* Uyusun, yumuşaktır: counter:reaya 5, counter:hazine -5
+	* Ayıdan yatak arkadaşı mı olur: counter:reaya -5, counter:ordu 5
+
+Simli Harem (card:haseki_simli_harem)
+	bearer: character:hasekisultan (variant:kurnaz)
+	weight: 0.2
+	lockturn: 45
+	> Harem'in duvarlarını simli boya ile boyatalım. Mumlar yanınca her yer yıldızlar gibi parlıyor.
+	* Boyatın, parlasın: counter:hazine -8, counter:reaya 5
+	* Gözümüzü yorar: counter:hazine 5
+
+At Kıskançlığı (card:haseki_at_kiskanclik)
+	bearer: character:hasekisultan (variant:ofkeli)
+	weight: 0.4
+	lockturn: 20
+	> O arap atını benden daha çok sevdiğini görüyorum! Ona gümüş nallar benden inci kolyeler esirgeniyor!
+	* Ata nal alma, sana inci alayım: counter:hazine -10, counter:reaya 5
+	* At devlettir hatun: counter:ordu 10, counter:reaya -10
+
+Özel Deniz (card:haseki_ozel_deniz)
+	bearer: character:hasekisultan (variant:kurnaz)
+	weight: 0.1
+	require: counter:hazine > 80
+	lockturn: 60
+	> Sultanım, deniz çok kirli. Sarayın içine "özel bir deniz" inşa ettirelim. İçine de ısıtılmış su dolduralım.
+	* Deniz saraya gelsin: counter:hazine -10, counter:reaya 5
+	* Hamama gir yeter: counter:hazine 10, counter:reaya -5
+
+Haseki Sadrazam (card:haseki_sadrazam)
+	bearer: character:hasekisultan (variant:kurnaz)
+	weight: 0.2
+	lockturn: 50
+	> Sultanım, sadrazam çok yaşlandı. Bir günlüğüne mührü bana ver, bak devlet nasıl çiçek gibi oluyor.
+	* Al mühür senindir: counter:hazine -10, counter:reaya 5, counter:ordu -15
+	* Zinhar, devlet işi kadına kalmaz: counter:din 3, counter:reaya -10
+
+Altın Fayton (card:haseki_fayton)
+	bearer: character:hasekisultan (variant:memnun)
+	weight: 0.3
+	require: counter:hazine > 40
+	lockturn: 30
+	> Sultanım, bana altından bir fayton yaptır. Atların kuyruklarına da elmas taktıralım. Çarşıya çıkınca herkes "maşallah" desin.
+	* Yaptırın: counter:hazine -8, counter:reaya 5
+	* Yürümek sağlıklıdır: counter:reaya -10
+

@@ -1,38 +1,228 @@
 # Yeniçeri Ağası kartları
 
+Yeniçeri Talebi (card:yeniceri_talep)
+	bearer: character:yeniceriagasi
+	weight: 0.6
+	lockturn: 12
+	> Sultanım, yeniçeriler kışlaya avize istiyor. "Gece nöbetinde karanlıkta birbirimizi bıçaklıyoruz, aydınlık olsa düşmanı bıçaklarız" diyorlar.
+	* Avize alınsın: counter:hazine -8, counter:ordu 10
+	* Mum yaksınlar: counter:ordu -5, counter:hazine 5
+
+Talim Meydanı (card:talim_meydani)
+	bearer: character:yeniceriagasi (variant:memnun)
+	weight: 0.5
+	lockturn: 18
+	> Sultanım, talim meydanında güreş turnuvası düzenlendi. Yeniçeriler çok hevesli ama birisi sadrazamı da güreşe çağırmış. Sadrazam kaçıyor.
+	* Güreşsinler, sadrazam da: counter:ordu 5, counter:reaya 5
+	* Talim meydanı oyun yeri değildir: counter:ordu 5, counter:din 3
+
+Kışla Yemeği (card:kisla_yemegi)
+	bearer: character:yeniceriagasi (variant:ofkeli)
+	weight: 0.4
+	lockturn: 15
+	> Sultanım, kışla mutfağında pilav bitti. Aşçıbaşı "pirinç yok" diyor. Yeniçeri pilavsız olmaz sultanım, bu asker isyanın eşiğindedir!
+	* Pirinç tedarik edin: counter:hazine -8, counter:ordu 8
+	* Bulgur yesinler: counter:ordu -8, counter:reaya 5
+
 Yeniçeri İsyanı (card:yeniceri_isyan)
 	bearer: character:yeniceriagasi (variant:ofkeli)
 	weight: 1.0
 	require: counter:ordu < 30
 	lockturn: 30
 	> Yeniçeriler kazan kaldırdı sultanım! Saray avlusunda naralar atıyorlar. "Ulufe isteriz, kelle isteriz!" diye bağırırlar.
-	* Ulufe dağıtın: counter:hazine -25, counter:ordu 20
-	* Elebaşlarını asın: counter:ordu -15, counter:reaya -10
+	* Ulufe dağıtılsın: counter:hazine -8, counter:ordu 10
+	* Elebaşlarını sallandırın: counter:ordu -15, counter:reaya -10
 
 Savaş Teklifi (card:savas_teklif)
 	bearer: character:yeniceriagasi
 	weight: 0.5
-	require: !flag:savas, counter:ordu > 50
+	require: !flag:savas, counter:ordu > 40
 	lockturn: 30
 	> Sultanım, askerler o kadar hazır ki, kılıçlarını bilerken kıvılcımdan saray bahçesi tutuştu. Bu enerjiyi düşmana yönlendirelim.
-	* Bahçe zaten yanmış, sefere: +flag:savas, +flag:kuzeyde_savas, card:_savas@5
-	* Önce bahçeyi söndürün: counter:ordu -10
+	* Bahçe yanmış zaten, sefere çıkılsın: +flag:savas, +flag:kuzeyde_savas, card:_savas@5
+	* Evvela bahçeyi söndürün be: counter:ordu -10
 
 Savaş (card:_savas, ring)
 	bearer: character:yeniceriagasi
 	require: flag:savas
 	> Savaş devam ediyor sultanım! Cepheden barut ve kan kokusu geliyor. Her geçen gün askerimiz azalıyor ama düşman da yorgun.
-	* Taarruz emri ver: counter:ordu -20, [card:_zafer, card:_yenilgi]
-	* Mevzileri koruyun: counter:ordu -10, counter:hazine -15, card:_savas@3
+	* Hücum emri verin: counter:ordu -20, [card:_zafer, card:_yenilgi]
+	* Mevzileri muhafaza edin: counter:ordu -10, counter:hazine -10, card:_savas@3
 
 Zafer (card:_zafer, ring)
 	bearer: character:yeniceriagasi (variant:memnun)
 	require: counter:ordu > 20
 	> Zafer! Küffarı topraklarımızdan sildik sultanım! Ganimet arabaları saray yolunda, asker zafer sarhoşu!
-	* Şanımız yürüsün: -flag:savas, -flag:kuzeyde_savas, counter:hazine 40, counter:ordu 15, counter:reaya 15, counter:kudret 20
+	* Şan-ı devlet yürüsün: -flag:savas, -flag:kuzeyde_savas, counter:hazine 20, counter:ordu 10, counter:reaya 5, counter:kudret 10
 
 Yenilgi (card:_yenilgi, ring)
 	bearer: character:yeniceriagasi (variant:korkmus)
 	require: counter:ordu <= 20
 	> Mağlup olduk sultanım. Sancağımız düştü, asker perişan halde geri çekiliyor. Halk bu utancı unutmaz.
-	* Canımız sağ olsun: -flag:savas, -flag:kuzeyde_savas, counter:ordu -30, counter:hazine -20, counter:reaya -20, counter:kudret -30
+	* Takdir-i ilahidir: -flag:savas, -flag:kuzeyde_savas, counter:ordu -15, counter:hazine -10, counter:reaya -10, counter:kudret -15
+
+# Yeni Yeniçeri Kartları
+Pembe Kavuk (card:yeniceri_pembe_kavuk)
+	bearer: character:yeniceriagasi (variant:ofkeli)
+	weight: 0.3
+	lockturn: 25
+	> Sultanım, yeniçeriler kavuklarının renginden sıkılmış. "Düşman bizi kırmızıdan tanıyor, pembe yapalım da şaşırsınlar" diyorlar.
+	* Pembe olsun, şaşırsınlar: counter:ordu -10, counter:reaya 5
+	* Kırmızıdan şaşmayın: counter:ordu 5, counter:hazine -5
+
+Kılıç Atma Yarışı (card:yeniceri_kilic_yaris)
+	bearer: character:yeniceriagasi (variant:memnun)
+	weight: 0.4
+	lockturn: 20
+	> Sultanım, kışlada kılıç fırlatma yarışı başlattık. Ama üç yeniçeri kılıcı sarayın camlarına isabet ettirdi. Camcı masrafı kapıda.
+	* Yarışa devam, camı taktırın: counter:hazine -8, counter:ordu 10
+	* Kılıcı kınına sokun: counter:ordu -5
+
+Börekçi Yeniçeri (card:yeniceri_borekci)
+	bearer: character:yeniceriagasi (variant:kurnaz)
+	weight: 0.3
+	lockturn: 30
+	> Sultanım, bir yeniçeri kışlanın ortasına börekçi dükkanı açmış. Nöbet tutan yok, herkes kıymalı börek kuyruğunda.
+	* Börekleri hazineye müsadere edin: counter:hazine 10, counter:ordu -8
+	* Bir porsiyon da bana: counter:reaya 8, counter:ordu -10
+
+Kaplan Talebi (card:yeniceri_kaplan)
+	bearer: character:yeniceriagasi
+	weight: 0.2
+	require: counter:hazine > 50
+	lockturn: 40
+	> Sultanım, 65. cemaat "alay sembolü" olarak canlı bir kaplan istiyor. "Aslan kesmez bizi" diyorlar. Kaplanın yem masrafı bir orduya bedel.
+	* Kaplanı kafesleyip getirin: counter:hazine -10, counter:ordu 8
+	* Kedidir o kedi, kedi verin: counter:reaya 5, counter:ordu -5
+
+Torba Meselesi (card:yeniceri_torba)
+	bearer: character:yeniceriagasi (variant:ofkeli)
+	weight: 0.4
+	lockturn: 15
+	> Sultanım, ulufe torbaları çok küçükmüş! Altınlar sığmıyor, yarısı yolda dökülüyor diye şikayet ederler. Torbaları büyütelim mi?
+	* Torbaları büyütün: counter:hazine -10, counter:ordu 10
+	* Altını azaltın, sığar: counter:ordu -20, counter:hazine 15
+
+Sinek Avcısı (card:yeniceri_sinek)
+	bearer: character:yeniceriagasi (variant:memnun)
+	weight: 0.3
+	lockturn: 25
+	> Bir yeniçeri, uçan sineği havada top mermisiyle vurduğunu iddia ediyor! "Barut verin, sarayı sinekten temizleyeyim" diyor.
+	* Barutu verin, izleyelim: counter:hazine -8, counter:ordu 5
+	* Saçmalamayın, topu bırakın: counter:ordu -5
+
+Güneş Gözlüğü (card:yeniceri_gunes)
+	bearer: character:yeniceriagasi (variant:korkmus)
+	weight: 0.3
+	lockturn: 20
+	> Sultanım, askerler "güneş gözümüzü alıyor, nişan alamıyoruz" diye sefere çıkmıyor. Herkese birer gölgelik lazım.
+	* Şemsiye dağıtın: counter:hazine -10, counter:ordu -10
+	* Güneşe ateş edin: counter:din 3, counter:ordu 5
+
+Saray Kliması (card:yeniceri_klima)
+	bearer: character:yeniceriagasi
+	weight: 0.2
+	lockturn: 35
+	> Kışla çok sıcak sultanım. Yeniçeriler her köşeye dev buz kalıpları ve yelpaze sallayan köleler istiyor.
+	* Buzları getirin: counter:hazine -18, counter:ordu 6
+	* Terlesinler, yiğit terler: counter:ordu -8
+
+Askeri Şair (card:yeniceri_sair)
+	bearer: character:yeniceriagasi (variant:memnun)
+	weight: 0.3
+	lockturn: 25
+	> Sultanım, yeniçeriler marş söylemekten sıkılmış. Bir şair tutup "aşk ve hüzün" dolu savaş türküleri yazdırmak istiyorlar.
+	* Şairi tutun: counter:hazine -5, counter:reaya 5
+	* Savaşın hüznü mü olur: counter:ordu 5, counter:reaya -5
+
+Soğan Kavgası (card:yeniceri_sogan)
+	bearer: character:yeniceriagasi (variant:ofkeli)
+	weight: 0.4
+	lockturn: 15
+	> Kışla mutfağında soğan kavgası çıktı! Bir grup "soğanlı menemen", diğeri "soğansız" diyor. Kazanlar havada uçuşuyor.
+	* Soğanlı olsun: counter:ordu 5, counter:reaya -5
+	* Menemeni yasaklayın: counter:ordu -10, counter:reaya 5
+
+Peynir Kılıcı (card:yeniceri_peynir)
+	bearer: character:yeniceriagasi (variant:kurnaz)
+	weight: 0.2
+	lockturn: 40
+	> Sultanım, bir yeniçeri "peynirden kılıç" yapmış. "Sadece peynir yiyenlere karşı etkili" diyor. Akıl sağlığı yerinde mi bilemedim.
+	* Kılıcı müze yapın: counter:reaya 5, counter:hazine -5
+	* Tımarhaneye sevk edin: counter:din 3, counter:ordu -5
+
+Zırhlı Terlik (card:yeniceri_terlik)
+	bearer: character:yeniceriagasi
+	weight: 0.3
+	lockturn: 25
+	> Sultanım, askerler kışlada ağır çizmelerden yorulmuş. "Zırhlı terlik" istiyorlar. Hem hafif hem koruyucu!
+	* Terlikleri imal edin: counter:hazine -8, counter:ordu 8
+	* Çizmeye devam: counter:ordu 5, counter:hazine 5
+
+Harem Geçidi (card:yeniceri_harem_gecit)
+	bearer: character:yeniceriagasi (variant:kurnaz)
+	weight: 0.1
+	lockturn: 50
+	> Sultanım, yeniçeriler askeri geçit törenini Harem'in içinden yapmak istiyor. "Sesimiz yankılansın" diyorlar.
+	* Zinhar, yasaktır: counter:din 3, counter:ordu -10
+	* Sadece sessizce geçsinler: counter:reaya 8, counter:din -10
+
+Kare Gülle (card:yeniceri_gulle)
+	bearer: character:yeniceriagasi (variant:ofkeli)
+	weight: 0.3
+	lockturn: 20
+	> Sultanım, gülleler çok yuvarlakmış! Üst üste dizince kayıp düşüyor, yeniçerilerin ayaklarını eziyormuş. Kare gülle dökülmesini talep ederler.
+	* Kare gülle dökün: counter:hazine -10, counter:ordu -10
+	* Yuvarlağa alışın: counter:ordu 5
+
+Askeri Tatil (card:yeniceri_tatil)
+	bearer: character:yeniceriagasi (variant:memnun)
+	weight: 0.2
+	require: counter:ordu > 60
+	lockturn: 45
+	> Sultanım, savaştan yeni döndük. Askerler "psikolojik ferahlık" için üç günlüğüne mesireye gitmek ister.
+	* Gitsinler, helaldir: counter:reaya 5, counter:ordu -15, counter:mesire 1
+	* Kışlada otursunlar: counter:ordu 10, counter:reaya -10
+
+Güvercin Yeniçeri (card:yeniceri_guvercin)
+	bearer: character:yeniceriagasi (variant:korkmus)
+	weight: 0.1
+	lockturn: 60
+	> Sultanım, bir yeniçeri kendini güvercin sanmaya başladı. Kışlanın çatısında tünemiş, "vuku" diye bağırıyor. Diğerleri de onu besliyor.
+	* Çatıdan indirin: counter:din 3, counter:ordu -5
+	* Bırakın uçsun: counter:reaya 5
+
+Yeniçeri Parkı (card:yeniceri_park)
+	bearer: character:yeniceriagasi
+	weight: 0.2
+	lockturn: 35
+	> Sultanım, kışlanın yanına dev bir "Yeniçeri Eğlence Parkı" kuralım. Düşman kellesi fırlatma, kazan kaldırma gibi oyunlar olsun.
+	* İnşa edilsin: counter:hazine -10, counter:reaya 8, counter:ordu 10
+	* Parka gerek yok: counter:hazine 10, counter:reaya -10
+
+Brokoli İsyanı (card:yeniceri_brokoli_tekrar)
+	bearer: character:yeniceriagasi (variant:ofkeli)
+	weight: 0.4
+	require: !flag:isyan
+	lockturn: 20
+	> Sultanım, mutfağa yine brokoli girmiş! Bu sefer "yeşil ağaç yemeyiz" diye aşçının kavuğunu yakmışlar.
+	* Brokoliyi denize dökün: counter:ordu 10, counter:reaya -5
+	* Zorla yedirin: counter:ordu -20, counter:reaya 5
+
+Görünmez Kılıç (card:yeniceri_gorunmez_kilic)
+	bearer: character:yeniceriagasi (variant:kurnaz)
+	weight: 0.2
+	lockturn: 40
+	> Bir sahtekar askerlere "görünmez kılıç" satmış. Askerler elleri boş havayı sallıyor! "Çok keskin sultanım" diyorlar.
+	* Sahtekarı yakalayın: counter:hazine 10, counter:ordu -5
+	* Kılıçlar çok güzelmiş deyin: counter:reaya 5, counter:ordu -15
+
+Altın Zırh (card:yeniceri_altin_zirh)
+	bearer: character:yeniceriagasi (variant:memnun)
+	weight: 0.2
+	require: counter:hazine > 80
+	lockturn: 30
+	> Sultanım, hazine taştı! Her yeniçeriye som altından bir zırh yaptıralım mı? Düşmanın gözü kamaşsın!
+	* Yaptırın, parlasınlar: counter:hazine -10, counter:ordu 10, counter:kudret 15
+	* Altın zırh mı olur, ağır gelir: counter:hazine 10, counter:ordu -5
+

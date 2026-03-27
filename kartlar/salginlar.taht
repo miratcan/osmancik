@@ -6,11 +6,54 @@ Veba Salgını (card:veba)
 	require: !flag:veba, counter:reaya > 30
 	lockturn: 50
 	> Sultanım, şehirde veba yayılıyor! Soytarı "ben zaten ölüyüm içten içe" dedi, kimse gülmedi.
-	* Karantina, soytarıya da: counter:hazine -12, counter:reaya -5, +flag:veba, card:_veba_sonu@8
-	* Dua ile geçer: counter:din 10, counter:reaya -15, +flag:veba, card:_veba_sonu@12
+	* Soytarıyı dövün, şehri karantinaya alın: counter:hazine -8, counter:reaya -5, counter:ordu 5, +flag:veba, card:_veba_sonu@8
+	* Karantinaya alın, soytarıyı da: counter:hazine -8, counter:reaya -5, +flag:veba, card:_veba_sonu@8
+	* Dua ile geçer inşallah: counter:din 3, counter:reaya -8, +flag:veba, card:_veba_sonu@12
 
 Veba Sonu (card:_veba_sonu, ring)
 	bearer: character:seyhulislam
 	require: flag:veba
 	> Salgın bitti sultanım. Soytarı hâlâ karantinada, çıkarmayı unuttuk ama şikayet etmiyor.
-	* Çıkarın artık: -flag:veba, counter:din 5
+	* Çıkarın artık zavallıyı: -flag:veba, counter:din 3
+
+# Yeni Salgın Kartları
+Gülme Salgını (card:salgin_gulme)
+	bearer: character:soytari (variant:korkmus)
+	weight: 0.1
+	lockturn: 50
+	> Sultanım, şehirde bir gülme salgını başladı! Herkes kahkaha atıyor, kimse ciddiyetle vergi ödemiyor, ordu kılıç sallayamıyor.
+	* Güldükçe dertleri unuturlar: counter:reaya 5, counter:hazine -10
+	* Soğuk su dökün hepsine: counter:reaya -8, counter:ordu 5
+
+Uyku Salgını (card:salgin_uyku)
+	bearer: character:seyhulislam (variant:memnun)
+	weight: 0.1
+	lockturn: 40
+	> Bir uyku salgını geldi sultanım. Halk sokaklarda, camilerde, hatta at üstünde uyuyor. Huzur var ama iş yok.
+	* Bırakın uyusunlar, dünya fanidir: counter:din 3, counter:hazine -10
+	* Mehter takımı çalın: counter:reaya -10, counter:ordu 5
+
+Altın Ateşi (card:salgin_altin)
+	bearer: character:sadrazam (variant:kurnaz)
+	weight: 0.15
+	lockturn: 35
+	> Herkesin gözü sararmış sultanım. Kendilerini altın zannediyorlar, birbirlerini kemirmeye çalışıyorlar.
+	* Kendilerini altın sansınlar: counter:hazine 15, counter:reaya -10
+	* Hekimleri çağırın: counter:hazine -8, counter:reaya 5
+
+Unutkanlık (card:salgin_unutkan)
+	bearer: character:aksakallidede
+	weight: 0.1
+	lockturn: 60
+	> Şehirde bir unutkanlık salgını var. İnsanlar adını, evini, hatta size olan bağlılığını unuttu. "Bu kim?" diye size bakıyorlar.
+	* Ben padişahınızım deyin: counter:kudret 10, counter:reaya -10
+	* Unutmak nimettir: counter:din 3, counter:reaya 5
+
+Hıçkırık (card:salgin_hickirik)
+	bearer: character:haremagasi (variant:ofkeli)
+	weight: 0.2
+	lockturn: 25
+	> Sultanım, sarayda hıçkırık salgını var! Harem'de konuşulanlar anlaşılmıyor, her cümleye "hıık" diye ara veriyorlar.
+	* Korkutun hepsini: counter:reaya -10, counter:ordu 5
+	* Limon yedirin: counter:hazine -5, counter:reaya 5
+

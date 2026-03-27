@@ -6,8 +6,8 @@ Orman Cini Karşılaşması (card:ormancini_karsilasma)
 	require: !flag:ormancini
 	lockturn: dispose
 	> Ormanda yeşil, pırıl pırıl bir yaratık belirdi. "Ben orman ciniyim" dedi. "Sana üç dilek hakkı veriyorum ama hangi dileğinin gerçekleşeceğini bilemeyeceksin."
-	* Kabul: counter:dilek 3, +flag:ormancini
-	* Allah Allah deyip kaç: counter:din 10, +flag:ormancini
+	* Kabul ettik: counter:dilek 3, +flag:ormancini
+	* Euzubillah, kaçın: counter:din 5, +flag:ormancini
 
 Orman Cini Geri Döndü (card:ormancini_geri)
 	bearer: character:ormancini
@@ -15,8 +15,8 @@ Orman Cini Geri Döndü (card:ormancini_geri)
 	require: flag:ormancini
 	lockturn: 25
 	> Orman cini yine geldi. Bu sefer ağaçların tepesinde oturuyor ve elinde bir kağıt var. "Vergi beyannameni hazırladım" diyor.
-	* Cin mi vergi beyannamesi mi: counter:hazine 15, counter:din -5
-	* Defol cin: counter:din 10, counter:hazine -10
+	* Cin midir vergi beyannamesi midir: counter:hazine 15, counter:din -5
+	* Defol cin, sarayıma sığmaz: counter:din 5, counter:hazine -10
 
 Orman Cini Teklif (card:ormancini_teklif)
 	bearer: character:ormancini (variant:kurnaz)
@@ -24,5 +24,103 @@ Orman Cini Teklif (card:ormancini_teklif)
 	require: flag:ormancini
 	lockturn: 30
 	> Orman cini sarayın kapısında. "Sadrazamınız olmak istiyorum" diyor. Yanında referans mektubu var, yazan: diğer orman cinleri.
-	* Kabul, mevcut sadrazamdan iyi olur: counter:hazine 20, counter:din -15
-	* Cin sadrazam olmaz: counter:din 5
+	* Mevcut sadrazamdan ehvendir: counter:hazine 20, counter:din -15
+	* Cin sadrazam olamaz, olmamıştır: counter:din 5, counter:hazine -5
+
+# Yeni Orman Cini Kartları
+Güvercin Olma Teklifi (card:ormancini_guvercin)
+	bearer: character:ormancini (variant:kurnaz)
+	weight: 0.1
+	require: flag:ormancini, !flag:kardespapagan
+	lockturn: 50
+	> "Seni bir güvercine dönüştüreyim mi?" diyor orman cini. "Uçar gidersin, vergi derdi kalmaz, sadece buğday peşinde koşarsın."
+	* Güvercin olmak kulağa hoş geliyor: counter:reaya 5, counter:kudret -20, card:_guvercin_oldun@5
+	* Ben kartalım, güvercin değil: counter:kudret 10, counter:din 5
+
+Sihirli Fasulye (card:ormancini_fasulye)
+	bearer: character:ormancini (variant:memnun)
+	weight: 0.2
+	require: flag:ormancini
+	lockturn: 30
+	> Orman cini avucunda üç tane buruşuk fasulye tutuyor. "Bunları saray bahçesine dik, göğe kadar uzasınlar" diyor.
+	* Dikilsin, göğe çıkalım: counter:hazine -10, counter:reaya 5
+	* Nohut olsa yerdik: counter:reaya -5
+
+İsim Arama (card:ormancini_isim)
+	bearer: character:ormancini
+	weight: 0.1
+	require: flag:ormancini
+	lockturn: 40
+	> "Bana bir insan ismi ver sultanım" diyor cin. "Orman cini demekten yoruldum. Mesela 'Mahmut' nasıl?"
+	* Adın Mahmut olsun: counter:reaya 5, counter:din -3
+	* Cin cinliğini bilsin: counter:din 5
+
+Saray Balonu (card:ormancini_balon)
+	bearer: character:ormancini (variant:kurnaz)
+	weight: 0.1
+	require: flag:ormancini
+	lockturn: 50
+	> Orman cini üfleyerek sarayın etrafında dev bir sabun köpüğü oluşturdu. "Artık kimse sizi göremez, vergiler de giremez" diyor.
+	* Köpüğün içinde yaşayalım: counter:reaya 5, counter:hazine -10
+	* Patlatın şu balonu: counter:hazine 5, counter:reaya -10
+
+Altın Yağmuru (card:ormancini_altin)
+	bearer: character:ormancini (variant:memnun)
+	weight: 0.15
+	require: flag:ormancini, counter:hazine < 20
+	lockturn: 30
+	> "Sana altın yağdırayım mı?" diyor cin. Şak diye bir parmak şıklattı, saray avlusuna sarı sarı pullar yağmaya başladı. Lakin tadı çikolata gibi...
+	* Çikolataları toplayın: counter:hazine 10, counter:reaya 5
+	* Gerçek altın lazım: counter:hazine -5
+
+Ağaçla İzdivaç (card:ormancini_agac)
+	bearer: character:ormancini (variant:kurnaz)
+	weight: 0.1
+	require: flag:ormancini, !flag:evlilik
+	lockturn: 45
+	> Orman cini yaşlı bir çınar ağacını işaret etti. "Bununla evlen sultanım" diyor. "Hiç konuşmaz, takı istemez, sadece su."
+	* Çınar gelinim olsun: counter:din -15, counter:reaya 5
+	* Delirdin mi be cin: counter:din 5
+
+Cin Bilmecesi (card:ormancini_bilmece)
+	bearer: character:ormancini
+	weight: 0.2
+	require: flag:ormancini
+	lockturn: 25
+	> "Ayağı var yürüyemez, ağzı var konuşamaz, sarayda oturur ama kira ödemez. Nedir bu?" diye sordu cin.
+	* Taht mıdır nedir: counter:reaya 5
+	* Sensin o, git buradan: counter:din 5, counter:reaya -5
+
+Yeniçeri Cin (card:ormancini_yeniceri)
+	bearer: character:ormancini (variant:memnun)
+	weight: 0.1
+	require: flag:ormancini
+	lockturn: 40
+	> Orman cini kafasına minicik bir yeniçeri kavuğu takmış. "Beni ocağa al sultanım, kılıcım yapraktan ama yüreğim baruttan" diyor.
+	* Alın ocağa, savaşsın: counter:ordu 10, counter:din -8
+	* Git ormanına dön: counter:din 5, counter:ordu -5
+
+Ruh Takası (card:ormancini_ruh)
+	bearer: character:ormancini (variant:kurnaz)
+	weight: 0.05
+	require: flag:ormancini
+	lockturn: 60
+	> "Ruhunu saray kedisiyle takas edelim mi?" diyor cin. "Sen fare kovalarsın, kedi de senin yerine ferman imzalar. Kimse fark etmez."
+	* Kedinin hayatı daha rahat: counter:reaya 5, counter:kudret -25
+	* Ruhum bende kalsın: counter:kudret 10
+
+Koku Bedeli (card:ormancini_koku)
+	bearer: character:ormancini (variant:kurnaz)
+	weight: 0.1
+	require: flag:ormancini, flag:veba
+	lockturn: 20
+	> Orman cini veba salgınını bitirmeyi teklif ediyor. "Karşılığında koku alma duyunu alırım" diyor. "Gül kokusunu duymazsın ama veba da biter."
+	* Kabul, salgın bitsin: -flag:veba, counter:reaya 5, counter:kudret -10
+	* Burnum bana lazım: counter:reaya -8, counter:din 5
+
+Güvercin Oldun (card:_guvercin_oldun, ring)
+	bearer: character:anlatici
+	> Puf! Bir duman bulutu ve artık bir güvercinsiniz. Saray çatısında tünemiş, aşağıdaki sadrazama bakıyorsunuz. O sizi tanımaz, siz ise her şeyi biliyorsunuz.
+	* Vuku vuku: counter:reaya 5, counter:kudret -10
+
+

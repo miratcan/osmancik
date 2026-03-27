@@ -1,0 +1,180 @@
+# Veraset ve Şehzade Kavgaları
+
+Şehzadeler Büyüdü (card:sehzade_buyudu)
+	bearer: character:validesultan
+	weight: 0.8
+	require: counter:sehzade > 0, !flag:sehzade_isyanda, !flag:sehzade_kafeste
+	lockturn: 10
+	> Sultanım, en büyük şehzadeniz artık kılıç kuşanıp sancağa çıkmak ister. Halk "Sultan Süleyman gibi yiğit" diyor, ordudaki ağalar ise onu tahta yakıştırıyor.
+	* Sancağa yollayın, Amasya'ya: counter:ordu 8, counter:hazine -10, card:_sehzade_sancak@10
+	* Sarayda kalsın, kafeste: counter:reaya -10, counter:din -5, +flag:sehzade_kafeste
+
+Şehzade Sancak Zaferi (card:_sehzade_sancak, ring)
+	bearer: character:sancakbeyi (variant:memnun)
+	> Müjdeler olsun! Şehzadeniz sancağında bir isyan bastırdı, girdiği her kaleyi fethetti. Asker "Yaşasın yeni Padişah" diye bağırmaya başladı!
+	* Maşallah evladımıza: counter:ordu 10, counter:reaya 5, card:_sehzade_tehdit@10
+	* Bu kadar teveccüh tehlikelidir: counter:ordu -5, counter:kudret 5
+
+Şehzade Taht Talebi (card:_sehzade_tehdit, ring)
+	bearer: character:yeniceriagasi (variant:ofkeli)
+	> Sultanım, sancağındaki şehzadeniz 20 bin askerle İstanbul'a yürüyormuş! "Babam yaşlandı, tahtı bana devretsin" der.
+	* Tahtı devrediyoruz: counter:reaya 50, counter:ordu 100
+	* Ordumu hazırlayın: counter:ordu -20, counter:hazine -10, +flag:sehzade_isyanda
+
+Şehzade İsyanı Bastırıldı (card:sehzade_isyan_sonuc)
+	bearer: character:sadrazam (variant:korkmus)
+	weight: 1.0
+	require: flag:sehzade_isyanda, counter:ordu > 30
+	lockturn: once
+	> Asiler dağıldı, şehzadeniz yakalandı sultanım. Nizam-ı alem için son karar sizindir.
+	* Kafese tıkın: -flag:sehzade_isyanda, +flag:sehzade_kafeste, counter:reaya -8, counter:din -10
+	* Nizam-ı alem için: counter:sehzade -1, -flag:sehzade_isyanda, counter:din -20, counter:reaya -8
+
+Kafesteki Şehzade (card:sehzade_kafes_dert)
+	bearer: character:validesultan (variant:ofkeli)
+	weight: 0.5
+	require: flag:sehzade_kafeste
+	lockturn: 20
+	> Oğlum, şehzaden kafeste divane oldu! Duvarlarla konuşuyor, bizi tanımıyor. Bu zulüm ne zaman bitecek?
+	* Sabretsin: counter:din -5, counter:reaya -5
+	* Affettik, salıverin: -flag:sehzade_kafeste, counter:reaya 5, counter:din 5
+
+Çok Fazla Şehzade (card:sehzade_coklugu)
+	bearer: character:seyhulislam (variant:ofkeli)
+	weight: 2.0
+	require: counter:sehzade > 1
+	lockturn: 20
+	> Sultanım, sarayda adım atacak yer kalmadı, her köşe bir şehzade! Aralarındaki husumet devleti yer bitirir. Birine veliaht deyin, diğerlerini...
+	* Veliaht tayin edin, kalanı kafese: counter:sehzade 1, +flag:sehzade_kafeste, counter:din -15, counter:reaya -10
+	* Aralarında halletsinler: counter:ordu -15, counter:reaya -10
+
+# Yeni Veraset ve Şehzade Kartları
+Şehzade Eğitimi (card:sehzade_egitim)
+	bearer: character:seyhulislam (variant:memnun)
+	weight: 0.4
+	require: counter:sehzade > 0
+	lockturn: 20
+	> Sultanım, şehzadeniz elifbayı bitirdi. Şimdi kılıç talimine başlamak ister. Lakin kılıcı tutamıyor, çok ağır gelmiş.
+	* Tahta kılıç verin: counter:ordu 5, counter:hazine -3
+	* Kas yapsın evladımız: counter:reaya 5, counter:ordu 8
+
+Şehzade Sorusu (card:sehzade_soru)
+	bearer: character:validesultan
+	weight: 0.3
+	require: counter:sehzade > 0
+	lockturn: 25
+	> Oğlum, küçük şehzade sordu: "Baba neden hep o koltukta oturuyor, yorulmuyor mu?" Tahtı koltuk sanıyor zavallı.
+	* Yoruluyoruz elbet: counter:kudret -5, counter:reaya 5
+	* Taht koltuk değildir: counter:kudret 5, counter:din 5
+
+# Şehzade Kopyası Arkı
+Pazardaki Benzerlik (card:sehzade_kopya_basla)
+	bearer: character:soytari (variant:kurnaz)
+	weight: 0.3
+	lockturn: 50
+	> Sultanım, pazarda şehzadenize ikizi kadar benzeyen bir yoğurtçu çırağı buldum! Tek farkı, o daha iyi yoğurt çalıyor.
+	* Çırağı saraya getirin: counter:hazine -5, counter:reaya 5, card:_sehzade_kopya_saray@10
+	* Yoğurdunu yesin, gelmesin: counter:reaya 5
+
+Kopya Şehzade Sarayda (card:_sehzade_kopya_saray, ring)
+	bearer: character:haremagasi (variant:korkmus)
+	> Sultanım, o yoğurtçu çırağı şehzadenin yerine derslere giriyor! Kimse fark etmedi, hatta müderris "şehzademiz çok zekileşti" diyor.
+	* Devam etsinler, ses çıkarmayın: counter:din 5, counter:reaya 5, card:_sehzade_kopya_karisik@15
+	* Çırağı hemen kovun: counter:reaya -10, counter:kudret 5
+
+Kopya Karışıklığı (card:_sehzade_kopya_karisik, ring)
+	bearer: character:validesultan (variant:ofkeli)
+	> Oğlum! Hangisi benim torunum şaşırdım! Biri "yoğurt var" diye bağırıyor, diğeri "taht benim" diyor. İkisini de kafese mi tıkalım?
+	* Yoğurt diyeni kovun: counter:sehzade 1, counter:reaya -5
+	* İkisi de kalsın, yedek olur: counter:sehzade 2, counter:hazine -10, counter:ordu -10
+
+Şehzade Mektubu (card:sehzade_mektup)
+	bearer: character:anlatici
+	weight: 0.4
+	require: counter:sehzade > 0
+	lockturn: 20
+	> Şehzadenizden bir mektup geldi: "Baba, sadrazam bana her gün ıspanak yediriyor. Padişah olunca onu ilk ben azledeceğim."
+	* Sadrazamı uyarın: counter:ordu 5, counter:reaya 5
+	* Ispanak güç verir: counter:ordu 5, counter:hazine -3
+
+Veliaht Krizi (card:veliaht_kriz)
+	bearer: character:seyhulislam (variant:ofkeli)
+	weight: 0.5
+	require: counter:yas > 60, counter:sehzade > 2
+	lockturn: 15
+	> Hünkarım, yaş kemale erdi. Hâlâ kimin padişah olacağı belli değil. Saray entrika kaynıyor, her köşede bir fısıltı!
+	* Büyük olan geçsin: counter:sehzade 1, counter:din 5, counter:reaya 5
+	* En akıllısı geçsin: counter:sehzade 1, counter:ordu 10, counter:hazine -10
+
+Şehzade ve Papağan (card:sehzade_papagan_dost)
+	bearer: character:haremagasi (variant:memnun)
+	weight: 0.3
+	require: counter:sehzade > 0, flag:papagan
+	lockturn: 25
+	> Sultanım, küçük şehzade papağanla arkadaş oldu. Beraber sadrazamın taklidini yapıyorlar. Harem gülmekten yıkılıyor.
+	* Gülsünler bakalım: counter:reaya 6, counter:kudret -5
+	* Ciddiyet telkin edin: counter:kudret 5, counter:din 5
+
+Kafesteki Şehzade Kaçtı (card:sehzade_kafes_kacis)
+	bearer: character:yeniceriagasi (variant:korkmus)
+	weight: 0.2
+	require: flag:sehzade_kafeste
+	lockturn: 40
+	> Sultanım, kafesteki şehzade pencereden çarşafları birbirine bağlayıp kaçmış! "Ben balıkçı olacağım" diye not bırakmış.
+	* Balıkçı olsun, ilişmeyin: -flag:sehzade_kafeste, counter:sehzade -1, counter:reaya 5
+	* Derhal yakalayın: counter:ordu 10, counter:hazine -10
+
+Şehzade Bahşişi (card:sehzade_bahsis)
+	bearer: character:sadrazam (variant:ofkeli)
+	weight: 0.4
+	require: counter:sehzade > 0
+	lockturn: 20
+	> Sultanım, şehzadeniz kışlaya gidip askerlere kendi harçlığından bahşiş dağıtmış. Askerler "aslan şehzademiz" diye bağırıyor. Sizin bahşişi az buldular.
+	* Biz de dağıtalım: counter:hazine -8, counter:ordu 8
+	* Harçlığını kesin: counter:ordu -10, counter:hazine 5
+
+Şehzade ve Orman Cini (card:sehzade_cin)
+	bearer: character:ormancini (variant:kurnaz)
+	weight: 0.1
+	require: counter:sehzade > 0, flag:ormancini
+	lockturn: 50
+	> "Şehzadenle saklambaç oynadık" diyor cin. "Onu bir meşeye sakladım, bulabilirsen senin, bulamazsan ormanın olur."
+	* Ağaçları tek tek arayın: counter:hazine -10, counter:reaya 5
+	* Cinle oyun olmaz: counter:din 5, counter:reaya -5
+
+Şehzade Gelin Adayı (card:sehzade_gelin)
+	bearer: character:validesultan (variant:memnun)
+	weight: 0.3
+	require: counter:sehzade > 0
+	lockturn: 30
+	> Oğlum, büyük şehzadeye bir eş buldum. Rus Çarı'nın kuzeniymiş. Gözleri deniz gibi, huyu ise fırtına.
+	* Evlensinler: counter:hazine -10, counter:reaya 8, counter:ordu 10
+	* Henüz erken: counter:reaya -5
+
+Şehzade ve Donanma (card:sehzade_donanma)
+	bearer: character:kaptaniderya (variant:memnun)
+	weight: 0.3
+	require: counter:sehzade > 0
+	lockturn: 25
+	> Sultanım, şehzadeniz gemiye bindi, dümen başına geçti. "Kaptan-ı Derya benim" diyor. Leventler hayran kaldı.
+	* Kaptan olsun paşam: counter:ordu 6, counter:reaya 5
+	* Gemiden indirin, ıslanmasın: counter:ordu -5
+
+Şehzade ve Soytarı (card:sehzade_soytari_egitim)
+	bearer: character:soytari (variant:memnun)
+	weight: 0.3
+	require: counter:sehzade > 0
+	lockturn: 20
+	> Sultanım, şehzadeye şaka yapmayı öğretiyorum. Artık sadrazama "burnun neden patlıcan gibi?" diye sorabiliyor.
+	* Devam et soytarı: counter:reaya 5, counter:kudret -5
+	* Dersine baksın: counter:din 5, counter:kudret 5
+
+Şehzade Kılıcı (card:sehzade_kilic_hediye)
+	bearer: character:yeniceriagasi
+	weight: 0.3
+	require: counter:sehzade > 0
+	lockturn: 25
+	> Sultanım, şehzadeye som çelikten bir kılıç dövdürdük. Üstünde "Babamın Gölgesi" yazıyor.
+	* Güle güle kullansın: counter:hazine -10, counter:ordu 10, counter:kudret 5
+	* Çok ağır gelmesin: counter:ordu 5
+

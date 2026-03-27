@@ -1,12 +1,28 @@
 # Valide Sultan kartları
 
+Valide Yemek Daveti (card:valide_yemek)
+	bearer: character:validesultan
+	weight: 0.4
+	lockturn: 18
+	> Oğlum, akşam sofrasına gel. Mantı yaptım, senin sevdiğin. Hem de sadrazamı çağırdım, onun da yüzü asık, aç galiba.
+	* Gelirim validem: counter:reaya 5, counter:hazine -5
+	* Devlet işi var validem: counter:din -5
+
+Valide Guilt Trip (card:valide_sitem)
+	bearer: character:validesultan (variant:ofkeli)
+	weight: 0.5
+	lockturn: 15
+	> Oğlum, baban sağ olsaydı bu hali görse mezarında ters dönerdi! Sen ne biçim padişahsın, ne ziyarete gelirsin ne hatır sorarsın. Kediler bile yavrularını daha çok arar!
+	* Hakkınız var validem: counter:reaya 5, counter:din 3
+	* Padişahlık kolay mı validem: counter:kudret -5
+
 Valide Nasihat (card:valide_nasihat)
 	bearer: character:validesultan
 	weight: 0.3
 	lockturn: 25
 	> Oğlum, ben senin yaşındayken baban 3 kale fethetmişti. Sen daha saraydan çıkmadın. Hadi en azından bahçeye çık.
-	* Bahçeye çıkayım: counter:reaya 10, counter:hazine -5
-	* Bahçede böcek var: counter:reaya 5
+	* Haklısınız valide, çıkıyorum: counter:reaya 5, counter:hazine -5
+	* Bahçede haşerat var validem: counter:reaya 5
 
 Evlilik Teklifi (card:evlilik)
 	bearer: character:validesultan (variant:memnun)
@@ -14,5 +30,130 @@ Evlilik Teklifi (card:evlilik)
 	require: !flag:evlilik
 	lockturn: dispose
 	> Oğlum, sana eş buldum. Kızın babası 7 kale sahibi, kendisi 4 dil biliyor ve güreşte seni yener.
-	* Güreşte yenerse alırım: +flag:evlilik, counter:din 10, counter:reaya 10, counter:hazine -15
-	* Güreş istemem: counter:din -5
+	* Güreşte yenerse alırız: +flag:evlilik, counter:din 3, counter:reaya 5, counter:hazine -10
+	* Güreşe lüzum yok validem: counter:din -5
+
+# Yeni Valide Sultan Kartları
+Valide Kedi Unvanı (card:valide_kedi_unvan)
+	bearer: character:validesultan (variant:memnun)
+	weight: 0.3
+	lockturn: 25
+	> Oğlum, benim sarman kediye "Paşa" unvanı verelim. Sadrazamdan daha akıllı duruyor, en azından rüşvet istemiyor.
+	* Kediye paşalık verilsin: counter:reaya 5, counter:hazine -5
+	* Kedi kedidir validem: counter:reaya -5
+
+Zengin Fukara Evi (card:valide_zengin_fukara)
+	bearer: character:validesultan (variant:kurnaz)
+	weight: 0.3
+	lockturn: 20
+	> Oğlum, bir aşevi açalım ama sadece zenginlere yemek versin. Adamlar vergiden bir hal oldu, bari bir çorba içsinler.
+	* Zengin de kuldur, açın: counter:hazine -10, counter:reaya -10
+	* Fukara dururken olmaz: counter:reaya 5, counter:din 8
+
+Harem Gürültüsü (card:valide_gurultu)
+	bearer: character:validesultan (variant:ofkeli)
+	weight: 0.4
+	lockturn: 15
+	> Haremde cariyeler bütün gece şarkı söylüyor! Kulaklarım patladı. Hepsine birer susturucu... pardon, sessizlik emri verin.
+	* Şarkı yasaklansın: counter:reaya -10, counter:din 3
+	* Musikidir, ruhu besler: counter:reaya 5
+
+Hala Kızı (card:valide_halakizi)
+	bearer: character:validesultan
+	weight: 0.3
+	lockturn: 30
+	> Hala kızının oğlu Kırım Hanı olmuş, at binip kılıç sallıyormuş. Sen hâlâ o papağanla mı konuşuyorsun evladım?
+	* Ben de ata binerim: counter:ordu 10, counter:kudret 5
+	* Papağan daha iyi dinliyor: counter:reaya 5, counter:kudret -10
+
+Hac Kafile (card:valide_hac)
+	bearer: character:validesultan (variant:memnun)
+	weight: 0.2
+	require: counter:hazine > 60
+	lockturn: once
+	> Oğlum, hacca gitmeye niyet ettim. Yanıma 1000 yeniçeri ve 50 deve dolusu altın alacağım. Helalleşelim.
+	* Yolunuz açık olsun validem: counter:hazine -10, counter:ordu -15, counter:din 6
+	* Devlet size muhtaç, gitmeyin: counter:din -10, counter:reaya 5
+
+Mutfak Haritası (card:valide_mutfak)
+	bearer: character:validesultan (variant:kurnaz)
+	weight: 0.3
+	lockturn: 25
+	> Sarayın mutfağında gizli bir bölme buldum. İçinde sadece bal kavanozları var. Sadrazam "kayıt dışı" diyor, ben "nasip" diyorum.
+	* Balları bana getirin: counter:hazine 10, counter:reaya -5
+	* Valideme kalsın: counter:reaya 5
+
+Dev Dantel (card:valide_dantel)
+	bearer: character:validesultan (variant:memnun)
+	weight: 0.2
+	lockturn: 40
+	> Oğlum, koca kış boş durmadım, taht odası için dev bir dantel ördum. Her yerin üstünü kapatalım, devlet dediğin tertipli durur.
+	* Serin her yere, nizam gelsin: counter:reaya 5, counter:hazine -5
+	* Tahtın üstü örtülmez validem: counter:kudret 5
+
+
+Dert Dinleyici (card:valide_dert)
+	bearer: character:validesultan
+	weight: 0.3
+	lockturn: 20
+	> Oğlum, kendime bir "dert dinleyici" tuttum. Her gün ona ağlıyorum, o da bana "haklısın sultanım" diyor. Maaşını sen ver.
+	* Maaşını verin: counter:hazine -8, counter:reaya 5
+	* Kendi dertlerini dinlesin: counter:reaya -5
+
+Zayıflık Meselesi (card:valide_zayif)
+	bearer: character:validesultan (variant:ofkeli)
+	weight: 0.4
+	lockturn: 15
+	> Oğlum, iğne ipliğe dönmüşsün! Padişah dediğin heybetli olur. Her öğün üçer porsiyon kebap yiyeceksin, fermanım budur!
+	* Kebapları getirin: counter:hazine -10, counter:reaya 5
+	* Formuma dikkat ediyorum: counter:kudret 5, counter:reaya -5
+
+Harem Altın Kaplama (card:valide_altin)
+	bearer: character:validesultan (variant:kurnaz)
+	weight: 0.2
+	require: counter:hazine > 70
+	lockturn: 50
+	> Harem'in duvarlarını som altınla kaplatalım. Gelen elçiler "bakın ne kadar zenginler" desin, içi boş olsa da olur.
+	* Kaplatın: counter:hazine -10, counter:kudret 15
+	* Boya yeterlidir validem: counter:hazine 10, counter:kudret -5
+
+Valide Hafiyesi (card:valide_hafiye)
+	bearer: character:validesultan (variant:kurnaz)
+	weight: 0.3
+	lockturn: 25
+	> Sarayda kuş uçsa haberim olur oğlum. Dün gece o soytarı senin taklidini yapıyordu, biliyor muydun?
+	* Soytarıyı cezalandırın: counter:ordu 5, counter:reaya -5
+	* Güzel yapıyor mu bari: counter:reaya 5
+
+Saray Kurabiyesi (card:valide_kurabiye)
+	bearer: character:validesultan (variant:memnun)
+	weight: 0.4
+	lockturn: 15
+	> Yeniçeriler kazan kaldırmış diye duydum. Ben onlara anne kurabiyesi yaptım, dağıtırsan sakinleşirler.
+	* Kurabiyeleri dağıtın: counter:ordu 8, counter:hazine -10
+	* Asker kurabiye yemez: counter:ordu -10
+
+İnci Kremi (card:valide_inci)
+	bearer: character:validesultan (variant:kurnaz)
+	weight: 0.3
+	lockturn: 30
+	> Yüzümdeki kırışıklıklar için incileri dövüp krem yaptırdım. Cildim mermer gibi oldu ama hazinede inci kalmadı.
+	* Güzelliğiniz her şeyden mühim: counter:hazine -10, counter:reaya 5
+	* İnciyi kreme mi harcadınız: counter:hazine 10, counter:reaya -10
+
+Valide Ninnisi (card:valide_ninni)
+	bearer: character:validesultan (variant:memnun)
+	weight: 0.2
+	lockturn: 40
+	> Oğlum, yeni bir milli marş buldum. Benim sana okuduğum ninni! Hem yumuşak hem huzurlu.
+	* Marşımız ninni olsun: counter:reaya 5, counter:ordu -15
+	* Ciddiyet lütfen validem: counter:ordu 10, counter:reaya -10
+
+Valide Rüya Tabiri (card:valide_ruya_tabir)
+	bearer: character:validesultan
+	weight: 0.3
+	lockturn: 25
+	> Rüyamda seni bir bahçede çiçek toplarken gördüm. Şeyhülislâm "hayırdır" dedi ama ben "evlilik yakındır" diyorum.
+	* Hayırlısı olsun validem: counter:din 3, counter:reaya 5
+	* Çiçek sevmem validem: counter:reaya -5
+

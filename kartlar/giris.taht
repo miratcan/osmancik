@@ -11,15 +11,15 @@ Tahta Çıkış (card:giris)
 Oynanış 1 (card:_oynanis_1, ring)
 	bearer: character:aksakallidede
 	> Verdiğin kararlar üst tarafta görebileceğin değerleri oynatır.
-	* Anladım: card:_oynanis_2
+	* Malum oldu: card:_oynanis_2
 
 Oynanış 2 (card:_oynanis_2, ring)
 	bearer: character:aksakallidede
 	> Değerlerden biri sıfıra düşer veya yüze çıkarsa oyun biter.
-	* Anladım: card:_ilk_karar
+	* Hayrola: card:_ilk_karar
 
 İlk Karar (card:_ilk_karar, ring)
 	bearer: character:sadrazam
 	> Sultanım, hazine ve ordu dengede. İlk emriniz nedir?
-	* Hazineyi güçlendir: counter:hazine 10, counter:ordu -5
-	* Orduyu güçlendir: counter:ordu 10, counter:hazine -5
+	* Hazineyi tahkim edin: counter:hazine 10, counter:ordu -5
+	* Orduyu takviye edin: counter:ordu 10, counter:hazine -5
