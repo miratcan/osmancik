@@ -62,7 +62,7 @@ Haseki Şehzade Haberi (card:haseki_sehzade)
 	weight: 0.3
 	require: flag:asiksin, !flag:evlilik
 	lockturn: dispose
-	> Sultanım, müjde! Şehzadeniz dünyaya geldi! Adını ne koyalım?
+	> Müjde! Şehzadeniz dünyaya geldi! Adını ne koyalım?
 	* Adı Mehmet olsun, ceddimiz gibi: counter:sehzade 1, counter:reaya 5, counter:din 3, +flag:evlilik
 	* Süleyman koysunlar, uğurludur: counter:sehzade 1, counter:reaya 5, counter:din 3, +flag:evlilik
 
@@ -71,7 +71,7 @@ Haseki Valideye Komplo (card:haseki_komplo)
 	weight: 0.3
 	require: flag:asiksin, flag:evlilik
 	lockturn: 25
-	> Sultanım, valide sultan beni zehirletmeye çalışıyor. Ya o ya ben!
+	> Valide sultan beni zehirletmeye çalışıyor. Ya o ya ben!
 	* Valideyi sürgüne yollayın: counter:din -15, counter:reaya -5
 	* Saçmalarsın, sus: counter:hazine -10
 	* Tahkikat açılsın: counter:hazine -5, counter:ordu -5
@@ -82,7 +82,7 @@ Elmas Taç (card:haseki_elmas_tac)
 	weight: 0.3
 	require: counter:hazine > 50
 	lockturn: 25
-	> Sultanım, öyle bir taç istiyorum ki, ağırlığı bir gülle kadar olsun ama sadece elmastan yapılsın. Boynum ağrırsa sadrazam tutsun.
+	> Öyle bir taç istiyorum ki, ağırlığı bir gülle kadar olsun ama sadece elmastan yapılsın. Boynum ağrırsa sadrazam tutsun.
 	* Yaptırın, parlasın: counter:hazine -10, counter:reaya -5
 	* Boynun kopar hatun: counter:reaya -10
 
@@ -90,7 +90,7 @@ Boğaz'ı Boyama (card:haseki_bogaz_boya)
 	bearer: character:hasekisultan (variant:kurnaz)
 	weight: 0.2
 	lockturn: 40
-	> Sultanım, Boğaz'ın suyu çok mavi. Benim en sevdiğim renk ise pembe. İçine birkaç bin okka gül suyu ve boya dökseler?
+	> Boğaz'ın suyu çok mavi. Benim en sevdiğim renk ise pembe. İçine birkaç bin okka gül suyu ve boya dökseler?
 	* Pembe derya ne güzel olur: counter:hazine -8, counter:reaya 5, counter:din -10
 	* Deniz boyanır mı be: counter:din 3, counter:reaya -5
 
@@ -98,7 +98,7 @@ Boğaz'ı Boyama (card:haseki_bogaz_boya)
 	bearer: character:hasekisultan
 	weight: 0.4
 	lockturn: 20
-	> Sultanım, sarayın çatısında piknik yapalım diyorum. Ama yeniçeriler aşağıda beklesin, bize baksınlar, "ne güzel seviyorlar" desinler.
+	> Sarayın çatısında piknik yapalım diyorum. Ama yeniçeriler aşağıda beklesin, bize baksınlar, "ne güzel seviyorlar" desinler.
 	* Çıkalım, hava alırız: counter:reaya 5, counter:ordu -8
 	* Çatıdan düşeriz, olmaz: counter:ordu 5
 
@@ -106,7 +106,7 @@ Uçan Halı (card:haseki_ucan_hali)
 	bearer: character:hasekisultan (variant:memnun)
 	weight: 0.2
 	lockturn: 45
-	> Sultanım, bir tüccar geldi, "uçan halı" satıyormuş. Fiyatı sadece 1000 altın akçe. Bizi Viyana'ya kadar uçururmuş.
+	> Bir tüccar geldi, "uçan halı" satıyormuş. Fiyatı sadece 1000 altın akçe. Bizi Viyana'ya kadar uçururmuş.
 	* Halıyı alın: counter:hazine -10, counter:reaya 5
 	* Tüccarı zindana atın: counter:hazine 10, counter:din 3
 
@@ -114,7 +114,7 @@ Gece Nefiri (card:haseki_nefir)
 	bearer: character:hasekisultan (variant:memnun)
 	weight: 0.3
 	lockturn: 25
-	> Sultanım, nefir (boru) çalmayı öğrenmeye başladım. Her gece yarısı kuleye çıkıp prova yapacağım. Sesim Şam'dan duyulur!
+	> Nefir (boru) çalmayı öğrenmeye başladım. Her gece yarısı kuleye çıkıp prova yapacağım. Sesim Şam'dan duyulur!
 	* Çal hatun, ruhum doysun: counter:reaya -12, counter:din -5
 	* Kulaklarımız paslandı: counter:reaya 5
 
@@ -122,7 +122,7 @@ Sarayın Yeni Adı (card:haseki_saray_ad)
 	bearer: character:hasekisultan (variant:kurnaz)
 	weight: 0.2
 	lockturn: 50
-	> Sultanım, sarayın adı çok resmi. "Haseki'nin Sıcak Yuvası" yapsak? Kapısına da bir kalp çizdirsek?
+	> Sarayın adı çok resmi. "Haseki'nin Sıcak Yuvası" yapsak? Kapısına da bir kalp çizdirsek?
 	* Kabul, öyle olsun: counter:reaya 5, counter:din -15, counter:kudret -10
 	* Burası devlet makamı: counter:din 3, counter:kudret 5
 
@@ -130,7 +130,7 @@ Sarayın Yeni Adı (card:haseki_saray_ad)
 	bearer: character:hasekisultan (variant:memnun)
 	weight: 0.2
 	lockturn: 35
-	> Sultanım, muhafızların zırhları çok kaba ve soğuk. Hepsine ipekten, çiçekli zırhlar diktirsek? Hem yumuşak olur hem de düşman gözünü alamaz.
+	> Muhafızların zırhları çok kaba ve soğuk. Hepsine ipekten, çiçekli zırhlar diktirsek? Hem yumuşak olur hem de düşman gözünü alamaz.
 	* Çiçekli ordu kulağa hoş gelir: counter:hazine -10, counter:ordu -10, counter:reaya 5
 	* Demir yiğidin aksesuarıdır: counter:ordu 5, counter:reaya -5
 
@@ -155,7 +155,7 @@ Pofuduk Ayı (card:haseki_ayi)
 	bearer: character:hasekisultan (variant:memnun)
 	weight: 0.2
 	lockturn: 40
-	> Sultanım, Rusya'dan bir "beyaz ayı" hediye gelmiş. Adını Pofuduk koydum. Benim yatağımda uyusun diyorum.
+	> Rusya'dan bir "beyaz ayı" hediye gelmiş. Adını Pofuduk koydum. Benim yatağımda uyusun diyorum.
 	* Uyusun, yumuşaktır: counter:reaya 5, counter:hazine -5
 	* Ayıdan yatak arkadaşı mı olur: counter:reaya -5, counter:ordu 5
 
@@ -180,7 +180,7 @@ At Kıskançlığı (card:haseki_at_kiskanclik)
 	weight: 0.1
 	require: counter:hazine > 80
 	lockturn: 60
-	> Sultanım, deniz çok kirli. Sarayın içine "özel bir deniz" inşa ettirelim. İçine de ısıtılmış su dolduralım.
+	> Deniz çok kirli. Sarayın içine "özel bir deniz" inşa ettirelim. İçine de ısıtılmış su dolduralım.
 	* Deniz saraya gelsin: counter:hazine -10, counter:reaya 5
 	* Hamama gir yeter: counter:hazine 10, counter:reaya -5
 
@@ -188,7 +188,7 @@ Haseki Sadrazam (card:haseki_sadrazam)
 	bearer: character:hasekisultan (variant:kurnaz)
 	weight: 0.2
 	lockturn: 50
-	> Sultanım, sadrazam çok yaşlandı. Bir günlüğüne mührü bana ver, bak devlet nasıl çiçek gibi oluyor.
+	> Sadrazam çok yaşlandı. Bir günlüğüne mührü bana ver, bak devlet nasıl çiçek gibi oluyor.
 	* Al mühür senindir: counter:hazine -10, counter:reaya 5, counter:ordu -15
 	* Zinhar, devlet işi kadına kalmaz: counter:din 3, counter:reaya -10
 
@@ -197,7 +197,7 @@ Altın Fayton (card:haseki_fayton)
 	weight: 0.3
 	require: counter:hazine > 40
 	lockturn: 30
-	> Sultanım, bana altından bir fayton yaptır. Atların kuyruklarına da elmas taktıralım. Çarşıya çıkınca herkes "maşallah" desin.
+	> Bana altından bir fayton yaptır. Atların kuyruklarına da elmas taktıralım. Çarşıya çıkınca herkes "maşallah" desin.
 	* Yaptırın: counter:hazine -8, counter:reaya 5
 	* Yürümek sağlıklıdır: counter:reaya -10
 

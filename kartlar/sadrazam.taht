@@ -41,7 +41,7 @@ Sikke Tashihi (card:sikke_tashih)
 	weight: 0.8
 	require: counter:hazine < 20, !flag:enflasyon
 	lockturn: 40
-	> Sultanım, hazine tamtakır. Darphaneye emir verelim, akçelerin içindeki altın oranını bir miktar azaltıp bakır katıversek? Kimse anlamaz...
+	> Hazine tamtakır. Darphaneye emir verelim, akçelerin içindeki altın oranını bir miktar azaltıp bakır katıversek? Kimse anlamaz...
 	* Kat bakırı, kimse anlamaz: counter:hazine 25, counter:reaya -10, +flag:enflasyon, card:_enflasyon_isyan@15
 	* Zinhar, haramdır: counter:din 5, counter:hazine -5
 
@@ -67,7 +67,7 @@ Ticaret Anlaşması (card:ticaret)
 	weight: 1.5
 	require: counter:reaya < 25
 	lockturn: 20
-	> Sultanım, Anadolu'da çiftçiler tırmık ve kazma ile saraya yürüyormuş! Önden bir adam geldi, elinde dilekçe var, üstünde sadece "olmaz olsun" yazıyor.
+	> Anadolu'da çiftçiler tırmık ve kazma ile saraya yürüyormuş! Önden bir adam geldi, elinde dilekçe var, üstünde sadece "olmaz olsun" yazıyor.
 	* Tırmıkla mı gelinir be: counter:ordu -10, +flag:isyan, card:_isyan_sonuc@3
 	* Dilekçeyi arz etsinler: counter:reaya 5, counter:hazine -5
 
@@ -83,7 +83,7 @@ Bıyık Vergisi (card:sadrazam_biyik_vergisi)
 	weight: 0.5
 	require: counter:hazine < 30
 	lockturn: 15
-	> Sultanım, hazineyi doldurmak için bıyık uzunluğuna göre vergi alalım diyorum. Padişah bıyığı hariç tabii!
+	> Hazineyi doldurmak için bıyık uzunluğuna göre vergi alalım diyorum. Padişah bıyığı hariç tabii!
 	* Kanunlaştırılsın: counter:hazine 15, counter:reaya -8
 	* Bıyığa dokunma, isyan çıkar: counter:reaya 5, counter:hazine -3
 
@@ -91,7 +91,7 @@ Sahte Altın Madeni (card:sadrazam_altin_madeni)
 	bearer: character:sadrazam (variant:memnun)
 	weight: 0.3
 	lockturn: 25
-	> Sultanım, Anadolu'da bir mağarada parlayan taşlar bulunmuş! Köylüler altın sanıyor, eşekler ise yemeye çalışıyor.
+	> Anadolu'da bir mağarada parlayan taşlar bulunmuş! Köylüler altın sanıyor, eşekler ise yemeye çalışıyor.
 	* Maden ocağı açın: counter:hazine 10, counter:reaya -5
 	* Eşekler haklıdır muhtemelen: counter:reaya 5
 
@@ -108,7 +108,7 @@ Soğan Buhranı (card:sadrazam_sogan_buhrani)
 	weight: 0.6
 	require: flag:kitlik
 	lockturn: 12
-	> Sultanım, halk soğan bulamıyor! Soğan fiyatı gümüşü geçti. Halk "soğansız kebap olmaz" diye bağırıyor.
+	> Halk soğan bulamıyor! Soğan fiyatı gümüşü geçti. Halk "soğansız kebap olmaz" diye bağırıyor.
 	* Stokçuları cezalandırın: counter:reaya 5, counter:hazine 5
 	* Herkese bedava maydanoz: counter:reaya -8, counter:hazine -5
 
@@ -116,7 +116,7 @@ Sadrazam Şiiri (card:sadrazam_siir)
 	bearer: character:sadrazam (variant:memnun)
 	weight: 0.2
 	lockturn: 30
-	> Sultanım, bir kaside yazdım: "Ey tahtın sahibi, ey ulu hünkar / Hazinede para yok, her yer zifiri zift-i kâr..." Nasıl?
+	> Bir kaside yazdım: "Ey tahtın sahibi, ey ulu hünkar / Hazinede para yok, her yer zifiri zift-i kâr..." Nasıl?
 	* Vezir olacağına şair olsaydın: counter:reaya 5, counter:hazine -5
 	* Sus ve işine bak: counter:ordu 5, counter:reaya -5
 
@@ -124,7 +124,7 @@ Mühür Kayboldu (card:sadrazam_muhur_kayip)
 	bearer: character:sadrazam (variant:korkmus)
 	weight: 0.1
 	lockturn: 50
-	> Sultanım, mühür-ü hümayun kayboldu! En son saray kedisiyle oynarken görmüştüm. Kediyi bulamıyoruz.
+	> Mühür-ü hümayun kayboldu! En son saray kedisiyle oynarken görmüştüm. Kediyi bulamıyoruz.
 	* Bütün sarayı arayın: counter:hazine -10, counter:ordu -5
 	* Yeni mühür kazdırın: counter:hazine -10, counter:din 5
 
@@ -142,7 +142,7 @@ Sadrazamın Yerine Kukla (card:sadrazam_kukla)
 	weight: 0.2
 	require: flag:ai
 	lockturn: 40
-	> Sultanım, çok yoruldum. Yerime kurnazca yapılmış bir tahta kukla koysak? Ben arkadan seslendiririm, kimse anlamaz.
+	> Çok yoruldum. Yerime kurnazca yapılmış bir tahta kukla koysak? Ben arkadan seslendiririm, kimse anlamaz.
 	* Kabul, dinlen biraz: counter:hazine 10, counter:ordu -10
 	* Kuklayı sadrazam yapalım seni azledelim: counter:ordu 5, counter:hazine 5
 
@@ -167,7 +167,7 @@ Hazine Faresi (card:sadrazam_hazine_faresi)
 	weight: 0.4
 	require: counter:hazine > 70
 	lockturn: 20
-	> Sultanım, hazinede altınları yiyen dev bir fare türemiş. Altınların bir kısmını "yedi" diye kayıtlardan düşelim mi?
+	> Hazinede altınları yiyen dev bir fare türemiş. Altınların bir kısmını "yedi" diye kayıtlardan düşelim mi?
 	* Fareyi yakalayın, altına dokunmayın: counter:hazine 5, counter:ordu 3
 	* Fareye feda olsun: counter:hazine -10, counter:reaya 5
 
@@ -191,7 +191,7 @@ Devasa Kavuk (card:sadrazam_kavuk)
 	bearer: character:sadrazam (variant:memnun)
 	weight: 0.2
 	lockturn: 30
-	> Sultanım, yeni bir kavuk diktirdim. Kapılardan sığmıyorum ama heybetimden kuşlar bile selam duruyor.
+	> Yeni bir kavuk diktirdim. Kapılardan sığmıyorum ama heybetimden kuşlar bile selam duruyor.
 	* Kapıları genişletin: counter:hazine -10, counter:reaya 5
 	* Kavuğu küçültün: counter:hazine 5
 
@@ -200,7 +200,7 @@ Görünmez Ordu (card:sadrazam_gorunmez_ordu)
 	weight: 0.2
 	require: counter:hazine < 20
 	lockturn: 40
-	> Sultanım, bir büyücü geldi. "Görünmez bir ordu" kurabilirmiş. Maaş da istemiyorlar, sadece dua.
+	> Bir büyücü geldi. "Görünmez bir ordu" kurabilirmiş. Maaş da istemiyorlar, sadece dua.
 	* Hemen kurulsun: counter:din 5, counter:ordu -15
 	* Görünmeyene güven olmaz: counter:ordu 5, counter:hazine -5
 
@@ -249,7 +249,7 @@ Felsefe Kitabı (card:sadrazam_felsefe)
 	bearer: character:sadrazam (variant:kurnaz)
 	weight: 0.4
 	lockturn: 20
-	> Sultanım, Frengistan'dan tercüme edilmiş bir felsefe kitabı geldi. İçinde "akıl her şeyin üstündedir" yazıyormuş. Şeyhülislâm duyarsa tufan kopar.
+	> Frengistan'dan tercüme edilmiş bir felsefe kitabı geldi. İçinde "akıl her şeyin üstündedir" yazıyormuş. Şeyhülislâm duyarsa tufan kopar.
 	* Dağıtın, halk okusun: counter:din -8, counter:reaya 5
 	* Yakın o kitabı: counter:din 5, counter:reaya -5
 
@@ -257,7 +257,7 @@ Matbaa Teklifi (card:sadrazam_matbaa)
 	bearer: character:sadrazam (variant:memnun)
 	weight: 0.3
 	lockturn: 30
-	> Sultanım, bir Macar mühendis "matbaa" denen bir alet getirmiş. Bir günde bin sayfa basıyormuş. Ulema "bu şeytanın işidir" diyor.
+	> Bir Macar mühendis "matbaa" denen bir alet getirmiş. Bir günde bin sayfa basıyormuş. Ulema "bu şeytanın işidir" diyor.
 	* Matbaayı kurun: counter:din -10, counter:reaya 8, counter:hazine -8
 	* Şeytanın işini istemem: counter:din 5, counter:reaya -3
 

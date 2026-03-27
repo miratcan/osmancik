@@ -54,7 +54,7 @@ Kafesteki Şehzade (card:sehzade_kafes_dert)
 	weight: 0.4
 	require: counter:sehzade > 0
 	lockturn: 20
-	> Sultanım, şehzadeniz elifbayı bitirdi. Şimdi kılıç talimine başlamak ister. Lakin kılıcı tutamıyor, çok ağır gelmiş.
+	> Şehzadeniz elifbayı bitirdi. Şimdi kılıç talimine başlamak ister. Lakin kılıcı tutamıyor, çok ağır gelmiş.
 	* Tahta kılıç verin: counter:ordu 5, counter:hazine -3
 	* Kas yapsın evladımız: counter:reaya 5, counter:ordu 8
 
@@ -72,13 +72,13 @@ Pazardaki Benzerlik (card:sehzade_kopya_basla)
 	bearer: character:soytari (variant:kurnaz)
 	weight: 0.3
 	lockturn: 50
-	> Sultanım, pazarda şehzadenize ikizi kadar benzeyen bir yoğurtçu çırağı buldum! Tek farkı, o daha iyi yoğurt çalıyor.
+	> Pazarda şehzadenize ikizi kadar benzeyen bir yoğurtçu çırağı buldum! Tek farkı, o daha iyi yoğurt çalıyor.
 	* Çırağı saraya getirin: counter:hazine -5, counter:reaya 5, card:_sehzade_kopya_saray@10
 	* Yoğurdunu yesin, gelmesin: counter:reaya 5
 
 Kopya Şehzade Sarayda (card:_sehzade_kopya_saray, ring)
 	bearer: character:haremagasi (variant:korkmus)
-	> Sultanım, o yoğurtçu çırağı şehzadenin yerine derslere giriyor! Kimse fark etmedi, hatta müderris "şehzademiz çok zekileşti" diyor.
+	> O yoğurtçu çırağı şehzadenin yerine derslere giriyor! Kimse fark etmedi, hatta müderris "şehzademiz çok zekileşti" diyor.
 	* Devam etsinler, ses çıkarmayın: counter:din 5, counter:reaya 5, card:_sehzade_kopya_karisik@15
 	* Çırağı hemen kovun: counter:reaya -10, counter:kudret 5
 
@@ -111,7 +111,7 @@ Veliaht Krizi (card:veliaht_kriz)
 	weight: 0.3
 	require: counter:sehzade > 0, flag:papagan
 	lockturn: 25
-	> Sultanım, küçük şehzade papağanla arkadaş oldu. Beraber sadrazamın taklidini yapıyorlar. Harem gülmekten yıkılıyor.
+	> Küçük şehzade papağanla arkadaş oldu. Beraber sadrazamın taklidini yapıyorlar. Harem gülmekten yıkılıyor.
 	* Gülsünler bakalım: counter:reaya 6, counter:kudret -5
 	* Ciddiyet telkin edin: counter:kudret 5, counter:din 5
 
@@ -120,7 +120,7 @@ Kafesteki Şehzade Kaçtı (card:sehzade_kafes_kacis)
 	weight: 0.2
 	require: flag:sehzade_kafeste
 	lockturn: 40
-	> Sultanım, kafesteki şehzade pencereden çarşafları birbirine bağlayıp kaçmış! "Ben balıkçı olacağım" diye not bırakmış.
+	> Kafesteki şehzade pencereden çarşafları birbirine bağlayıp kaçmış! "Ben balıkçı olacağım" diye not bırakmış.
 	* Balıkçı olsun, ilişmeyin: -flag:sehzade_kafeste, counter:sehzade -1, counter:reaya 5
 	* Derhal yakalayın: counter:ordu 10, counter:hazine -10
 
@@ -129,7 +129,7 @@ Kafesteki Şehzade Kaçtı (card:sehzade_kafes_kacis)
 	weight: 0.4
 	require: counter:sehzade > 0
 	lockturn: 20
-	> Sultanım, şehzadeniz kışlaya gidip askerlere kendi harçlığından bahşiş dağıtmış. Askerler "aslan şehzademiz" diye bağırıyor. Sizin bahşişi az buldular.
+	> Şehzadeniz kışlaya gidip askerlere kendi harçlığından bahşiş dağıtmış. Askerler "aslan şehzademiz" diye bağırıyor. Sizin bahşişi az buldular.
 	* Biz de dağıtalım: counter:hazine -8, counter:ordu 8
 	* Harçlığını kesin: counter:ordu -10, counter:hazine 5
 
@@ -156,7 +156,7 @@ Kafesteki Şehzade Kaçtı (card:sehzade_kafes_kacis)
 	weight: 0.3
 	require: counter:sehzade > 0
 	lockturn: 25
-	> Sultanım, şehzadeniz gemiye bindi, dümen başına geçti. "Kaptan-ı Derya benim" diyor. Leventler hayran kaldı.
+	> Şehzadeniz gemiye bindi, dümen başına geçti. "Kaptan-ı Derya benim" diyor. Leventler hayran kaldı.
 	* Kaptan olsun paşam: counter:ordu 6, counter:reaya 5
 	* Gemiden indirin, ıslanmasın: counter:ordu -5
 
@@ -165,7 +165,7 @@ Kafesteki Şehzade Kaçtı (card:sehzade_kafes_kacis)
 	weight: 0.3
 	require: counter:sehzade > 0
 	lockturn: 20
-	> Sultanım, şehzadeye şaka yapmayı öğretiyorum. Artık sadrazama "burnun neden patlıcan gibi?" diye sorabiliyor.
+	> Şehzadeye şaka yapmayı öğretiyorum. Artık sadrazama "burnun neden patlıcan gibi?" diye sorabiliyor.
 	* Devam et soytarı: counter:reaya 5, counter:kudret -5
 	* Dersine baksın: counter:din 5, counter:kudret 5
 
@@ -174,7 +174,7 @@ Kafesteki Şehzade Kaçtı (card:sehzade_kafes_kacis)
 	weight: 0.3
 	require: counter:sehzade > 0
 	lockturn: 25
-	> Sultanım, şehzadeye som çelikten bir kılıç dövdürdük. Üstünde "Babamın Gölgesi" yazıyor.
+	> Şehzadeye som çelikten bir kılıç dövdürdük. Üstünde "Babamın Gölgesi" yazıyor.
 	* Güle güle kullansın: counter:hazine -10, counter:ordu 10, counter:kudret 5
 	* Çok ağır gelmesin: counter:ordu 5
 

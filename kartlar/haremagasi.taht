@@ -21,7 +21,7 @@ Harem Ziyareti (card:harem_ziyaret)
 	weight: 0.8
 	require: counter:kudret > 40
 	lockturn: 15
-	> Hünkarım, bu gece Harem'e teşrif eder misiniz? Yolunuzu gözleyenler vardır.
+	> Bu gece Harem'e teşrif eder misiniz? Yolunuzu gözleyenler vardır.
 	* Şehzade niyetiyle: counter:kudret -30, counter:haremziyaret 5, card:_dogum_sehzade@10
 	* Sultan niyetiyle: counter:kudret -30, counter:haremziyaret 5, card:_dogum_sultan@10
 	* Devlet işleri var, buyur etmeyin: counter:ordu 5, counter:kudret -10
@@ -30,6 +30,7 @@ Harem Ziyareti (card:harem_ziyaret)
 	bearer: character:haremagasi
 	> Bir aslan doğdu! Şehzademiz dünyaya geldi sultanım! İlk şehzadenin şerefine şenlikler yapılsın.
 	* Maşallah, topları ateşleyin: counter:sehzade 1, counter:reaya 5, counter:din 3
+  * Beğenmedim, mancınıkla fırlatın: counter:reaya -20, counter:din -20 
 
 Sultan Doğumu (card:_dogum_sultan, ring)
 	bearer: character:haremagasi
@@ -48,6 +49,7 @@ Aşık Oldun (card:asik_oldun)
 	> Sultanım, kalbinizde bir sızı, aklınızda tek bir isim var. Bir cariyeye gönlünüzü düşürmüşsünüz. Aşkın ateşi sarayı sardı!
 	* Gönül ferman dinlemez: +flag:asiksin, counter:reaya 5
 	* Aşk devlet-i aliyyeye sığmaz: +flag:asiksin, counter:ordu 5
+
 Damat Seçimi (card:sultan_evlilik)
 	bearer: character:sadrazam (variant:kurnaz)
 	weight: 0.5
@@ -63,9 +65,9 @@ Kayıp Cüce (card:harem_cuce)
 	bearer: character:haremagasi (variant:memnun)
 	weight: 0.3
 	lockturn: 30
-	> Hünkarım, Harem'de bir "kayıp çocuk" bulduk. Meğer çocuk değilmiş, Hindistan'dan gelen bir elçinin minyatür tercümanıymış! Çamaşır sepetinde uyuyakalmış.
+	> Harem'de bir "kayıp çocuk" bulduk. Meğer çocuk değilmiş, Hindistan'dan gelen bir elçinin minyatür tercümanıymış! Çamaşır sepetinde uyuyakalmış.
 	* Tercümanı besleyin: counter:hazine -5, counter:reaya 5
-	* Sepetten çıkarmayın: counter:reaya -5
+	* Sepeti Kitleyin: counter:reaya -5
 
 Eunuch Grevi (card:harem_grev)
 	bearer: character:haremagasi (variant:ofkeli)
@@ -73,13 +75,13 @@ Eunuch Grevi (card:harem_grev)
 	lockturn: 40
 	> Sultanım, ağalar grevde! "Bize sadece lokum veriliyor, biz fıstıklı baklava istiyoruz" diye kapıları kilitlediler. Harem'e giriş çıkış durdu.
 	* Baklavaları gönderin: counter:hazine -10, counter:reaya 5
-	* Lokumla yetinsinler: counter:reaya -8, counter:din 3
+	* Ağalara Küsün: counter:reaya -8, counter:din 3
 
 Yelpaze Koleksiyonu (card:harem_yelpaze)
 	bearer: character:haremagasi (variant:memnun)
 	weight: 0.3
 	lockturn: 25
-	> Sultanım, kendime Çin'den gelen ipek yelpazelerden bir koleksiyon yaptım. Bakar mısınız, sallayınca ejderha sesi çıkarıyor!
+	> Kendime Çin'den gelen ipek yelpazelerden bir koleksiyon yaptım. Bakar mısınız, sallayınca ejderha sesi çıkarıyor!
 	* Ejderha sesi güzelmiş: counter:hazine -5, counter:reaya 5
 	* İşine bak ağa: counter:kudret 5
 
@@ -87,7 +89,7 @@ Harem Hayaleti (card:harem_hayalet)
 	bearer: character:haremagasi (variant:korkmus)
 	weight: 0.4
 	lockturn: 20
-	> Hünkarım, Harem'de bir "hayalet" dolaşıyor! Beyazlar içinde, elinde bir simit, gece yarısı "vuku vuku" diye bağırıyor. Cariyeler korkudan bayılıyor.
+	> Harem'de bir "hayalet" dolaşıyor! Beyazlar içinde, elinde bir simit, gece yarısı "vuku vuku" diye bağırıyor. Cariyeler korkudan bayılıyor.
 	* Hayaleti yakalayın: counter:ordu 5, counter:reaya -5
 	* Soytarıdır o, ilişmeyin: counter:reaya 5
 
@@ -95,7 +97,7 @@ Sessiz Pabuç (card:harem_pabuc)
 	bearer: character:haremagasi (variant:kurnaz)
 	weight: 0.3
 	lockturn: 25
-	> Sultanım, ağalar için "sessiz pabuç" yaptırdım. Altı keçe kaplı. Artık kimse geldiğimizi duymayacak, dedikoduları yerinde yakalayacağız.
+	> Ağalar için "sessiz pabuç" yaptırdım. Altı keçe kaplı. Artık kimse geldiğimizi duymayacak, dedikoduları yerinde yakalayacağız.
 	* Güzel fikir: counter:hazine -10, counter:reaya 6
 	* Gürültü iyidir, korkutur: counter:ordu 5
 
@@ -103,7 +105,7 @@ Sessiz Pabuç (card:harem_pabuc)
 	bearer: character:haremagasi (variant:ofkeli)
 	weight: 0.4
 	lockturn: 15
-	> Sultanım, şerbetin içine yanlışlıkla sirke dökülmüş! Bütün saray ekşidi. Haseki Sultan "bu bir suikast" diye bağırıyor.
+	> Şerbetin içine yanlışlıkla sirke dökülmüş! Bütün saray ekşidi. Haseki Sultan "bu bir suikast" diye bağırıyor.
 	* Yeni şerbet yapın: counter:hazine -8, counter:reaya 5
 	* Turşu niyetine içsinler: counter:reaya -12
 
@@ -120,7 +122,7 @@ Papağan Mektebi (card:harem_mektep)
 	weight: 0.2
 	require: flag:papagan
 	lockturn: 40
-	> Sultanım, o konuşan papağan için bir "özel hoca" tutalım diyorum. Belki bize Fransızca öğretir, ya da en azından küfretmeyi bırakır.
+	> O konuşan papağan için bir "özel hoca" tutalım diyorum. Belki bize Fransızca öğretir, ya da en azından küfretmeyi bırakır.
 	* Hocayı tutun: counter:hazine -10, counter:reaya 5
 	* Papağan cahil kalsın: counter:reaya -5
 
@@ -128,7 +130,7 @@ Ağa'nın Doğum Günü (card:harem_dogum_gunu)
 	bearer: character:haremagasi (variant:memnun)
 	weight: 0.2
 	lockturn: 50
-	> Sultanım, bugün benim 100. yaşım! (Yalan söylüyor galiba). Saray bahçesinde küçük bir kutlama yapsak? Birkaç havai fişek yeter.
+	> Bugün benim 100. yaşım! (Yalan söylüyor galiba). Saray bahçesinde küçük bir kutlama yapsak? Birkaç havai fişek yeter.
 	* Kutlayın, hak ettin: counter:hazine -8, counter:reaya 5
 	* Yaşın çokmuş, emekli ol: counter:hazine 10, counter:kudret -10
 
@@ -136,7 +138,7 @@ Minder Kavgası (card:harem_minder)
 	bearer: character:haremagasi (variant:ofkeli)
 	weight: 0.4
 	lockturn: 20
-	> Sultanım, Harem'deki en büyük minder için kriz çıktı! İki cariye minderi paylaşamıyor, biri üstüne oturmuş, diğeri minderi çekiyor.
+	> Harem'deki en büyük minder için kriz çıktı! İki cariye minderi paylaşamıyor, biri üstüne oturmuş, diğeri minderi çekiyor.
 	* İkiye bölün minderi: counter:reaya -10, counter:hazine -5
 	* Yeni minder alın: counter:hazine -8, counter:reaya 5
 
@@ -144,7 +146,7 @@ Ağa'nın Emekliliği (card:harem_emekli)
 	bearer: character:haremagasi (variant:kurnaz)
 	weight: 0.1
 	lockturn: 60
-	> Sultanım, ben artık yoruldum. Emekli olup çarşıda bir "Harem Kahvehanesi" açmak istiyorum. İçeride sadece dedikodu dönecek.
+	> Ben artık yoruldum. Emekli olup çarşıda bir "Harem Kahvehanesi" açmak istiyorum. İçeride sadece dedikodu dönecek.
 	* Git, yolun açık olsun: counter:hazine -10, counter:kudret -10
 	* Gitme, sensiz buralar ıssız: counter:reaya 5
 
@@ -152,7 +154,7 @@ Gül Bahçesi (card:harem_gul)
 	bearer: character:haremagasi (variant:memnun)
 	weight: 0.3
 	lockturn: 25
-	> Sultanım, Harem'in iç avlusuna bin tane gül diktirelim. Ama her gülün yanına bir de bülbül kafesi koyalım ki, senkronize şakısınlar.
+	> Harem'in iç avlusuna bin tane gül diktirelim. Ama her gülün yanına bir de bülbül kafesi koyalım ki, senkronize şakısınlar.
 	* Diktirin: counter:hazine -10, counter:reaya 6
 	* Bülbüllere gerek yok: counter:hazine -5
 
@@ -168,7 +170,7 @@ Gizli Pencere (card:harem_pencere)
 	bearer: character:haremagasi (variant:kurnaz)
 	weight: 0.3
 	lockturn: 30
-	> Sultanım, mutfağa giden gizli bir pencere buldum. Oradan sürekli taze kurabiye aşıran biri var. Soytarı olduğundan şüpheleniyorum.
+	> Mutfağa giden gizli bir pencere buldum. Oradan sürekli taze kurabiye aşıran biri var. Soytarı olduğundan şüpheleniyorum.
 	* Soytarıyı yakalayın: counter:reaya -5, counter:hazine 5
 	* Kurabiye cana feda: counter:reaya 5
 
@@ -177,7 +179,7 @@ Altın Kafes (card:harem_kafes)
 	weight: 0.2
 	require: flag:papagan
 	lockturn: 40
-	> Sultanım, o papağan için altından bir kafes yaptırdık. İçine de bir ayna koyduk, kendine bakıp "ne güzelim" diyor.
+	> O papağan için altından bir kafes yaptırdık. İçine de bir ayna koyduk, kendine bakıp "ne güzelim" diyor.
 	* Papağan sevinsin: counter:hazine -10, counter:reaya 5
 	* Aynayı kaldırın: counter:reaya -5
 
@@ -185,7 +187,7 @@ Saray Eğlencesi (card:harem_eglence)
 	bearer: character:haremagasi (variant:memnun)
 	weight: 0.5
 	lockturn: 15
-	> Hünkarım, bu gece sarayda büyük bir eğlence düzenleyelim. Cambazlar, hokkabazlar, çalgıcılar gelsin. Şeyhülislâm "israf ve sefahat" diye kıyameti koparacak ama halk bayılacak.
+	> Bu gece sarayda büyük bir eğlence düzenleyelim. Cambazlar, hokkabazlar, çalgıcılar gelsin. Şeyhülislâm "israf ve sefahat" diye kıyameti koparacak ama halk bayılacak.
 	* Eğlence başlasın: counter:hazine -8, counter:din -8, counter:reaya 5
 	* Sarayda eğlence olmaz: counter:din 3, counter:reaya -5
 

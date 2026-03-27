@@ -46,7 +46,7 @@ Cezayir Dayıları (card:cezayir_dayilari)
 	weight: 0.5
 	require: counter:ordu < 40
 	lockturn: 40
-	> Sultanım, ordu zayıf düştü. Lakin Cezayir'deki korsan reisleri (Dayılar) hizmetinize girmeye hazır. Tek şartları; yağma ettikleri gemilerin yarısı onlara kalacak.
+	> Ordu zayıf düştü. Lakin Cezayir'deki korsan reisleri (Dayılar) hizmetinize girmeye hazır. Tek şartları; yağma ettikleri gemilerin yarısı onlara kalacak.
 	* Reisleri hizmete alın: counter:ordu 10, counter:reaya -10, counter:din -8
 	* Biz korsan mıyız be: counter:din 3, counter:ordu -5
 
@@ -55,7 +55,7 @@ Deniz Canavarı (card:deniz_canavari)
 	weight: 0.2
 	require: flag:savas
 	lockturn: 60
-	> Sultanım, gemiciler arasında bir dedikodu yayılmış. Boğaz'da dev bir ahtapot görülmüş, gemileri tek tek yutuyormuş. Donanma korkudan denize açılmıyor!
+	> Gemiciler arasında bir dedikodu yayılmış. Boğaz'da dev bir ahtapot görülmüş, gemileri tek tek yutuyormuş. Donanma korkudan denize açılmıyor!
 	* Müneccimbaşıyı getirin: counter:hazine -10, counter:din 8
 	* Kaptanlara şamar çekin: counter:ordu 10, counter:reaya -5
 
@@ -72,7 +72,7 @@ Tuz Adası (card:kaptan_tuz_adasi)
 	bearer: character:kaptaniderya (variant:memnun)
 	weight: 0.3
 	lockturn: 30
-	> Sultanım, Ege'de tamamen tuzdan oluşan bir ada bulduk! Gemiyi kıyıya yanaştırdık, leventler yalamaktan helak oldu.
+	> Ege'de tamamen tuzdan oluşan bir ada bulduk! Gemiyi kıyıya yanaştırdık, leventler yalamaktan helak oldu.
 	* Adada tuz madeni kurun: counter:hazine 15, counter:reaya -5
 	* Denize iade edin, tansiyon yapmasın: counter:reaya 5
 
@@ -80,7 +80,7 @@ Deniz Kızı (card:kaptan_deniz_kizi)
 	bearer: character:kaptaniderya (variant:kurnaz)
 	weight: 0.3
 	lockturn: 25
-	> Hünkarım, bir deniz kızı yakaladık! Saçları sırma, sesi bülbül... Lakin yakından bakınca bildiğin sakallı bir fok balığına peruk takmışlar gibi.
+	> Bir deniz kızı yakaladık! Saçları sırma, sesi bülbül... Lakin yakından bakınca bildiğin sakallı bir fok balığına peruk takmışlar gibi.
 	* Saray bahçesine koyun: counter:hazine -8, counter:reaya 5
 	* Denize geri atın: counter:din 3
 
@@ -89,7 +89,7 @@ Mermer Gemi (card:kaptan_mermer_gemi)
 	weight: 0.2
 	require: counter:hazine > 60
 	lockturn: 40
-	> Sultanım, mermerden bir gemi inşa ettik! "Batmaz" dediler, limandan çıkarken dibi boyladı. Mimarı ne yapalım?
+	> Mermerden bir gemi inşa ettik! "Batmaz" dediler, limandan çıkarken dibi boyladı. Mimarı ne yapalım?
 	* Mimar denizde yüzsün: counter:hazine -10, counter:ordu -5
 	* Mermerleri çıkartın: counter:hazine 10, counter:reaya -5
 
@@ -97,7 +97,7 @@ Dolphin Süvarileri (card:kaptan_yunus)
 	bearer: character:kaptaniderya (variant:kurnaz)
 	weight: 0.2
 	lockturn: 45
-	> Hünkarım, yunus balıklarını eğittik. Sırtlarına birer yeniçeri bindirip düşman gemilerine sızdıracağız.
+	> Yunus balıklarını eğittik. Sırtlarına birer yeniçeri bindirip düşman gemilerine sızdıracağız.
 	* Hemen tatbik edilsin: counter:ordu 8, counter:hazine -8
 	* Yunuslara günah değil mi: counter:din 8, counter:ordu -5
 
@@ -113,7 +113,7 @@ Limon Yağmuru (card:kaptan_limon_firtina)
 	bearer: character:kaptaniderya (variant:korkmus)
 	weight: 0.4
 	lockturn: 20
-	> Sultanım, denizde öyle bir fırtına koptu ki, gökten sadece limon yağdı! Donanmanın yarısı ekşidi, leventler salata arıyor.
+	> Denizde öyle bir fırtına koptu ki, gökten sadece limon yağdı! Donanmanın yarısı ekşidi, leventler salata arıyor.
 	* Limonları toplayıp satın: counter:hazine 10, counter:reaya 5
 	* Şükür secdesine varın: counter:din 8, counter:hazine -5
 
@@ -121,7 +121,7 @@ Devasa Şapka (card:kaptan_sapka)
 	bearer: character:kaptaniderya (variant:memnun)
 	weight: 0.2
 	lockturn: 35
-	> Sultanım, kendime yeni bir kaptan şapkası yaptırdım. O kadar büyük ki, rüzgar esince beni uçuruyor, gemi sanıyorlar.
+	> Kendime yeni bir kaptan şapkası yaptırdım. O kadar büyük ki, rüzgar esince beni uçuruyor, gemi sanıyorlar.
 	* Yelken olarak kullanın: counter:ordu 5, counter:hazine -5
 	* Çıkar o saksıyı kafandan: counter:reaya 5
 
@@ -138,7 +138,7 @@ Varil Denizaltı (card:kaptan_denizalti)
 	weight: 0.2
 	require: counter:ordu > 50
 	lockturn: 50
-	> Sultanım, bir varilin içine hava doldurup denize daldık. "Bahr-i Taht" ismini verdik. Ama içindeki adam çıkamıyor.
+	> Bir varilin içine hava doldurup denize daldık. "Bahr-i Taht" ismini verdik. Ama içindeki adam çıkamıyor.
 	* Adamı kurtarın, varili yakın: counter:hazine -8, counter:reaya 5
 	* Derine, daha derine: counter:ordu 10, counter:hazine -8
 
@@ -147,7 +147,7 @@ Simit Korsanları (card:kaptan_simit_korsan)
 	weight: 0.4
 	require: flag:simit_gunu
 	lockturn: 20
-	> Sultanım, korsanlar gemilerimizi durdurup sadece simit istiyor! Altına bakmıyorlar bile, "susamı bol olsun" diyorlar.
+	> Korsanlar gemilerimizi durdurup sadece simit istiyor! Altına bakmıyorlar bile, "susamı bol olsun" diyorlar.
 	* Simit verin, geçsinler: counter:reaya 5, counter:hazine -10
 	* Simit yerine gülle fırlatın: counter:ordu 10, counter:reaya -8
 
@@ -156,7 +156,7 @@ Kağıt Donanma (card:kaptan_kagit_gemi)
 	weight: 0.2
 	require: counter:hazine < 20
 	lockturn: 40
-	> Sultanım, hazinede para yok diye gemileri kağıttan yaptık. Üstünü de ziftledik. Yağmur yağmazsa Viyana'ya kadar gideriz.
+	> Hazinede para yok diye gemileri kağıttan yaptık. Üstünü de ziftledik. Yağmur yağmazsa Viyana'ya kadar gideriz.
 	* Yağmur yağmasın diye dua edin: counter:din 3, counter:ordu -15
 	* Kağıttan gemi mi olur be: counter:ordu 5, counter:hazine -5
 
@@ -164,7 +164,7 @@ Ay'a Yolculuk (card:kaptan_ay)
 	bearer: character:kaptaniderya (variant:memnun)
 	weight: 0.1
 	lockturn: 60
-	> Hünkarım, dün gece öyle bir dalga geldi ki, gemiyi Ay'a fırlattı! Orada kimse yok, sadece peynir kokusu var.
+	> Dün gece öyle bir dalga geldi ki, gemiyi Ay'a fırlattı! Orada kimse yok, sadece peynir kokusu var.
 	* Peynirleri yükleyip dönün: counter:hazine 15, counter:reaya 5
 	* Sen çok içmişsin kaptan: counter:din 3, counter:reaya -5
 
@@ -180,7 +180,7 @@ Deniz Atı Yarışı (card:kaptan_denizati_yaris)
 	bearer: character:kaptaniderya (variant:memnun)
 	weight: 0.2
 	lockturn: 30
-	> Sultanım, gerçek deniz atları bulduk! Ama çok küçükler, üstüne sadece karıncalar binebiliyor. Yarış düzenleyelim mi?
+	> Gerçek deniz atları bulduk! Ama çok küçükler, üstüne sadece karıncalar binebiliyor. Yarış düzenleyelim mi?
 	* Karıncaları eğitin: counter:reaya 5, counter:hazine -5
 	* Lüzumsuz kelam etmeyesin: counter:ordu 5
 
@@ -188,7 +188,7 @@ Sualtı Elçiliği (card:kaptan_elci)
 	bearer: character:kaptaniderya
 	weight: 0.2
 	lockturn: 40
-	> Sultanım, denizin altındaki balıklar krallığına elçi gönderdik. Cevap olarak sadece kabarcık yollamışlar.
+	> Denizin altındaki balıklar krallığına elçi gönderdik. Cevap olarak sadece kabarcık yollamışlar.
 	* Kabarcıkları tercüme edin: counter:din 3, counter:hazine -8
 	* Balıkla diplomasi olmaz: counter:ordu 5
 
@@ -204,7 +204,7 @@ Mavi Altın (card:kaptan_mavi_altin)
 	bearer: character:kaptaniderya (variant:kurnaz)
 	weight: 0.3
 	lockturn: 25
-	> Sultanım, denizin dibinde parlayan mavi taşlar bulduk. "Mavi altın" diyoruz. Lakin karaya çıkınca sönüyorlar.
+	> Denizin dibinde parlayan mavi taşlar bulduk. "Mavi altın" diyoruz. Lakin karaya çıkınca sönüyorlar.
 	* Deniz altında banka kuralım: counter:hazine 10, counter:din -5
 	* Taşları çöpe atın: counter:hazine -5
 
@@ -220,7 +220,7 @@ Uçan Balık Filosu (card:kaptan_ucan_balik)
 	bearer: character:kaptaniderya (variant:kurnaz)
 	weight: 0.2
 	lockturn: 45
-	> Hünkarım, uçan balıkları mızraklarla donattık. Düşman yelkenlerini havadan delip geçecekler.
+	> Uçan balıkları mızraklarla donattık. Düşman yelkenlerini havadan delip geçecekler.
 	* Balıklara rütbe verin: counter:ordu 6, counter:hazine -10
 	* Kediye yem yapın hepsini: counter:reaya 5
 
@@ -228,7 +228,7 @@ Deniz Pusulası (card:kaptan_pusula)
 	bearer: character:kaptaniderya (variant:memnun)
 	weight: 0.4
 	lockturn: 20
-	> Sultanım, öyle bir pusula yaptık ki, her zaman en yakın meyhaneyi gösteriyor. Kaptanlar çok memnun!
+	> Öyle bir pusula yaptık ki, her zaman en yakın meyhaneyi gösteriyor. Kaptanlar çok memnun!
 	* Pusulayı kırın: counter:din 3, counter:ordu -8
 	* Meyhaneye gidelim bari: counter:reaya 6, counter:din -10
 
@@ -236,7 +236,7 @@ Frenk Tüccarları (card:kaptan_frenk)
 	bearer: character:kaptaniderya
 	weight: 0.5
 	lockturn: 15
-	> Sultanım, Frenk tüccarları limana doldu. Şarap, resim, müzik aleti satıyorlar. Halk çok meraklı ama ulema tedirgin.
+	> Frenk tüccarları limana doldu. Şarap, resim, müzik aleti satıyorlar. Halk çok meraklı ama ulema tedirgin.
 	* Çarşı açık kalsın: counter:hazine 8, counter:din -8, counter:reaya 3
 	* Frenkleri kovun: counter:din 5, counter:hazine -5
 

@@ -68,7 +68,7 @@ Haseki vs Papağan (card:haseki_papagan)
 	weight: 0.3
 	require: flag:asiksin
 	lockturn: 25
-	> Sultanım, o Venedik'ten gelen papağan bana "çirkin" dedi! Ya o kuş gider ya ben!
+	> O Venedik'ten gelen papağan bana "çirkin" dedi! Ya o kuş gider ya ben!
 	* Papağanı azat edin: counter:reaya 5, counter:hazine -5
 	* Papağan doğruları söyler: counter:reaya -10, counter:ordu 5
 
@@ -77,7 +77,7 @@ Katarakt Başlangıcı (card:katarakt_olay)
 	weight: 2.0
 	require: counter:yas > 35, !flag:katarakt
 	lockturn: once
-	> Sultanım, gözleriniz artık iyi seçmiyor. Sadrazamı bazen papağanla karıştırıyorsunuz.
+	> Gözleriniz artık iyi seçmiyor. Sadrazamı bazen papağanla karıştırıyorsunuz.
 	* Gözlük imal ettirin: counter:hazine -10, counter:reaya 5, +flag:katarakt
 	* Zulmet huzur verir: counter:din 3, counter:ordu -10
 
@@ -103,7 +103,7 @@ Simit Yağmuru (card:absurt_simit_yagmur)
 	weight: 0.2
 	require: flag:simit_gunu
 	lockturn: 30
-	> Sultanım, gökyüzünden susam yağmaya başladı. Halk tarlaları bırakıp damlara çıktı, ağzını açıp bekliyor.
+	> Gökyüzünden susam yağmaya başladı. Halk tarlaları bırakıp damlara çıktı, ağzını açıp bekliyor.
 	* Bereketli olsun: counter:reaya 5, counter:din 3
 	* Tarlaya geri dönün: counter:reaya -8, counter:hazine 5
 
@@ -120,7 +120,7 @@ Görünmez Sadrazam (card:absurt_gorunmez_sadrazam)
 	weight: 0.1
 	require: flag:ai
 	lockturn: 60
-	> Sultanım, bir iksir içtim ve tamamen görünmez oldum. Artık rüşvetçileri suçüstü yakalayabilirim! Ama elbiselerim hâlâ görünüyor.
+	> Bir iksir içtim ve tamamen görünmez oldum. Artık rüşvetçileri suçüstü yakalayabilirim! Ama elbiselerim hâlâ görünüyor.
 	* Elbiselerini de çıkar: counter:reaya 5, counter:din -20
 	* Görünür ol evladım: counter:kudret 5
 
@@ -136,7 +136,7 @@ Denizden Gelen Dev (card:absurt_dev)
 	bearer: character:kaptaniderya (variant:korkmus)
 	weight: 0.1
 	lockturn: 70
-	> Sultanım, Boğaz'dan dev bir el çıktı ve sadece bir akçe isteyip geri daldı. Denizin de nakit sıkıntısı var herhalde.
+	> Boğaz'dan dev bir el çıktı ve sadece bir akçe isteyip geri daldı. Denizin de nakit sıkıntısı var herhalde.
 	* Akçeyi denize atın: counter:hazine -1, counter:din 3
 	* Vermeyin, alışmasın: counter:din -5
 
@@ -161,7 +161,7 @@ Konuşan Para (card:absurt_para)
 	weight: 0.2
 	require: counter:hazine < 10
 	lockturn: 30
-	> Sultanım, hazinedeki son altın akçe dile gelmiş. "Yalnızım hünkarım, yanıma arkadaş isterim" diye ağlıyor.
+	> Hazinedeki son altın akçe dile gelmiş. "Yalnızım hünkarım, yanıma arkadaş isterim" diye ağlıyor.
 	* Arkadaş gönderin (vergi): counter:hazine 15, counter:reaya -12
 	* Yalnızlık Allah'a mahsustur: counter:din 3, counter:hazine -3
 
@@ -169,7 +169,7 @@ Bulutlardaki Şehir (card:absurt_bulut)
 	bearer: character:aksakallidede (variant:kurnaz)
 	weight: 0.1
 	lockturn: 60
-	> Sultanım, gökyüzünde beyaz bir şehir belirdi. Halk "cennet ayaklarımıza geldi" diye işi gücü bıraktı, göğe bakıyor.
+	> Gökyüzünde beyaz bir şehir belirdi. Halk "cennet ayaklarımıza geldi" diye işi gücü bıraktı, göğe bakıyor.
 	* Halkı camilere toplayın: counter:din 8, counter:hazine -10
 	* Merdiven kurun: counter:hazine -10, counter:reaya 5
 
@@ -186,7 +186,7 @@ Uçan Halı Trafiği (card:absurt_hali_trafik)
 	weight: 0.2
 	require: flag:hava_kuvvetleri
 	lockturn: 30
-	> Sultanım, havada uçan halılar çarpışmaya başladı! Padişahın kafasına sürekli terlik ve nargile düşüyor.
+	> Havada uçan halılar çarpışmaya başladı! Padişahın kafasına sürekli terlik ve nargile düşüyor.
 	* Hava trafik kuralı koyun: counter:hazine -10, counter:ordu 5
 	* İndirin hepsini aşağı: counter:ordu 10, counter:reaya -8
 
@@ -194,7 +194,7 @@ Sarayın Yer değiştirmesi (card:absurt_saray_yer)
 	bearer: character:aksakallidede (variant:kurnaz)
 	weight: 0.05
 	lockturn: 80
-	> Sultanım, saray bu sabah Üsküdar'a taşınmış! Beşiktaş'ta sadece boş bir arsa kalmış. Manzara daha güzel ama ulaşım zor.
+	> Saray bu sabah Üsküdar'a taşınmış! Beşiktaş'ta sadece boş bir arsa kalmış. Manzara daha güzel ama ulaşım zor.
 	* Üsküdar'da kalalım: counter:reaya 5, counter:hazine -10
 	* Geri taşıyın: counter:hazine -8, counter:ordu 10
 
@@ -202,7 +202,7 @@ Nankör Kedi (card:absurt_nankor_kedi)
 	bearer: character:soytari (variant:memnun)
 	weight: 0.3
 	lockturn: 25
-	> Sultanım, o vezir yaptığımız kedi istifa etmiş! "Maaş az, ciğer kalitesiz" diyor. Bir de sendika kurmuş.
+	> O vezir yaptığımız kedi istifa etmiş! "Maaş az, ciğer kalitesiz" diyor. Bir de sendika kurmuş.
 	* Ciğeri artırın: counter:hazine -8, counter:reaya 5
 	* İstifasını kabul edin: counter:reaya -5
 
@@ -210,7 +210,7 @@ Büyük Sis (card:absurt_gunes_cal)
 	bearer: character:anlatici
 	weight: 0.1
 	lockturn: 70
-	> Sultanım, müneccimbaşı "güneş çalındı" diye bağırıyor. Meğer dev bir sis bulutu şehre çökmüş, kimse burnunun ucunu göremiyor. Halk "devletun nuru söndü" diye yas tutuyor.
+	> Müneccimbaşı "güneş çalındı" diye bağırıyor. Meğer dev bir sis bulutu şehre çökmüş, kimse burnunun ucunu göremiyor. Halk "devletun nuru söndü" diye yas tutuyor.
 	* Devi... yani sisi kovalayın: counter:ordu 10, counter:hazine -10
 	* Sis berekettir: counter:din 3, counter:reaya -8
 
@@ -218,7 +218,7 @@ Büyük Sis (card:absurt_gunes_cal)
 	bearer: character:aksakallidede (variant:memnun)
 	weight: 0.2
 	lockturn: 40
-	> Sultanım, saraydaki çeşmelerden su yerine çikolata akmaya başladı. Halk bardaklarla saraya koşuyor.
+	> Saraydaki çeşmelerden su yerine çikolata akmaya başladı. Halk bardaklarla saraya koşuyor.
 	* İçsinler, afiyet olsun: counter:reaya 5, counter:hazine -10
 	* Çeşmeleri kapatın: counter:reaya -10, counter:din 3
 
@@ -234,7 +234,7 @@ Zıplayan Kale (card:absurt_kale)
 	bearer: character:yeniceriagasi (variant:korkmus)
 	weight: 0.1
 	lockturn: 60
-	> Sultanım, Viyana kalesi korkudan zıplamaya başlamış! Top atıyoruz, gülle altından geçiyor.
+	> Viyana kalesi korkudan zıplamaya başlamış! Top atıyoruz, gülle altından geçiyor.
 	* Kaleyi alttan vurun: counter:ordu 10, counter:hazine -10
 	* Zıplamaktan yorulmasını bekleyin: counter:hazine -5
 

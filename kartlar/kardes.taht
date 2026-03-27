@@ -49,7 +49,7 @@ Kafes Delirmesi (card:kafes_delilik)
 	weight: 0.3
 	require: flag:kardeskafeste
 	lockturn: 30
-	> Sultanım, kafesteki kardeşiniz güvercinle satranç oynamaya başlamış. Ve kaybediyor.
+	> Kafesteki kardeşiniz güvercinle satranç oynamaya başlamış. Ve kaybediyor.
 	* Güvercin bari kolay oynasın: counter:din -5
 	* Güvercini alın artık yanından: counter:reaya -5, counter:din 3
 
@@ -60,7 +60,7 @@ Sancaktan Haberler (card:sancak_haber)
 	weight: 0.6
 	require: flag:kardesuzakta
 	lockturn: 15
-	> Sultanım, kardeşiniz sancakta çok seviliyormuş. Kendi adına para bastırmış. Paranın üstünde kendi sureti var ama gülümsüyor. Sizin paralarda hiç gülümsemiyorsunuz.
+	> Kardeşiniz sancakta çok seviliyormuş. Kendi adına para bastırmış. Paranın üstünde kendi sureti var ama gülümsüyor. Sizin paralarda hiç gülümsemiyorsunuz.
 	* Biz de tebessüm edelim: counter:reaya 5, counter:din -2
 	* Para bastırmak ne cüret, haddini bilsin: counter:ordu -5, counter:hazine -8
 
@@ -69,7 +69,7 @@ Kardeş İttifak Kurdu (card:kardes_ittifak)
 	weight: 0.4
 	require: flag:kardesuzakta
 	lockturn: 25
-	> Sultanım, kardeşiniz Venedik'le ittifak kurmuş! Venedikliler ona 3 gemi, 200 asker ve bir de papağan vermişler. Papağan "kardeşim padişah" diyormuş.
+	> Kardeşiniz Venedik'le ittifak kurmuş! Venedikliler ona 3 gemi, 200 asker ve bir de papağan vermişler. Papağan "kardeşim padişah" diyormuş.
 	* Papağan doğru söyler, padişah biziz: counter:ordu -5, counter:hazine -10, +flag:kardespapagan, [card:_cin_papagan, card:_papagan_normal]
 	* Venedik'e nota irsal edin: counter:hazine -5, card:_nota_secimi
 
@@ -78,7 +78,7 @@ Kardeş Bağımsızlık İlan Etti (card:kardes_bagimsizlik)
 	weight: 0.3
 	require: flag:kardesuzakta, counter:ordu < 40
 	lockturn: 30
-	> Sultanım, kardeşiniz bağımsızlık ilan etmiş! Kendi bayrağını yapmış, üstünde gülen bir yüz var. Manifesto yazmış, tek maddesi: "Abi kötü padişah."
+	> Kardeşiniz bağımsızlık ilan etmiş! Kendi bayrağını yapmış, üstünde gülen bir yüz var. Manifesto yazmış, tek maddesi: "Abi kötü padişah."
 	* Orduyu sevk edin: counter:ordu -15, counter:hazine -10, card:_kardes_savas@5
 	* Bağımsızlığını tanıyoruz, defterden silin: counter:reaya -8, counter:ordu -5, +flag:kardesbitti, -flag:kardesuzakta
 
@@ -104,7 +104,7 @@ Kardeş Kazandı (card:_kardes_kazandi, ring)
 
 Nota Seçimi (card:_nota_secimi, ring)
 	bearer: character:sadrazam
-	> Sultanım, Venedik'e hangi notayı gönderelim?
+	> Venedik'e hangi notayı gönderelim?
 	* Do: counter:ordu 5
 	* Re: counter:reaya 5
 
@@ -125,7 +125,7 @@ Papağan Kardeş Döndü (card:papagan_dondu)
 	weight: 0.5
 	require: flag:kardespapagan, flag:kardesuzakta
 	lockturn: 20
-	> Sultanım, kardeşiniz papağan formunda Venedik'ten uçarak gelmiş! Saray avlusuna kondu, "abi açım" diye bağırıyor.
+	> Kardeşiniz papağan formunda Venedik'ten uçarak gelmiş! Saray avlusuna kondu, "abi açım" diye bağırıyor.
 	* Kafese atın: +flag:kardeskafeste, -flag:kardesuzakta, counter:ordu 5
 	* Yem verin, serbest kalsın: -flag:kardesuzakta, counter:reaya 5
 
@@ -135,7 +135,7 @@ Papağan Kardeş Kaçtı (card:papagan_kacti)
 	weight: 0.5
 	require: flag:kardespapagan, flag:kardeskafeste
 	lockturn: 20
-	> Sultanım, kardeşiniz kafes parmaklıklarının arasından sıyrılmış! Papağan olmanın avantajı, kafesler insana göre tasarlanmış. Pencereden uçtu gitti.
+	> Kardeşiniz kafes parmaklıklarının arasından sıyrılmış! Papağan olmanın avantajı, kafesler insana göre tasarlanmış. Pencereden uçtu gitti.
 	* Arkasından şahin salın: counter:ordu -5, -flag:kardeskafeste, +flag:kardesuzakta
 	* Uçsun gitsin, kurtulduk: -flag:kardeskafeste, +flag:kardesuzakta, counter:reaya -5
 
@@ -145,7 +145,7 @@ Papağan Pencerede (card:papagan_pencere)
 	weight: 0.4
 	require: flag:kardespapagan, !flag:kardeskafeste, !flag:kardesuzakta, !flag:kardesbitti
 	lockturn: 15
-	> Sultanım, kardeşiniz papağan formunda sarayın penceresine konmuş, "ben sultan olacağım" diye bağırıyor. Halk toplanmış dinliyor.
+	> Kardeşiniz papağan formunda sarayın penceresine konmuş, "ben sultan olacağım" diye bağırıyor. Halk toplanmış dinliyor.
 	* Tüfekçibaşı gelsin: counter:din -10, counter:reaya -5, -flag:kardespapagan
 	* Yem atın, sussun: counter:hazine -5, counter:reaya 5
 
@@ -155,7 +155,7 @@ Kardeş ve Yeniçeri (card:kardes_yeniceri_dost)
 	weight: 0.4
 	require: !flag:kardesbitti, !flag:kardeskafeste
 	lockturn: 20
-	> Sultanım, kardeşiniz kışlada yeniçerilerle beraber karavana yiyor. Asker "bu ne tevazu, bu ne yiğitlik" diye mest oldu.
+	> Kardeşiniz kışlada yeniçerilerle beraber karavana yiyor. Asker "bu ne tevazu, bu ne yiğitlik" diye mest oldu.
 	* Ben de gideyim kışlaya: counter:ordu 10, counter:reaya 5
 	* Kardeşimi kışladan çekin: counter:ordu -10, counter:kudret 5
 
@@ -174,7 +174,7 @@ Metal Kardeş Prototipi (card:kardes_metal_basla)
 	weight: 0.2
 	require: flag:ai, !flag:kardesbitti
 	lockturn: 50
-	> Sultanım, kardeşinizin yerine metalden bir kopya yaptık. Kuruyorsun, akşama kadar "yaşasın abim" diyor. Hiç isyan etmiyor.
+	> Kardeşinizin yerine metalden bir kopya yaptık. Kuruyorsun, akşama kadar "yaşasın abim" diyor. Hiç isyan etmiyor.
 	* Kardeşimi bununla değiştirin: counter:hazine -10, counter:kudret 15, card:_metal_kardes_hata@15
 	* Metalden kardeş mi olur: counter:din 3
 
@@ -189,7 +189,7 @@ Kardeşin Şiir Kitabı (card:kardes_siir)
 	weight: 0.3
 	require: !flag:kardesbitti
 	lockturn: 25
-	> Sultanım, kardeşiniz bir şiir kitabı çıkarmış. Adı: "Tahtın Kenarındaki Toz". Kitapta sizden "toz" diye bahsediyor.
+	> Kardeşiniz bir şiir kitabı çıkarmış. Adı: "Tahtın Kenarındaki Toz". Kitapta sizden "toz" diye bahsediyor.
 	* Kitabı toplatın: counter:reaya -8, counter:din 3
 	* Ben de kitap yazarım: counter:reaya 5, counter:hazine -5
 
@@ -216,7 +216,7 @@ Kardeşin Rüyası (card:kardes_ruya)
 	weight: 0.2
 	require: flag:kardeskafeste
 	lockturn: 30
-	> Sultanım, kardeşiniz rüyasında sizinle beraber uçurtma uçurduğunu görmüş. Uyandığında "abimi özledim" diye ağlamış.
+	> Kardeşiniz rüyasında sizinle beraber uçurtma uçurduğunu görmüş. Uyandığında "abimi özledim" diye ağlamış.
 	* Ziyaretine gidin: counter:reaya 5, counter:din 3
 	* Ağlasın, geçer: counter:din -5
 
@@ -225,7 +225,7 @@ Kardeş ve Simit (card:kardes_simit)
 	weight: 0.3
 	require: flag:simit_gunu, !flag:kardesbitti
 	lockturn: 20
-	> Sultanım, kardeşiniz halka bedava simit dağıtıyor. Üstelik simitlerin içine altın akçe saklamış. Halk "simitçi padişah" diye onu çağırıyor.
+	> Kardeşiniz halka bedava simit dağıtıyor. Üstelik simitlerin içine altın akçe saklamış. Halk "simitçi padişah" diye onu çağırıyor.
 	* Fırınları kapatın: counter:reaya -10, counter:hazine 10
 	* Ben daha çok simit dağıtırım: counter:hazine -10, counter:reaya 25
 
@@ -243,7 +243,7 @@ Kardeşin Vasiyeti (card:kardes_vasiyet)
 	weight: 0.2
 	require: flag:kardesbitti
 	lockturn: 50
-	> Sultanım, kardeşiniz ölmeden önce bir cami yaptırılmasını vasiyet etmiş. Adı "Kardeşlik Camii" olsun istiyormuş.
+	> Kardeşiniz ölmeden önce bir cami yaptırılmasını vasiyet etmiş. Adı "Kardeşlik Camii" olsun istiyormuş.
 	* Yaptırın, vasiyettir: counter:hazine -10, counter:din 6, counter:cami 1
 	* Gerek yok: counter:din -8
 
@@ -270,7 +270,7 @@ Kardeşin Ordusu (card:kardes_ordu_hayali)
 	weight: 0.2
 	require: !flag:kardesbitti
 	lockturn: 40
-	> Sultanım, kardeşiniz çocuklardan oluşan bir "minyatür ordu" kurmuş. Ellerinde tahta kılıçlarla saray kapısında nöbet tutuyorlar.
+	> Kardeşiniz çocuklardan oluşan bir "minyatür ordu" kurmuş. Ellerinde tahta kılıçlarla saray kapısında nöbet tutuyorlar.
 	* Çocukları besleyin: counter:hazine -5, counter:reaya 5
 	* Dağıtın bu oyunu: counter:reaya -10, counter:ordu 5
 

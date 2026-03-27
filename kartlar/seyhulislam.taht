@@ -29,7 +29,7 @@ Cami İnşası (card:cami_insa)
 	weight: 0.7
 	require: counter:hazine > 40
 	lockturn: 20
-	> Sultanım, yeni bir cami yaptıralım. Minaresi o kadar yüksek olsun ki, müezzinin sesi Şam'dan duyulsun.
+	> Yeni bir cami yaptıralım. Minaresi o kadar yüksek olsun ki, müezzinin sesi Şam'dan duyulsun.
 	* Yaptırın, Şam'dan duyulsun: counter:hazine -8, counter:din 8, counter:cami 1
 	* Müezzin nefes alamaz o irtifada: counter:din -5
 
@@ -38,7 +38,7 @@ Fetva (card:fetva)
 	weight: 0.6
 	require: counter:din < 40
 	lockturn: 15
-	> Sultanım, halk camiye değil kahvehaneye gidiyor! Kahvehanede tavla oynuyorlar, zar atıyorlar, gülüyorlar! Gülmek haram mı bilmem ama şüpheli!
+	> Halk camiye değil kahvehaneye gidiyor! Kahvehanede tavla oynuyorlar, zar atıyorlar, gülüyorlar! Gülmek haram mı bilmem ama şüpheli!
 	* Kahvehaneleri mühürleyin: counter:din 8, counter:reaya -10
 	* Bırak gülsünler, ne olacak: counter:din -10, counter:reaya 5
 
@@ -57,7 +57,7 @@ Tekke ve Zaviye (card:tekke_insa)
 	weight: 0.4
 	require: counter:hazine > 50, counter:din > 50
 	lockturn: 30
-	> Sultanım, ilim ve irfan için yeni tekkeler açalım. Halkın gönlü nurlansın, duaları sizinle olsun.
+	> Ilim ve irfan için yeni tekkeler açalım. Halkın gönlü nurlansın, duaları sizinle olsun.
 	* Açılsın, irfan yayılsın: counter:hazine -10, counter:din 5, counter:turbe 1
 	* Mevcutlar kifayet eder: counter:din -5
 
@@ -66,7 +66,7 @@ Hapşırma Fetvası (card:seyhulislam_hapsirma)
 	bearer: character:seyhulislam (variant:ofkeli)
 	weight: 0.3
 	lockturn: 25
-	> Sultanım, ulema toplandı. Üst üste üç kez hapşırmak "gizli bir niyetin" dışavurumu sayılabilirmiş. Hapşırana "çok yaşa" yerine "itiraf et" diyelim mi?
+	> Ulema toplandı. Üst üste üç kez hapşırmak "gizli bir niyetin" dışavurumu sayılabilirmiş. Hapşırana "çok yaşa" yerine "itiraf et" diyelim mi?
 	* Çok yaşasınlar, boş ver: counter:reaya 5, counter:din -3
 	* İtiraf etsinler, ne saklıyorlar: counter:din 8, counter:reaya -10
 
@@ -75,7 +75,7 @@ Yapay Zeka Ruhu (card:seyhulislam_ai_ruh)
 	weight: 0.4
 	require: flag:ai
 	lockturn: 30
-	> Sultanım, bu "yapay zeka" denen nane abdest alabilir mi? Ruhu yoksa fetvası da olmaz. Onu medresede imtihan edelim.
+	> Bu "yapay zeka" denen nane abdest alabilir mi? Ruhu yoksa fetvası da olmaz. Onu medresede imtihan edelim.
 	* İmtihan edin, aklı varsa geçsin: counter:din 5, counter:hazine -5
 	* Abdesti ne yapsın, o bir makinedir: counter:reaya 3, counter:din -5
 
@@ -84,7 +84,7 @@ Kutsal Kitaplık (card:seyhulislam_kitaplik)
 	weight: 0.4
 	require: counter:hazine > 40
 	lockturn: 20
-	> Sultanım, bir kütüphane kuralım. Ama içine sadece "doğru" kitapları koyalım. Yanlış kitaplar aklı karıştırır, uykuyu kaçırır.
+	> Bir kütüphane kuralım. Ama içine sadece "doğru" kitapları koyalım. Yanlış kitaplar aklı karıştırır, uykuyu kaçırır.
 	* Sadece doğru kitaplar olsun: counter:din 5, counter:hazine -8
 	* Her türlü ilim serbesttir: counter:reaya 8, counter:din -8
 
@@ -101,7 +101,7 @@ Günah Vergisi (card:seyhulislam_gunah_vergisi)
 	weight: 0.5
 	require: counter:hazine < 30
 	lockturn: 15
-	> Sultanım, hazine boşsa günahlardan vergi alalım. Kim ne kadar gıybet ederse o kadar akçe ödesin. Sadrazamdan bir servet çıkar!
+	> Hazine boşsa günahlardan vergi alalım. Kim ne kadar gıybet ederse o kadar akçe ödesin. Sadrazamdan bir servet çıkar!
 	* Kanunlaştırılsın: counter:hazine 20, counter:reaya -12
 	* Kimse gıybet etmez o zaman: counter:din 5, counter:hazine -5
 
@@ -109,7 +109,7 @@ Renkli Çorap (card:seyhulislam_corap)
 	bearer: character:seyhulislam (variant:ofkeli)
 	weight: 0.3
 	lockturn: 30
-	> Sultanım, çarşıda renkli çorap giyen gençler çoğaldı. Kırmızı çorap dikkati dağıtır, huşuyu bozar. Sadece siyah ve gri helal olsun!
+	> Çarşıda renkli çorap giyen gençler çoğaldı. Kırmızı çorap dikkati dağıtır, huşuyu bozar. Sadece siyah ve gri helal olsun!
 	* Siyah giysinler: counter:din 8, counter:reaya -5
 	* Ayak başkasının, çorap başkasının: counter:reaya 5, counter:din -5
 
@@ -117,7 +117,7 @@ Rüya Tabiri (card:seyhulislam_ruya)
 	bearer: character:seyhulislam (variant:memnun)
 	weight: 0.4
 	lockturn: 20
-	> Sultanım, rüyamda sizi bir bulutun üstünde gördüm. Elinizde bir kılıç, bir de simit vardı. Hayırdır inşallah!
+	> Rüyamda sizi bir bulutun üstünde gördüm. Elinizde bir kılıç, bir de simit vardı. Hayırdır inşallah!
 	* Tabiri nedir: counter:din 5, counter:hazine -3
 	* Sende rüya çok efendi: counter:reaya 3
 
@@ -126,7 +126,7 @@ Papağanla Münazara (card:seyhulislam_papagan)
 	weight: 0.4
 	require: flag:papagan
 	lockturn: 15
-	> Sultanım, o Venedik papağanı benimle dini bir münazaraya girdi. "Kader" dedi ve sustu! Küstah kuş!
+	> O Venedik papağanı benimle dini bir münazaraya girdi. "Kader" dedi ve sustu! Küstah kuş!
 	* Kuşu zindana atın: counter:din 5, counter:reaya -5
 	* Kuş haklı olabilir: counter:reaya 8, counter:din -10
 
@@ -134,7 +134,7 @@ Gül Suyu (card:seyhulislam_gulsuyu)
 	bearer: character:seyhulislam (variant:memnun)
 	weight: 0.4
 	lockturn: 25
-	> Sultanım, sarayın her köşesine gül suyu dökülmesini emredin. Mis gibi koksun, melekler gelsin, şeytanlar kaçsın.
+	> Sarayın her köşesine gül suyu dökülmesini emredin. Mis gibi koksun, melekler gelsin, şeytanlar kaçsın.
 	* Dökün, koklayalım: counter:hazine -8, counter:reaya 5, counter:din 5
 	* Masraf etmeyin: counter:hazine 5, counter:din -3
 
@@ -150,7 +150,7 @@ Deniz Suyu Helal mi (card:seyhulislam_deniz_suyu)
 	bearer: character:seyhulislam
 	weight: 0.3
 	lockturn: 35
-	> Sultanım, Kaptan-ı Derya'nın getirdiği ıstakozları yemek helal midir? Tipi pek tekin değil, sanki deniz örümceği gibi...
+	> Kaptan-ı Derya'nın getirdiği ıstakozları yemek helal midir? Tipi pek tekin değil, sanki deniz örümceği gibi...
 	* Helaldir, yiyin: counter:reaya 5, counter:din -8
 	* Haramdır, denize iade edin: counter:din 5, counter:reaya -5
 
@@ -183,7 +183,7 @@ Altın Tabak (card:seyhulislam_altin_tabak)
 	weight: 0.4
 	require: counter:hazine > 60
 	lockturn: 30
-	> Sultanım, altın tabakta yemek yemek kibir midir? Eğer bir kısmını fakirlere dağıtacaksak kibir sayılmazmış ulemaya göre...
+	> Altın tabakta yemek yemek kibir midir? Eğer bir kısmını fakirlere dağıtacaksak kibir sayılmazmış ulemaya göre...
 	* Tabakları dağıtın: counter:reaya 8, counter:hazine -10, counter:din 5
 	* Tabaklar bende kalsın: counter:hazine 10, counter:din -5
 
@@ -200,7 +200,7 @@ Kutsal Simit (card:seyhulislam_simit_fetva)
 	weight: 0.5
 	require: flag:simit_gunu
 	lockturn: 15
-	> Sultanım, o simit tutulması bir mucizedir! Her simidin ortasındaki boşluk, "dünyanın geçiciliğini" temsil eder.
+	> O simit tutulması bir mucizedir! Her simidin ortasındaki boşluk, "dünyanın geçiciliğini" temsil eder.
 	* Simidi kutsal ilan edelim: counter:din 6, counter:hazine -5
 	* Sadece susamlı bir ekmektir: counter:reaya 5, counter:din -8
 
@@ -208,7 +208,7 @@ Gece İbadeti (card:seyhulislam_gece)
 	bearer: character:seyhulislam (variant:memnun)
 	weight: 0.4
 	lockturn: 20
-	> Sultanım, gece boyunca sarayın her penceresinde bir kandil yansın. Melekler yolunu bulsun, saray nurlansın.
+	> Gece boyunca sarayın her penceresinde bir kandil yansın. Melekler yolunu bulsun, saray nurlansın.
 	* Kandilleri yakın: counter:hazine -10, counter:din 5
 	* Tasarruf edelim: counter:hazine 5, counter:din -5
 

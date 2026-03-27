@@ -51,7 +51,7 @@ Koyun Yağmuru (card:afet_koyun)
 	bearer: character:aksakallidede
 	weight: 0.1
 	lockturn: 50
-	> Sultanım, gökten koyun yağmaya başladı! Halk "kurban bayramı erken geldi" diye seviniyor ama damlar çöküyor.
+	> Gökten koyun yağmaya başladı! Halk "kurban bayramı erken geldi" diye seviniyor ama damlar çöküyor.
 	* Koyunları toplayın: counter:hazine 15, counter:reaya 5
 	* Damları tamir edin: counter:hazine -10, counter:reaya 5
 
@@ -67,7 +67,7 @@ Dev Çekirge (card:afet_cekirge)
 	bearer: character:sancakbeyi (variant:ofkeli)
 	weight: 0.2
 	lockturn: 30
-	> Sultanım, dev çekirgeler tarlaları bitirdi, şimdi yeniçerilerin kavuklarını yemeye başladılar! Kavuklar da yündenmiş...
+	> Dev çekirgeler tarlaları bitirdi, şimdi yeniçerilerin kavuklarını yemeye başladılar! Kavuklar da yündenmiş...
 	* Çekirgeleri ilaçlayın: counter:hazine -8, counter:ordu 5
 	* Kavukları saklayın: counter:ordu -10, counter:reaya 5
 
