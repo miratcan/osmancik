@@ -2,8 +2,8 @@
 
 Valide Nasihat (card:valide_nasihat)
 	bearer: character:validesultan
-	weight: 0.8
-	lockturn: 12
+	weight: 0.3
+	lockturn: 25
 	> Oğlum, ben senin yaşındayken baban 3 kale fethetmişti. Sen daha saraydan çıkmadın. Hadi en azından bahçeye çık.
 	* Bahçeye çıkayım: counter:reaya 10, counter:hazine -5
 	* Bahçede böcek var: counter:reaya 5

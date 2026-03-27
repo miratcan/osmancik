@@ -3,11 +3,11 @@
 Yeniçeri İsyanı (card:yeniceri_isyan)
 	bearer: character:yeniceriagasi (variant:ofkeli)
 	weight: 1.0
-	require: counter:ordu < 20
+	require: counter:ordu < 30
 	lockturn: 30
-	> Yeniçeriler kazan kaldırdı sultanım! Kazanın içinde çorba var. Çorbayı yere döktüler. Şimdi avluda çorba gölü var. Ördekler geldi.
-	* Ördeklere de ulufe ver: counter:hazine -15, counter:ordu 15
-	* Çorbayı topla, yeniçerileri de: counter:ordu -10, counter:reaya -5
+	> Yeniçeriler kazan kaldırdı sultanım! Saray avlusunda naralar atıyorlar. "Ulufe isteriz, kelle isteriz!" diye bağırırlar.
+	* Ulufe dağıtın: counter:hazine -25, counter:ordu 20
+	* Elebaşlarını asın: counter:ordu -15, counter:reaya -10
 
 Savaş Teklifi (card:savas_teklif)
 	bearer: character:yeniceriagasi
@@ -16,23 +16,23 @@ Savaş Teklifi (card:savas_teklif)
 	lockturn: 30
 	> Sultanım, askerler o kadar hazır ki, kılıçlarını bilerken kıvılcımdan saray bahçesi tutuştu. Bu enerjiyi düşmana yönlendirelim.
 	* Bahçe zaten yanmış, sefere: +flag:savas, +flag:kuzeyde_savas, card:_savas@5
-	* Önce bahçeyi söndürün: counter:ordu -5
+	* Önce bahçeyi söndürün: counter:ordu -10
 
 Savaş (card:_savas, ring)
 	bearer: character:yeniceriagasi
 	require: flag:savas
-	> Savaş devam ediyor sultanım! Düşman elçisi gelip "pes eder misiniz?" diye sordu, biz de "hayır" dedik, o da "tamam ben de sormak istedim" deyip gitti.
-	* Elçinin arkasından koş: counter:ordu -10, [card:_zafer, card:_yenilgi]
-	* Bir daha sormasını bekle: counter:ordu -5, counter:hazine -10, card:_savas@3
+	> Savaş devam ediyor sultanım! Cepheden barut ve kan kokusu geliyor. Her geçen gün askerimiz azalıyor ama düşman da yorgun.
+	* Taarruz emri ver: counter:ordu -20, [card:_zafer, card:_yenilgi]
+	* Mevzileri koruyun: counter:ordu -10, counter:hazine -15, card:_savas@3
 
 Zafer (card:_zafer, ring)
 	bearer: character:yeniceriagasi (variant:memnun)
-	require: counter:ordu > 25
-	> Zafer! Düşman kaçarken zırhlarını çıkarıp bırakmış, şimdi 400 tane boş zırh var ortada. Korkuluk yapabiliriz.
-	* Zırh korkuluk festivali: -flag:savas, -flag:kuzeyde_savas, counter:hazine 30, counter:reaya 15
+	require: counter:ordu > 20
+	> Zafer! Küffarı topraklarımızdan sildik sultanım! Ganimet arabaları saray yolunda, asker zafer sarhoşu!
+	* Şanımız yürüsün: -flag:savas, -flag:kuzeyde_savas, counter:hazine 40, counter:ordu 15, counter:reaya 15, counter:kudret 20
 
 Yenilgi (card:_yenilgi, ring)
 	bearer: character:yeniceriagasi (variant:korkmus)
-	require: counter:ordu <= 25
-	> Mağlup olduk sultanım. Ama düşman zafer şenliği yaparken kendi çadırlarını yakmış. Teknik olarak berabere sayılır mı?
-	* Berabere say: -flag:savas, -flag:kuzeyde_savas, counter:ordu -20, counter:hazine -20
+	require: counter:ordu <= 20
+	> Mağlup olduk sultanım. Sancağımız düştü, asker perişan halde geri çekiliyor. Halk bu utancı unutmaz.
+	* Canımız sağ olsun: -flag:savas, -flag:kuzeyde_savas, counter:ordu -30, counter:hazine -20, counter:reaya -20, counter:kudret -30

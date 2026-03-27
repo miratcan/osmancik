@@ -1,23 +1,43 @@
 # Harem Ağası kartları
 
-Haremde Yeni Kızlar (card:yeni_kizlar)
+Harem Ziyareti (card:harem_ziyaret)
 	bearer: character:haremagasi
 	weight: 0.8
-	require: counter:reaya > 20
-	lockturn: 10
-	> Sultanım! uzak diyarlardan hareminiz için yeni kızlar getirdik.
-	* Getir getir: counter:haremziyaret 1
-	* Kadınlara vaktim yok: counter:ordu 10
+	require: counter:kudret > 40
+	lockturn: 15
+	> Hünkarım, bu gece Harem'e teşrif eder misiniz? Yolunuzu gözleyenler vardır.
+	* Şehzade duasıyla: counter:kudret -30, card:_dogum_sehzade@10
+	* Sultan (kız) duasıyla: counter:kudret -30, card:_dogum_sultan@10
+	* Devlet işleri mühim: counter:ordu 5, counter:kudret -10
+
+Şehzade Doğumu (card:_dogum_sehzade, ring)
+	bearer: character:haremagasi
+	> Bir aslan doğdu! Şehzademiz dünyaya geldi sultanım! İlk şehzadenin şerefine şenlikler yapılsın.
+	* Allah bağışlasın: counter:sehzade 1, counter:reaya 15, counter:din 10
+
+Sultan Doğumu (card:_dogum_sultan, ring)
+	bearer: character:haremagasi
+	> Bir Sultanımız (kız evlat) dünyaya geldi hünkarım! İsmiyle yaşasın, devletimize bereket getirsin.
+	* Saray toplarını ateşleyin: counter:sultanlar 1, counter:reaya 10, card:_toplar_atildi
+
+Toplar Atıldı (card:_toplar_atildi, ring)
+	bearer: character:anlatici
+	> Deniz kıyısındaki toplar günde beş defa üçer kez ateşlendi. Tüm payitaht yeni Sultanın doğumunu duydu.
+	* Hayırlı olsun: 
 
 Aşık Oldun (card:asik_oldun)
 	bearer: character:aksakallidede (variant:memnun)
+	weight: 0.8
+	require: counter:kudret > 20, !flag:asiksin
+	> Sultanım, kalbinizde bir sızı, aklınızda tek bir isim var. Bir cariyeye gönlünüzü düşürmüşsünüz. Aşkın ateşi sarayı sardı!
+	* Gönül ferman dinlemez: +flag:asiksin, counter:reaya 10
+	* Devlet işi aşk tanımaz: +flag:asiksin, counter:ordu 5
+Damat Seçimi (card:sultan_evlilik)
+	bearer: character:sadrazam (variant:kurnaz)
 	weight: 0.5
-	require: counter:haremziyaret > 3, !flag:asiksin
-	> Aşık oldun paşam, yaşıyorsun bu hayatı!
-	* Evet, çok güzel: +flag:asiksin, card:_ask_destan
-	* Ne aşkı, devlet işi var: +flag:asiksin, counter:ordu 5
-
-Aşk Dillere Destan (card:_ask_destan, ring)
-	bearer: character:anlatici
-	> Yaşadığın aşk dillere destan oldu. Reaya size sempati duyuyor.
-	* ...: counter:reaya 10
+	require: counter:sultanlar > 0, counter:hazine < 40
+	lockturn: 30
+	> Sultanım, Sultan kızlarımızın izdivaç vakti gelmiştir. Eğer onları münasip Paşalar ile evlendirirsek devletin zayıf düştüğü bu günlerde güç buluruz.
+	* Silahtar Paşa ile evlendir: counter:sultanlar -1, counter:ordu 20
+	* Zengin bir tüccar ile evlendir: counter:sultanlar -1, counter:hazine 30
+	* Daha vakti var: counter:reaya -5

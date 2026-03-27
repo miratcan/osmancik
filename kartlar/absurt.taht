@@ -23,7 +23,27 @@ Kutsal Kedi (card:kutsal_kedi)
 	lockturn: 30
 	> Saray kedisi yanlışlıkla mühre basmış. Şeyhülislam bunu "ilahi bir emir" olarak yorumlayıp kediyi vezir ilan etti.
 	* Kediyi besle: counter:reaya 10, counter:din 5, counter:hazine -10
-	* Miyav: counter:ordu 5, counter:reaya -5
+	* Miyav: counter:ordu 5, counter:reaya -10
+
+# Papağan Arkı
+Papağan Konuştu (card:papagan_ifsa)
+	bearer: character:aksakallidede
+	weight: 0.5
+	require: flag:papagan
+	lockturn: 15
+	> Sultanım, o Venedik'ten gelen papağan gece yarısı konuşmaya başladı: "Sadrazam rüşvet alıyor, sadrazam rüşvet alıyor!"
+	* Sadrazamı zindana at: counter:hazine 15, counter:reaya 10, counter:ordu -10
+	* Papağanı sustur: counter:hazine -5, counter:din 5
+
+# Simit Günü Devamı
+Simit Günü Etkisi (card:simit_etkisi)
+	bearer: character:anlatici
+	weight: 2.0
+	require: flag:simit_gunu
+	lockturn: 5
+	> Simit Tutulması'ndan sonra halk her sabah saray önünde bedava simit ve peynir kuyruğuna giriyor.
+	* Dağıtmaya devam: counter:hazine -15, counter:reaya 10
+	* Simit bitti deyin: counter:reaya -15, counter:din 5, -flag:simit_gunu
 
 Yeniçeri Grevi (card:yeniceri_grev)
 	bearer: character:yeniceriagasi (variant:ofkeli)
@@ -54,9 +74,9 @@ Haseki vs Papağan (card:haseki_papagan)
 
 Katarakt Başlangıcı (card:katarakt_olay)
 	bearer: character:aksakallidede
-	weight: 0.1
-	require: counter:yas > 60, !flag:katarakt
-	lockturn: dispose
+	weight: 2.0
+	require: counter:yas > 40, !flag:katarakt
+	lockturn: once
 	> Sultanım, gözleriniz artık iyi seçmiyor. Sadrazamı bazen papağanla karıştırıyorsunuz.
 	* Gözlük getirtin: counter:hazine -15, counter:reaya 5, +flag:katarakt
 	* Karanlık daha huzurlu: counter:din 10, counter:ordu -10

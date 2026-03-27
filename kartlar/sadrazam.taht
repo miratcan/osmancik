@@ -3,21 +3,40 @@
 Vergi Teklifi (card:vergi)
 	bearer: character:sadrazam
 	weight: 1.0
-	weight: 2.0 when counter:hazine < 30
+	weight: 2.0 when counter:hazine < 20
+	require: counter:hazine < 30
 	lockturn: 10
-	> Sultanım, hazinede fare bile kalmadı. Fareler bile taşındı. Vergi toplayalım mı?
-	* Halkı soy: counter:hazine 15, counter:reaya -10
-	* Sadrazamın maaşını kes: counter:hazine 8, counter:ordu -5
-	* Fareler döner: counter:hazine -5
+	> Devlet-i Aliyye'nin hazinesi tamtakır sultanım. Öyle ki, fareler bile hicret etti. Mevcudat-ı nakdiyeyi artırmak için yeni bir vergi ihdas edelim mi?
+	* Müsadereye başlayın: counter:hazine 15, counter:reaya -10
+	* Maaşlardan kesilsin: counter:hazine 8, counter:ordu -5
+	* Kemerleri sıkalım: counter:hazine -5
+
+# Sikke Tashihi Arkı
+Sikke Tashihi (card:sikke_tashih)
+	bearer: character:sadrazam (variant:kurnaz)
+	weight: 0.8
+	require: counter:hazine < 20, !flag:enflasyon
+	lockturn: 40
+	> Sultanım, hazine tamtakır. Darphaneye emir verelim, akçelerin içindeki altın oranını bir miktar azaltıp bakır katıversek? Kimse anlamaz...
+	* Ayarı düşürün (Bakır kat): counter:hazine 40, counter:reaya -10, +flag:enflasyon, card:_enflasyon_isyan@15
+	* Zinhar, haramdır: counter:din 10, counter:hazine -5
+
+# Enflasyon Sonucu (15 tur sonra)
+Enflasyon İsyanı (card:_enflasyon_isyan, ring)
+	bearer: character:yeniceriagasi (variant:ofkeli)
+	require: flag:enflasyon
+	> Bu akçeler neden kırmızıya çalıyor sultanım? Asker çarşıda bir okka ekmek alamıyor, esnaf parayı yüzümüze fırlatıyor!
+	* Sadrazamın kellesini ver: counter:hazine 15, counter:ordu 10, counter:reaya 10, -flag:enflasyon
+	* Bastırın şu isyanı: counter:ordu -20, counter:reaya -15
 
 Ticaret Anlaşması (card:ticaret)
 	bearer: character:sadrazam (variant:memnun)
 	weight: 0.8
 	require: !flag:savas
 	lockturn: 15
-	> Venedik elçisi gelmiş. Yanında 300 kilo peynir, 40 varil şarap ve bir de papağan getirmiş. Ticaret anlaşması istiyormuş.
-	* Papağanı al, gerisini gönder: counter:hazine 25, counter:din -10
-	* Peyniri de istemem: counter:din 5, counter:hazine -5
+	> Venedik elçisi kapıda bekler. Yanında envaiçeşit hediye ve bir de konuşan kuş getirmiş. Ticaret imtiyazı talep ederler.
+	* Kuşu alalım, gerisi nafile: counter:hazine 25, counter:din -10, +flag:papagan
+	* İstemez, lüzum yok: counter:din 5, counter:hazine -5
 
 İsyan Haberi (card:isyan_haber)
 	bearer: character:sadrazam (variant:korkmus)

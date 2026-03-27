@@ -7,7 +7,7 @@ Game Settings (settings:main)
 
 # Ana kaynaklar
 Hazine (counter:hazine, killer)
-	start: 50
+	start: 60
 
 Ordu (counter:ordu, killer)
 	start: 50
@@ -19,6 +19,15 @@ Din (counter:din, killer)
 	start: 50
 
 Dilek Hakkı (counter:dilek)
+	start: 0
+
+Kudret-i Şahane (counter:kudret)
+	start: 50
+
+Sultanlar (counter:sultanlar, keep)
+	start: 0
+
+Sehzade (counter:sehzade, keep)
 	start: 0
 
 # İmar sayaçları
@@ -34,16 +43,13 @@ Mesire Yeri (counter:mesire, keep)
 Harem Ziyaret (counter:haremziyaret)
 	start: 0
 
-Sehzade (counter:sehzade)
-	start: 0
-
 # Virtual counter: toplam imar
 İmar (counter:toplam_imar)
 	source: counter:cami, counter:turbe, counter:mesire
 	aggregate: sum
 
 # Yaş
-Yaşın (counter:yas, keep)
+Yaşın (counter:yas)
 	start: 18
 
 # Durum flag'leri
@@ -52,6 +58,8 @@ Savaş Var (flag:savas)
 Verem Salgını Var (flag:verem)
 Veba Salgını Var (flag:veba)
 İsyan Var (flag:isyan)
+Enflasyon Var (flag:enflasyon)
+Sefa ve Keyif Var (flag:sefa)
 Deprem Oldu (flag:deprem)
 Kıtlık Var (flag:kitlik)
 Bolluk Var (flag:bolluk)
@@ -63,6 +71,9 @@ Kardeş Kafeste (flag:kardeskafeste)
 Kardeş Uzakta (flag:kardesuzakta)
 Kardeş Meselesi Bitti (flag:kardesbitti)
 Kardeşin Papağanı (flag:kardespapagan)
+Şehzade İsyanda (flag:sehzade_isyanda)
+Şehzade Kafeste (flag:sehzade_kafeste)
+Papağan Sarayda (flag:papagan)
 Simit Günü (flag:simit_gunu)
 Metal Sadrazam (flag:metal_sadrazam)
 Hava Kuvvetleri (flag:hava_kuvvetleri)
@@ -109,3 +120,4 @@ import "kartlar/afetler.taht"
 import "kartlar/salginlar.taht"
 import "kartlar/kardes.taht"
 import "kartlar/absurt.taht"
+import "kartlar/veraset.taht"
