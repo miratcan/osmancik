@@ -6,23 +6,25 @@ Osmancik, **TahtLang** DSL ile yazilmis bir Osmanli saray yonetim oyunudur (Reig
 
 TahtLang, Reigns tarzi kart oyunlari icin tasarlanmis bir domain-specific language. `.taht` dosyalari yazarsin, toolchain bunlari validate eder, JSON'a derler, terminalde oynatir.
 
-Toolchain: `pip install -e /path/to/tahtlang` ile kurulur.
+Toolchain: `pip install "git+https://github.com/tahtlang/tahtlang.git"` ile kurulur.
 
 ## CLI Komutlari
 
 ```bash
-tahtlang main.taht                # Oyunu terminalde oyna (implicit play)
-tahtlang play main.taht --debug   # Debug panelleriyle oyna
-tahtlang main.taht --validate     # Sadece validate et (parse + semantik kontrol)
-tahtlang compile main.taht        # JSON'a derle
+tahtlang main.taht                    # Oyunu terminalde oyna (implicit play)
+tahtlang play main.taht --debug       # Debug panelleriyle oyna
+tahtlang play main.taht --autoplay    # Otomatik oyna (test icin)
+tahtlang play main.taht --autoplay --seed 42  # Tekrarlanabilir otomatik oyun
+tahtlang compile main.taht            # JSON'a derle (validate dahil)
 tahtlang compile main.taht --compact  # Minified JSON
-tahtlang stats main.taht          # 100 simulasyon calistir, denge analizi
-tahtlang stats main.taht --runs 500  # 500 simulasyon
-tahtlang merge main.taht          # Import'lari tek dosyaya birlestir
-tahtlang split main.taht          # Kartlari bearer'a gore dosyalara bol
+tahtlang stats main.taht              # 100 simulasyon calistir, denge analizi
+tahtlang stats main.taht --runs 500   # 500 simulasyon
+tahtlang merge main.taht              # Import'lari tek dosyaya birlestir
+tahtlang split main.taht              # Kartlari bearer'a gore dosyalara bol
+tahtlang init myproject                # Yeni proje iskeleti olustur
 ```
 
-Herhangi bir degisiklikten sonra `tahtlang main.taht --validate` calistir. Hata varsa duzelt.
+Herhangi bir degisiklikten sonra `tahtlang compile main.taht` calistir. Hata varsa duzelt.
 
 ## Dosya Yapisi
 
@@ -44,6 +46,7 @@ osmancik/
     salginlar.taht    # Salgin kartlari
     kardes.taht       # Kardes veraset krizi (en buyuk zincir, 19 kart)
     absurt.taht       # Absurt olaylar
+    veraset.taht      # Veraset kartlari
 ```
 
 Yeni kart dosyasi eklendiginde `main.taht`'a `import "kartlar/dosya.taht"` satiri da eklenmeli.
@@ -54,18 +57,20 @@ Yeni kart dosyasi eklendiginde `main.taht`'a `import "kartlar/dosya.taht"` satir
 
 | ID | Modifier | Start | Aciklama |
 |----|----------|-------|----------|
-| `counter:hazine` | killer | 50 | Devlet hazinesi |
+| `counter:hazine` | killer | 60 | Devlet hazinesi |
 | `counter:ordu` | killer | 50 | Askeri guc |
 | `counter:reaya` | killer | 50 | Halk memnuniyeti |
 | `counter:din` | killer | 50 | Dini otorite |
 | `counter:dilek` | - | 0 | Orman cini dilek hakki |
+| `counter:kudret` | - | 50 | Kudret-i Sahane |
+| `counter:sultanlar` | keep | 0 | Gecmis sultan sayisi |
+| `counter:sehzade` | keep | 0 | Sehzade sayisi |
 | `counter:cami` | keep | 0 | Insa edilen cami sayisi |
 | `counter:turbe` | keep | 0 | Insa edilen turbe sayisi |
 | `counter:mesire` | keep | 0 | Yapilan mesire yeri sayisi |
 | `counter:haremziyaret` | - | 0 | Harem ziyaret sayisi |
-| `counter:sehzade` | - | 0 | Sehzade sayisi |
-| `counter:toplam_imar` | virtual | - | source: cami+turbe+mesire, aggregate: sum |
-| `counter:yas` | keep | 18 | Padisahin yasi |
+| `counter:toplam_imar` | - | - | source: cami+turbe+mesire, aggregate: sum (virtual) |
+| `counter:yas` | - | 18 | Padisahin yasi |
 
 `killer` olan sayaclar 0 veya 100'e ulasinca oyun biter.
 `keep` olan sayaclar reign'ler arasi korunur.
@@ -80,6 +85,8 @@ Virtual counter'larin degeri source'lardan hesaplanir, dogrudan degistirilemez.
 | `flag:verem` | Verem salgini var |
 | `flag:veba` | Veba salgini var |
 | `flag:isyan` | Halk isyani var |
+| `flag:enflasyon` | Enflasyon var |
+| `flag:sefa` | Sefa ve keyif var |
 | `flag:deprem` | Deprem oldu |
 | `flag:kitlik` | Kitlik var |
 | `flag:bolluk` | Bolluk var |
@@ -91,6 +98,9 @@ Virtual counter'larin degeri source'lardan hesaplanir, dogrudan degistirilemez.
 | `flag:kardesuzakta` | Kardes sancakta |
 | `flag:kardesbitti` | Kardes meselesi kapandi |
 | `flag:kardespapagan` | Kardes papagana donustu |
+| `flag:sehzade_isyanda` | Sehzade isyanda |
+| `flag:sehzade_kafeste` | Sehzade kafeste |
+| `flag:papagan` | Papagan sarayda |
 | `flag:simit_gunu` | Simit tutulmasi yasandi |
 | `flag:metal_sadrazam` | Kurmali sadrazam aktif |
 | `flag:hava_kuvvetleri` | Ucan yeniceriler aktif |
@@ -382,7 +392,7 @@ Validator su kontrolleri yapar (kaynak koddan):
 4. Kart metnini `>` ile yaz
 5. Secimleri `*` ile yaz, efektleri `:` den sonra virgul ile ayir
 6. Yeni dosya olusturduysan `main.taht`'a `import` ekle
-7. `tahtlang main.taht --validate` calistir
+7. `tahtlang compile main.taht` calistir
 
 ### Yeni zincir (hikaye arci) eklemek
 
