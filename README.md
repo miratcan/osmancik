@@ -1,6 +1,6 @@
 # Osmancık
 
-Reigns-tarzı bir Osmanlı saray yönetim oyunu. [TahtLang](https://github.com/tahtlang/tahtlang) DSL ile yazılmış.
+Reigns-tarzı bir Osmanlı saray yönetim oyunu. [TahtLang](https://github.com/tahtlang/tahtlang) DSL ile yazıldı.
 
 Padişah olarak tahta çıkıyorsun. Sadrazam, Şeyhülislam, Yeniçeri Ağası, Valide Sultan ve diğer saray mensupları sana gelip karar vermeni istiyor. Hazine, Ordu, Reaya ve Din — dört sayacı dengede tut, yoksa devlet çöker.
 
